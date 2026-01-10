@@ -22,10 +22,10 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
-        private void ButtonGoForward_OnClick(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new Page1());
-        }
+        //private void ButtonGoForward_OnClick(object sender, RoutedEventArgs e)
+        //{
+        //    MainFrame.Navigate(new Page1());
+        //}
         public class AutoModel
         {
             public string Name { get; set; }

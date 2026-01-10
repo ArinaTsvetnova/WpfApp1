@@ -16,7 +16,7 @@ Title="MainWindow" Height="450" Width="800">
             <TextBlock HorizontalAlignment="Center" Text="На этом же этапе давайте определимся с типом двигателя вашего автомобиля" Margin="5" FontSize="14"/>
             <ComboBox x:Name="AutoTypeComboBox" Margin="330, 5, 330, 5"/>
         </StackPanel>
-        <Frame x:Name="MainFrame" Grid.Row="1" Source="Pages/Page1.xaml" NavigationUIVisibility="Hidden"/>
-        <Button x:Name="ButtonGoForward" Content="Вперед" Margin="690, 400, 10, 10" Height="20" Width="100" Click="ButtonGoForward_OnClick"/>
+        <!--<Frame x:Name="MainFrame" Grid.Row="1" Source="Pages/MainPage.xaml" NavigationUIVisibility="Hidden"/>-->
+        <!--<Button x:Name="ButtonGoForward" Content="Вперед" Margin="690, 400, 10, 10" Height="20" Width="100" Click="ButtonGoForward_OnClick"/>-->
     </Grid>
 </Window>
