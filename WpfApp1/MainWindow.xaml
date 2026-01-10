@@ -8,16 +8,15 @@ mc:Ignorable="d"
 Title="MainWindow" Height="450" Width="800">
     <Grid>
         <StackPanel>
+            <ProgressBar Height="15" Minimum="0" Maximum="100" Value="20"/>
             <TextBlock HorizontalAlignment="Center" Text="Машина мечты" Margin="5" FontSize="20"/>
             <TextBlock HorizontalAlignment="Center" Text="Здравствуйте, давайте скорее создадим машину вашей мечты" Margin="5" FontSize="14"/>
             <TextBlock HorizontalAlignment="Center" Text="Для начала выбирете модель вашего автомобиля" Margin="5" FontSize="14"/>
             <ComboBox x:Name="AutoModelComboBox" Margin="330, 5, 330, 5"/>
             <TextBlock HorizontalAlignment="Center" Text="На этом же этапе давайте определимся с типом двигателя вашего автомобиля" Margin="5" FontSize="14"/>
             <ComboBox x:Name="AutoTypeComboBox" Margin="330, 5, 330, 5"/>
-
-           
         </StackPanel>
-       
-        
+        <Frame x:Name="MainFrame" Grid.Row="1" Source="Pages/Page1.xaml" NavigationUIVisibility="Hidden"/>
+        <Button x:Name="ButtonGoForward" Content="Вперед" Margin="690, 400, 10, 10" Height="20" Width="100" Click="ButtonGoForward_OnClick"/>
     </Grid>
 </Window>

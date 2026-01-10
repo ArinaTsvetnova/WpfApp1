@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.Pages;
 
 namespace WpfApp1
 {
@@ -20,6 +22,10 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
+        private void ButtonGoForward_OnClick(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new Page1());
+        }
         public class AutoModel
         {
             public string Name { get; set; }
@@ -77,5 +83,6 @@ namespace WpfApp1
             AutoTypeComboBox.DisplayMemberPath = "Name";
             AutoTypeComboBox.SelectedIndex = 0;
         }
+        
     }
 }
