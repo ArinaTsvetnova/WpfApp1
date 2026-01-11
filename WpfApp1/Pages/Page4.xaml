@@ -8,7 +8,14 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Page4">
 
-    <Grid>
-        
+    <Grid Background="Brown">
+        <StackPanel>
+            <ProgressBar Height="15" Minimum="0" Maximum="100" Value="100"/>
+            <StackPanel Orientation="Horizontal" Height="20" Margin="0, 410, 0, 0">
+                <Button x:Name="Button4GoBack" Content="Назад" Margin="580, 0, 0, 0" Height="20" Width="100" Click="Button4GoBack_Click"/>
+                <Button x:Name="Button4GoForward" Content="Готово!" Margin="10, 0, 0, 0" Height="20" Width="100" Click="Button4GoForward_Click"/>
+            </StackPanel>
+        </StackPanel>
+        <Frame x:Name="FramePage4" Grid.Row="0" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Page>

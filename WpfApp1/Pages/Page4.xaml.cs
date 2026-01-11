@@ -24,5 +24,24 @@ namespace WpfApp1.Pages
         {
             InitializeComponent();
         }
+        private void Button4GoForward_Click(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(0);
+        }
+        private void Button4GoBack_Click(object sender, RoutedEventArgs e)
+        {
+        }
+        private void OnNavigating(object sender, NavigatingCancelEventArgs e)
+        {
+            //if (HasUnsavedChanges())
+            //{
+            //    var result = MessageBox.Show("Есть несохранённые изменения. Покинуть страницу?", "Подтверждение",
+            //      MessageBoxButton.YesNo);
+            //    if (result == MessageBoxResult.No)
+            //    {
+            //        e.Cancel = true;
+            //    }
+            //}
+        }
     }
 }

@@ -31,13 +31,13 @@ namespace WpfApp1
             }
 
         }
-        private void ButtonGoBack_Click(object sender, RoutedEventArgs e)
-        {
-            if (MainFrame.CanGoBack)
-            {
-                MainFrame.GoBack();
-            }
-        }
+        //private void ButtonGoBack_Click(object sender, RoutedEventArgs e)
+        //{
+        //    if (MainFrame.CanGoBack)
+        //    {
+        //        MainFrame.GoBack();
+        //    }
+        //}
         public class AutoModel
         {
             public string Name { get; set; }

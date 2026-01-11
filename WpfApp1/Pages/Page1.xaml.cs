@@ -31,6 +31,7 @@ namespace WpfApp1.Pages
         }
         private void Button1GoBack_Click(object sender, RoutedEventArgs e)
         {
+            //FramePage1.Navigate(new MainWindow());
             if (FramePage1.CanGoBack)
             {
                 FramePage1.GoBack();

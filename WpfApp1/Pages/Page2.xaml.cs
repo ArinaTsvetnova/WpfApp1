@@ -24,5 +24,21 @@ namespace WpfApp1.Pages
         {
             InitializeComponent();
         }
+        private void Button2GoForward_Click(object sender, RoutedEventArgs e)
+        {
+            FramePage2.Navigate(new Page3());
+            if (FramePage2.CanGoForward)
+            {
+                FramePage2.GoForward();
+            }
+        }
+        private void Button2GoBack_Click(object sender, RoutedEventArgs e)
+        {
+            //FramePage2.Navigate(new MainWindow());
+            if (FramePage2.CanGoBack)
+            {
+                FramePage2.GoBack();
+            }
+        }
     }
 }
