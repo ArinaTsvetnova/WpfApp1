@@ -21,6 +21,21 @@ namespace WpfApp1.Pages
     /// </summary>
     public partial class Page1 : Page
     {
+        private void Button1GoForward_Click(object sender, RoutedEventArgs e)
+        {
+            FramePage1.Navigate(new Page2());
+            if (FramePage1.CanGoForward)
+            {
+                FramePage1.GoForward();
+            }
+        }
+        private void Button1GoBack_Click(object sender, RoutedEventArgs e)
+        {
+            if (FramePage1.CanGoBack)
+            {
+                FramePage1.GoBack();
+            }
+        }
         public Page1()
         {
             InitializeComponent();

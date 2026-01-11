@@ -15,9 +15,11 @@
             <ComboBox x:Name="AutoModelComboBox" Margin="330, 5, 330, 5"/>
             <TextBlock HorizontalAlignment="Center" Text="На этом же этапе давайте определимся с типом двигателя вашего автомобиля" Margin="5" FontSize="14"/>
             <ComboBox x:Name="AutoTypeComboBox" Margin="330, 5, 330, 5"/>
+            <StackPanel Orientation="Horizontal" Height="20" Margin="0, 210, 0, 0">
+                <Button x:Name="ButtonGoBack" Content="Назад" Margin="580, 0, 0, 0" Height="20" Width="100" Click="ButtonGoBack_Click"/>
+                <Button x:Name="ButtonGoForward" Content="Вперед" Margin="10, 0, 0, 0" Height="20" Width="100" Click="ButtonGoForward_Click"/>
+            </StackPanel>
         </StackPanel>
-        <Frame x:Name="MainFrame" Grid.Row="1" Source="Pages/Page1.xaml" NavigationUIVisibility="Hidden"/>
-        <Button x:Name="ButtonGoForward" Content="Вперед" Margin="690, 400, 10, 10" Height="20" Width="100" Click="ButtonGoForward_Click"/>
-        <Button x:Name="ButtonGoBack" Content="Назад" Margin="470, 400, 10, 10" Height="20" Width="100" Click="ButtonGoBack_Click"/>
+        <Frame x:Name="MainFrame" Grid.Row="0" Navigated="MainFrame_OnNavigated" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

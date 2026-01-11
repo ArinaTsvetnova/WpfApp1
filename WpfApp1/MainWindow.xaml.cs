@@ -25,6 +25,11 @@ namespace WpfApp1
         private void ButtonGoForward_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new Page1());
+            if (MainFrame.CanGoForward)
+            {
+                MainFrame.GoForward();
+            }
+
         }
         private void ButtonGoBack_Click(object sender, RoutedEventArgs e)
         {

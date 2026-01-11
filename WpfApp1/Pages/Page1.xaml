@@ -9,7 +9,11 @@
     <Grid Background="Aquamarine">
         <StackPanel>
             <ProgressBar Height="15" Minimum="0" Maximum="100" Value="40"/>
-            <!--<Frame x:Name="FramePage1" Grid.Row="1" Source="Pages/Page1.xaml"/>-->
+            <StackPanel Orientation="Horizontal" Height="20" Margin="0, 410, 0, 0">
+                <Button x:Name="Button1GoBack" Content="Назад" Margin="580, 0, 0, 0" Height="20" Width="100" Click="Button1GoBack_Click"/>
+                <Button x:Name="Button1GoForward" Content="Вперед" Margin="10, 0, 0, 0" Height="20" Width="100" Click="Button1GoForward_Click"/>
+            </StackPanel>
         </StackPanel>
+        <Frame x:Name="FramePage1" Grid.Row="0" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Page>
