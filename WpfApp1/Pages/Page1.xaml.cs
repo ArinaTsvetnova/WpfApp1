@@ -22,14 +22,7 @@ namespace WpfApp1.Pages
     /// </summary>
     public partial class Page1 : Page
     {
-        private void Button1GoForward_Click(object sender, RoutedEventArgs e)
-        {
-            FramePage1.Navigate(new Page2());
-            if (FramePage1.CanGoForward)
-            {
-                FramePage1.GoForward();
-            }
-        }
+        
         private void Button1GoBack_Click(object sender, RoutedEventArgs e)
         {
             //FramePage1.Navigate(new MainWindow());
@@ -99,6 +92,16 @@ namespace WpfApp1.Pages
             AutoFunktionComboBox.ItemsSource = type;
             AutoFunktionComboBox.DisplayMemberPath = "Name";
             AutoFunktionComboBox.SelectedIndex = 0;
+        }
+        private void Button1GoForward_Click(object sender, RoutedEventArgs e)
+        {
+            Car.Auc = AutoColorComboBox.SelectedItem as AutoColor;
+            Car.Auf = AutoFunktionComboBox.SelectedItem as AutoFunktion;
+            FramePage1.Navigate(new Page2());
+            if (FramePage1.CanGoForward)
+            {
+                FramePage1.GoForward();
+            }
         }
     }
 }

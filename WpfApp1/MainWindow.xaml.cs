@@ -82,7 +82,8 @@ namespace WpfApp1
         private void ButtonGoForward_Click(object sender, RoutedEventArgs e)
         {
 
-            Car.Aum.Name = bibiki;
+            Car.Aum = AutoModelComboBox.SelectedItem as AutoModel;
+            Car.Aut = AutoTypeComboBox.SelectedItem as AutoType;
             MainFrame.Navigate(new Page1());
             if (MainFrame.CanGoForward)
             {
