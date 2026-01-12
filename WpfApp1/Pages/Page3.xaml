@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Page3">
 
-    <Grid Background="BlueViolet">
+    <Grid>
         <StackPanel>
             <ProgressBar Height="15" Minimum="0" Maximum="100" Value="80"/>
             <StackPanel Orientation="Horizontal" Height="20" Margin="0, 410, 0, 0">
