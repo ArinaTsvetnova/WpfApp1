@@ -13,4 +13,7 @@
     <Style TargetType="ProgressBar">
         <Setter Property="Foreground" Value="#47a3ff"/>
     </Style>
+    <Style TargetType="TextBlock">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
 </ResourceDictionary>

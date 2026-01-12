@@ -11,9 +11,19 @@
     <Grid>
         <StackPanel>
             <ProgressBar Height="15" Minimum="0" Maximum="100" Value="80"/>
+            <TextBlock Text="Машина мечты" Margin="5" FontSize="20"/>
+            <TextBlock Text="Давайте определимся с оплатой" Margin="5" FontSize="14"/>
+            <TextBlock Text="Введите процент первоначального взноса" Margin="5" FontSize="14"/>
+            <TextBox x:Name="Procent" Height="20" Width="100" Margin="5"/>
+            <TextBlock Text="Укажите срок кредита(в месяцах)" Margin="5" FontSize="14"/>
+            <TextBox x:Name="Month" Height="20" Width="100" Margin="5"/>
+            <TextBlock Text="Итого:" Margin="5" FontSize="14"/>
+            <TextBlock Text="Сумма первоначального взноса =" Margin="5" FontSize="14"/>
+            <TextBlock Text="Сумма кредита =" Margin="5" FontSize="14"/>
+            <TextBlock Text="Ежемесячный платеж =" Margin="5" FontSize="14"/>
             <StackPanel Orientation="Horizontal" Height="20" Margin="0, 410, 0, 0">
-                <Button x:Name="Button3GoBack" Content="Назад" Margin="580, 0, 0, 0" Height="20" Width="100" Click="Button3GoBack_Click"/>
-                <Button x:Name="Button3GoForward" Content="Вперед" Margin="10, 0, 0, 0" Height="20" Width="100" Click="Button3GoForward_Click"/>
+                <Button x:Name="Button3GoBack" Content="Назад" Margin="580, 0, 0, 0" Click="Button3GoBack_Click"/>
+                <Button x:Name="Button3GoForward" Content="Вперед" Margin="10, 0, 0, 0" Click="Button3GoForward_Click"/>
             </StackPanel>
         </StackPanel>
         <Frame x:Name="FramePage3" Grid.Row="0" NavigationUIVisibility="Hidden"/>

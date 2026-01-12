@@ -37,9 +37,77 @@ namespace WpfApp1.Pages
                 FramePage1.GoBack();
             }
         }
+        public class AutoColor
+        {
+            public string Name { get; set; }
+            public int Price { get; set; }
+        }
+        public class AutoFunktion
+        {
+            public string Name { get; set; }
+            public int Price { get; set; }
+        }
         public Page1()
         {
             InitializeComponent();
+            List<AutoColor> color = new List<AutoColor>()
+                {
+                    new AutoColor
+                    {
+                        Name = "Gold",
+                        Price = 70000
+                    },
+                    new AutoColor
+                    {
+                        Name = "Purple",
+                        Price = 13000
+                    },
+                    new AutoColor
+                    {
+                        Name = "Gray",
+                        Price = 15000
+                    },
+                    new AutoColor
+                    {
+                        Name = "Black",
+                        Price = 18000
+                    },
+                    new AutoColor
+                    {
+                        Name = "Red",
+                        Price = 12000
+                    }
+                };
+            AutoColorComboBox.ItemsSource = color;
+            AutoColorComboBox.DisplayMemberPath = "Name";
+            AutoColorComboBox.SelectedIndex = 0;
+
+            List<AutoFunktion> type = new List<AutoFunktion>()
+                {
+                    new AutoFunktion
+                    {
+                        Name = "Nothing",
+                        Price = 0
+                    },
+                    new AutoFunktion
+                    {
+                        Name = "Speed+",
+                        Price = 1000000
+                    },
+                    new AutoFunktion
+                    {
+                        Name = "Custom",
+                        Price = 1500000
+                    },
+                    new AutoFunktion
+                    {
+                        Name = "Probeg",
+                        Price = 650000
+                    }
+                };
+            AutoFunktionComboBox.ItemsSource = type;
+            AutoFunktionComboBox.DisplayMemberPath = "Name";
+            AutoFunktionComboBox.SelectedIndex = 0;
         }
     }
 }

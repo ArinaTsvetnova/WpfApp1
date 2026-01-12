@@ -23,6 +23,15 @@ namespace WpfApp1.Pages
         public Page3()
         {
             InitializeComponent();
+            //int a,b;
+            int.TryParse(Procent.Text, out int i);
+            int.TryParse(Month.Text, out int j);
+            if (j < 12 & j > 96)
+            {
+                MessageBox.Show("Неправильный ввод! Введите число в диапазоне от 12 до 96!");
+                return;
+            }
+            
         }
         private void Button3GoForward_Click(object sender, RoutedEventArgs e)
         {

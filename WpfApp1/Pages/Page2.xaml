@@ -10,9 +10,17 @@
     <Grid>
         <StackPanel>
             <ProgressBar Height="15" Minimum="0" Maximum="100" Value="60"/>
-            <StackPanel Orientation="Horizontal" Height="20" Margin="0, 410, 0, 0">
-                <Button x:Name="Button2GoBack" Content="Назад" Margin="580, 0, 0, 0" Height="20" Width="100" Click="Button2GoBack_Click"/>
-                <Button x:Name="Button2GoForward" Content="Вперед" Margin="10, 0, 0, 0" Height="20" Width="100" Click="Button2GoForward_Click"/>
+            <TextBlock Text="Машина мечты" Margin="5" FontSize="20"/>
+            <TextBlock Text="Итак, ваша машина выглядит следующим образом:" Margin="5" FontSize="14"/>
+            <TextBlock Text="Модель автомобиля" Margin="5" FontSize="14"/>
+            <ComboBox Margin="330, 5, 330, 5" SelectedItem=""/>
+            <TextBlock Text="Тип двигателя" Margin="5" FontSize="14"/>
+            <TextBlock Text="Цвет автомобиля" Margin="5" FontSize="14"/>
+            <TextBlock Text="Дополнительная опция" Margin="5" FontSize="14"/>
+            <TextBlock Text="Итоговая стоимость вашего автомобиля:" Margin="5" FontSize="14"/>
+            <StackPanel Orientation="Horizontal" Height="20" Margin="0, 240, 0, 0">
+                <Button x:Name="Button2GoBack" Content="Назад" Margin="580, 0, 0, 0" Click="Button2GoBack_Click"/>
+                <Button x:Name="Button2GoForward" Content="Вперед" Margin="10, 0, 0, 0" Click="Button2GoForward_Click"/>
             </StackPanel>
         </StackPanel>
         <Frame x:Name="FramePage2" Grid.Row="0" NavigationUIVisibility="Hidden"/>

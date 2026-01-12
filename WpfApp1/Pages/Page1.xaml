@@ -9,9 +9,14 @@
     <Grid>
         <StackPanel>
             <ProgressBar Height="15" Minimum="0" Maximum="100" Value="40"/>
-            <StackPanel Orientation="Horizontal" Height="20" Margin="0, 410, 0, 0">
-                <Button x:Name="Button1GoBack" Content="Назад" Margin="580, 0, 0, 0" Height="20" Width="100" Click="Button1GoBack_Click"/>
-                <Button x:Name="Button1GoForward" Content="Вперед" Margin="10, 0, 0, 0" Height="20" Width="100" Click="Button1GoForward_Click"/>
+            <TextBlock Text="Машина мечты" FontSize="20"/>
+            <TextBlock Text="С начинкой определились. Теперь выберем цвет вашего автомобиля" Margin="5" FontSize="14"/>
+            <ComboBox x:Name="AutoColorComboBox" Margin="330, 5, 330, 5"/>
+            <TextBlock Text="Может хотите подкючить какую-нибудь дополнительную опцию?" Margin="5" FontSize="14"/>
+            <ComboBox x:Name="AutoFunktionComboBox" Margin="330, 5, 330, 5"/>
+            <StackPanel Orientation="Horizontal" Height="20" Margin="0, 265, 0, 0">
+                <Button x:Name="Button1GoBack" Content="Назад" Margin="580, 0, 0, 0" Click="Button1GoBack_Click"/>
+                <Button x:Name="Button1GoForward" Content="Вперед" Margin="10, 0, 0, 0" Click="Button1GoForward_Click"/>
             </StackPanel>
         </StackPanel>
         <Frame x:Name="FramePage1" Grid.Row="0" NavigationUIVisibility="Hidden"/>
