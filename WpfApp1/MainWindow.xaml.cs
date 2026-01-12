@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.Models;
 using WpfApp1.Pages;
 
 namespace WpfApp1
@@ -22,15 +23,7 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
-        private void ButtonGoForward_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new Page1());
-            if (MainFrame.CanGoForward)
-            {
-                MainFrame.GoForward();
-            }
-
-        }
+        
         //private void ButtonGoBack_Click(object sender, RoutedEventArgs e)
         //{
         //    if (MainFrame.CanGoBack)
@@ -38,16 +31,7 @@ namespace WpfApp1
         //        MainFrame.GoBack();
         //    }
         //}
-        public class AutoModel
-        {
-            public string Name { get; set; }
-            public int Price { get; set; }
-        }
-        public class AutoType
-        {
-            public string Name { get; set; }
-            public int Price { get; set; }
-        }
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -95,6 +79,17 @@ namespace WpfApp1
             AutoTypeComboBox.DisplayMemberPath = "Name";
             AutoTypeComboBox.SelectedIndex = 0;
         }
-        
+        private void ButtonGoForward_Click(object sender, RoutedEventArgs e)
+        {
+
+            Car.Aum.Name = bibiki;
+            MainFrame.Navigate(new Page1());
+            if (MainFrame.CanGoForward)
+            {
+                MainFrame.GoForward();
+            }
+
+        }
     }
+
 }

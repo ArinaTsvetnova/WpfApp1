@@ -12,7 +12,15 @@
         <StackPanel>
             <ProgressBar Height="15" Minimum="0" Maximum="100" Value="100"/>
             <TextBlock Text="Машина мечты" FontSize="20"/>
-            <StackPanel Orientation="Horizontal" Height="20" Margin="0, 410, 0, 0">
+            <TextBlock Text="Завершим оформление вашей заявки. Введите свои контактные данные" FontSize="14"/>
+            <TextBlock Text="Имя" FontSize="14"/>
+            <TextBox x:Name="Name" Height="20" Width="100" Margin="5"/>
+            <TextBlock Text="Телефон" FontSize="14"/>
+            <TextBox x:Name="Telephon" Height="20" Width="100" Margin="5"/>
+            <TextBlock Text="Почта" FontSize="14"/>
+            <TextBox x:Name="Mail" Height="20" Width="100" Margin="5"/>
+            <!--<Button x:Name="Send" Content="Отправить" Margin="5" Click="ButtonSend_Click"/>-->
+            <StackPanel Orientation="Horizontal" Height="20" Margin="0, 385, 0, 0">
                 <Button x:Name="Button4GoBack" Content="Назад" Margin="580, 0, 0, 0" Click="Button4GoBack_Click"/>
                 <Button x:Name="Button4GoForward" Content="Готово!" Margin="10, 0, 0, 0" Click="Button4GoForward_Click"/>
             </StackPanel>

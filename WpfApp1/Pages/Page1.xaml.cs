@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.Models;
 
 namespace WpfApp1.Pages
 {
@@ -36,16 +37,6 @@ namespace WpfApp1.Pages
             {
                 FramePage1.GoBack();
             }
-        }
-        public class AutoColor
-        {
-            public string Name { get; set; }
-            public int Price { get; set; }
-        }
-        public class AutoFunktion
-        {
-            public string Name { get; set; }
-            public int Price { get; set; }
         }
         public Page1()
         {

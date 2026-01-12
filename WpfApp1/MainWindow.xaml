@@ -12,7 +12,7 @@
             <TextBlock x:Name="HeaderText" Text="Машина мечты" FontSize="20"/>
             <TextBlock Text="Здравствуйте, давайте скорее создадим машину вашей мечты" Margin="5" FontSize="14"/>
             <TextBlock Text="Для начала выбирете модель вашего автомобиля" Margin="5" FontSize="14"/>
-            <ComboBox x:Name="AutoModelComboBox" Margin="330, 5, 330, 5"/>
+            <ComboBox x:Name="AutoModelComboBox" Margin="330, 5, 330, 5" />
             <TextBlock HorizontalAlignment="Center" Text="На этом же этапе давайте определимся с типом двигателя вашего автомобиля" Margin="5" FontSize="14"/>
             <ComboBox x:Name="AutoTypeComboBox" Margin="330, 5, 330, 5"/>
             <StackPanel Orientation="Horizontal" Margin="0, 220, 0, 0">

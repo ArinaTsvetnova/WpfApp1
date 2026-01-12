@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.Models;
 
 namespace WpfApp1.Pages
 {
@@ -23,6 +25,11 @@ namespace WpfApp1.Pages
         public Page2()
         {
             InitializeComponent();
+            Model.Text = Car.Aum.Name;
+            Dvigatel.Text = Car.Aut.Name;
+            Color.Text = Car.Auc.Name;
+            Option.Text = Car.Auf.Name;
+            Summa.Text = Car.c.ToString();
         }
         private void Button2GoForward_Click(object sender, RoutedEventArgs e)
         {

@@ -89,6 +89,12 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\AutoColor.cs" />
+    <Compile Include="Models\AutoFunktion.cs" />
+    <Compile Include="Models\AutoModel.cs" />
+    <Compile Include="Models\AutoType.cs" />
+    <Compile Include="Models\Car.cs" />
+    <Compile Include="Models\Procent.cs" />
     <Compile Include="Pages\Page1.xaml.cs">
       <DependentUpon>Page1.xaml</DependentUpon>
     </Compile>
