@@ -16,14 +16,14 @@
             <TextBox x:Name="Procent" Height="20" Width="100" Margin="5"/>
             <TextBlock Text="Укажите срок кредита(в месяцах)" Margin="5" FontSize="14"/>
             <TextBox x:Name="Month" Height="20" Width="100" Margin="5"/>
-            <TextBlock Text="Итого:" Margin="5" FontSize="14"/>
+            <Button x:Name="ButtonMath" Content="Рассчитать"  Click="ButtonMath_Click"/>
             <TextBlock Text="Сумма первоначального взноса =" Margin="5" FontSize="14"/>
             <TextBlock x:Name="OutputVsnos" Margin="5" Height="20" Width="100"/>
             <TextBlock Text="Сумма кредита =" Margin="5" FontSize="14"/>
             <TextBlock x:Name="OutputCredit" Margin="5" Height="20" Width="100"/>
             <TextBlock Text="Ежемесячный платеж =" Margin="5" FontSize="14"/>
             <TextBlock x:Name="OutputMoney" Margin="5" Height="20" Width="100"/>
-            <StackPanel Orientation="Horizontal" Height="20" Margin="0, 115, 0, 0">
+            <StackPanel Orientation="Horizontal" Height="20">
                 <Button x:Name="Button3GoBack" Content="Назад" Margin="580, 0, 0, 0" Click="Button3GoBack_Click"/>
                 <Button x:Name="Button3GoForward" Content="Вперед" Margin="10, 0, 0, 0" Click="Button3GoForward_Click"/>
             </StackPanel>

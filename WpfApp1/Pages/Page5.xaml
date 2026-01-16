@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:WpfApp1.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Page5">
+      Title="Page5" Loaded="Page_Loaded">
 
     <Grid>
         <StackPanel>

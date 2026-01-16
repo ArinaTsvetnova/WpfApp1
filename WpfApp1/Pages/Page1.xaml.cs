@@ -100,7 +100,6 @@ namespace WpfApp1.Pages
         {
             Car.Auc = AutoColorComboBox.SelectedItem as AutoColor;
             Car.Auf = AutoFunktionComboBox.SelectedItem as AutoFunktion;
-            Car.c = Car.Auc.Price + Car.Auf.Price;
             MainWindow.schrt++;
             NavigationService.Navigate(new Page2());
             if (NavigationService.CanGoForward)
@@ -108,5 +107,6 @@ namespace WpfApp1.Pages
                 NavigationService.GoForward();
             }
         }
+
     }
 }

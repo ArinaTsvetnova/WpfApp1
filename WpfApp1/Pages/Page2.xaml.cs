@@ -48,5 +48,15 @@ namespace WpfApp1.Pages
                 NavigationService.GoBack();
             }
         }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            Car.c = Car.Auc.Price + Car.Auf.Price + Car.Aum.Price + Car.Aut.Price;
+            Model.Text = Car.Aum.Name;
+            Dvigatel.Text = Car.Aut.Name;
+            Color.Text = Car.Auc.Name;
+            Option.Text = Car.Auf.Name;
+            Summa.Text = Car.c.ToString();
+        }
     }
 }

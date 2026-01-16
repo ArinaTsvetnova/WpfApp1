@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:WpfApp1.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Page2">
+      Title="Page2" Loaded="Page_Loaded">
     <Grid>
         <StackPanel>
             <TextBlock Text="Машина мечты" Margin="5" FontSize="20"/>
@@ -21,7 +21,7 @@
             <TextBlock x:Name="Option" Margin="5" Height="20" Width="100"/>
             <TextBlock Text="Итоговая стоимость вашего автомобиля:" Margin="5" FontSize="14"/>
             <TextBlock x:Name="Summa" Margin="5" Height="20" Width="100"/>
-            <StackPanel Orientation="Horizontal" Height="20" Margin="0, 55, 0, 0">
+            <StackPanel Orientation="Horizontal" Height="20">
                 <Button x:Name="Button2GoBack" Content="Назад" Margin="580, 0, 0, 0" Click="Button2GoBack_Click"/>
                 <Button x:Name="Button2GoForward" Content="Вперед" Margin="10, 0, 0, 0" Click="Button2GoForward_Click"/>
             </StackPanel>

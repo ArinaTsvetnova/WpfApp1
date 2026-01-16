@@ -13,7 +13,7 @@
             <ComboBox x:Name="AutoColorComboBox" Margin="330, 5, 330, 5"/>
             <TextBlock Text="Может хотите подкючить какую-нибудь дополнительную опцию?" Margin="5" FontSize="14"/>
             <ComboBox x:Name="AutoFunktionComboBox" Margin="330, 5, 330, 5"/>
-            <StackPanel Orientation="Horizontal" Height="20" Margin="0, 265, 0, 0">
+            <StackPanel Orientation="Horizontal" Height="20" Margin="0, 220, 0, 0">
                 <Button x:Name="Button1GoBack" Content="Назад" Margin="580, 0, 0, 0" Click="Button1GoBack_Click"/>
                 <Button x:Name="Button1GoForward" Content="Вперед" Margin="10, 0, 0, 0" Click="Button1GoForward_Click"/>
             </StackPanel>
