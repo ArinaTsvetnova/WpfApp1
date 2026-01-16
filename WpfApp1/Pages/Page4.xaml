@@ -10,7 +10,6 @@
 
     <Grid>
         <StackPanel>
-            <ProgressBar Height="15" Minimum="0" Maximum="100" Value="100"/>
             <TextBlock Text="Машина мечты" FontSize="20"/>
             <TextBlock Text="Завершим оформление вашей заявки. Введите свои контактные данные" FontSize="14"/>
             <TextBlock Text="Имя" FontSize="14"/>

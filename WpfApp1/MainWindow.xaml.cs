@@ -23,7 +23,7 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
-        
+
         //private void ButtonGoBack_Click(object sender, RoutedEventArgs e)
         //{
         //    if (MainFrame.CanGoBack)
@@ -31,11 +31,16 @@ namespace WpfApp1
         //        MainFrame.GoBack();
         //    }
         //}
-        
+        public static int schrt = 1;
         public MainWindow()
         {
             InitializeComponent();
             //MainFrame.Navigate(new Page5());
+        }
+
+        private void MainFrame_Navigated(object sender, NavigationEventArgs e)
+        {
+            Power.Value = schrt;
         }
     }
 }

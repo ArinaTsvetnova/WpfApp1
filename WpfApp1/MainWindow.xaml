@@ -7,6 +7,11 @@
     mc:Ignorable="d"
     Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Frame x:Name="MainFrame" Source="Pages/Page5.xaml" Grid.Row="0" NavigationUIVisibility="Hidden"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <ProgressBar x:Name="Power" Height="15" Minimum="0" Maximum="5"/>
+        <Frame Grid.Row="1" x:Name="MainFrame" Source="Pages/Page5.xaml" NavigationUIVisibility="Hidden" Navigated="MainFrame_Navigated"/>
     </Grid>
 </Window>

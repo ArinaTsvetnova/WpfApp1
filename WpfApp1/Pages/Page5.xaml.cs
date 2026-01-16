@@ -74,6 +74,7 @@ namespace WpfApp1.Pages
             Car.Aum = AutoModelComboBox.SelectedItem as AutoModel;
             Car.Aut = AutoTypeComboBox.SelectedItem as AutoType;
             Car.c = Car.Aum.Price + Car.Aut.Price;
+            MainWindow.schrt++;
             NavigationService.Navigate(new Page1());
             NavigationService.Navigate(new Page1());
             if (NavigationService.CanGoForward)

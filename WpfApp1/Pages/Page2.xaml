@@ -9,7 +9,6 @@
       Title="Page2">
     <Grid>
         <StackPanel>
-            <ProgressBar Height="15" Minimum="0" Maximum="100" Value="60"/>
             <TextBlock Text="Машина мечты" Margin="5" FontSize="20"/>
             <TextBlock Text="Итак, ваша машина выглядит следующим образом:" Margin="5" FontSize="14"/>
             <TextBlock Text="Модель автомобиля" Margin="5" FontSize="14"/>
