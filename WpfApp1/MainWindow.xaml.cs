@@ -35,62 +35,7 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
-            List<AutoModel> bibiki = new List<AutoModel>()
-                {
-                    new AutoModel
-                    {
-                        Name = "Ferrari",
-                        Price = 12000000
-                    },
-                    new AutoModel
-                    {
-                        Name = "McLaren",
-                        Price = 13000000
-                    },
-                    new AutoModel
-                    {
-                        Name = "Aston Martin",
-                        Price = 15000000
-                    }
-                };
-            AutoModelComboBox.ItemsSource = bibiki;
-            AutoModelComboBox.DisplayMemberPath = "Name";
-            AutoModelComboBox.SelectedIndex = 2;
-
-            List<AutoType> type = new List<AutoType>()
-                {
-                    new AutoType
-                    {
-                        Name = "Fast",
-                        Price = 750000
-                    },
-                    new AutoType
-                    {
-                        Name = "Super Fast",
-                        Price = 1000000
-                    },
-                    new AutoType
-                    {
-                        Name = "Ultra Super Fast",
-                        Price = 1500000
-                    }
-                };
-            AutoTypeComboBox.ItemsSource = type;
-            AutoTypeComboBox.DisplayMemberPath = "Name";
-            AutoTypeComboBox.SelectedIndex = 0;
-        }
-        private void ButtonGoForward_Click(object sender, RoutedEventArgs e)
-        {
-
-            Car.Aum = AutoModelComboBox.SelectedItem as AutoModel;
-            Car.Aut = AutoTypeComboBox.SelectedItem as AutoType;
-            MainFrame.Navigate(new Page1());
-            if (MainFrame.CanGoForward)
-            {
-                MainFrame.GoForward();
-            }
-
+            //MainFrame.Navigate(new Page5());
         }
     }
-
 }

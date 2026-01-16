@@ -33,18 +33,18 @@ namespace WpfApp1.Pages
         }
         private void Button2GoForward_Click(object sender, RoutedEventArgs e)
         {
-            FramePage2.Navigate(new Page3());
-            if (FramePage2.CanGoForward)
+            NavigationService.Navigate(new Page3());
+            if (NavigationService.CanGoForward)
             {
-                FramePage2.GoForward();
+                NavigationService.GoForward();
             }
         }
         private void Button2GoBack_Click(object sender, RoutedEventArgs e)
         {
             //FramePage2.Navigate(new MainWindow());
-            if (FramePage2.CanGoBack)
+            if (NavigationService.CanGoBack)
             {
-                FramePage2.GoBack();
+                NavigationService.GoBack();
             }
         }
     }

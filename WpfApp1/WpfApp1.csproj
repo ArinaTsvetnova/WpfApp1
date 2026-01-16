@@ -87,6 +87,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Page5.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\AutoColor.cs" />
@@ -106,6 +110,9 @@
     </Compile>
     <Compile Include="Pages\Page4.xaml.cs">
       <DependentUpon>Page4.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Page5.xaml.cs">
+      <DependentUpon>Page5.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

@@ -29,6 +29,5 @@
                 <Button x:Name="Button3GoForward" Content="Вперед" Margin="10, 0, 0, 0" Click="Button3GoForward_Click"/>
             </StackPanel>
         </StackPanel>
-        <Frame x:Name="FramePage3" Grid.Row="0" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Page>

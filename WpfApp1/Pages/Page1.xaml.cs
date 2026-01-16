@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Diagnostics.Tracing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,14 +24,7 @@ namespace WpfApp1.Pages
     public partial class Page1 : Page
     {
         
-        private void Button1GoBack_Click(object sender, RoutedEventArgs e)
-        {
-            //FramePage1.Navigate(new MainWindow());
-            if (FramePage1.CanGoBack)
-            {
-                FramePage1.GoBack();
-            }
-        }
+
         public Page1()
         {
             InitializeComponent();
@@ -62,6 +56,7 @@ namespace WpfApp1.Pages
                         Price = 12000
                     }
                 };
+
             AutoColorComboBox.ItemsSource = color;
             AutoColorComboBox.DisplayMemberPath = "Name";
             AutoColorComboBox.SelectedIndex = 0;
@@ -93,14 +88,22 @@ namespace WpfApp1.Pages
             AutoFunktionComboBox.DisplayMemberPath = "Name";
             AutoFunktionComboBox.SelectedIndex = 0;
         }
+        private void Button1GoBack_Click(object sender, RoutedEventArgs e)
+        {
+            if (NavigationService.CanGoBack)
+            {
+                NavigationService.GoBack();
+            }
+        }
         private void Button1GoForward_Click(object sender, RoutedEventArgs e)
         {
             Car.Auc = AutoColorComboBox.SelectedItem as AutoColor;
             Car.Auf = AutoFunktionComboBox.SelectedItem as AutoFunktion;
-            FramePage1.Navigate(new Page2());
-            if (FramePage1.CanGoForward)
+            Car.c = Car.Auc.Price + Car.Auf.Price;
+            NavigationService.Navigate(new Page2());
+            if (NavigationService.CanGoForward)
             {
-                FramePage1.GoForward();
+                NavigationService.GoForward();
             }
         }
     }

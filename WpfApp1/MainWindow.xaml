@@ -7,19 +7,6 @@
     mc:Ignorable="d"
     Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <StackPanel>
-            <ProgressBar Height="15" Minimum="0" Maximum="100" Value="20"/>
-            <TextBlock x:Name="HeaderText" Text="Машина мечты" FontSize="20"/>
-            <TextBlock Text="Здравствуйте, давайте скорее создадим машину вашей мечты" Margin="5" FontSize="14"/>
-            <TextBlock Text="Для начала выбирете модель вашего автомобиля" Margin="5" FontSize="14"/>
-            <ComboBox x:Name="AutoModelComboBox" Margin="330, 5, 330, 5" />
-            <TextBlock HorizontalAlignment="Center" Text="На этом же этапе давайте определимся с типом двигателя вашего автомобиля" Margin="5" FontSize="14"/>
-            <ComboBox x:Name="AutoTypeComboBox" Margin="330, 5, 330, 5"/>
-            <StackPanel Orientation="Horizontal" Margin="0, 220, 0, 0">
-                <!--<Button x:Name="ButtonGoBack" Content="Назад" Margin="580, 0, 0, 0" Height="20" Width="100" Click="ButtonGoBack_Click"/>-->
-                <Button x:Name="ButtonGoForward" Content="Вперед" Margin="695, 0, 0, 0" Click="ButtonGoForward_Click"/>
-            </StackPanel>
-        </StackPanel>
-        <Frame x:Name="MainFrame" Grid.Row="0" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="MainFrame" Source="Pages/Page5.xaml" Grid.Row="0" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>
