@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.Models;
 
 namespace WpfApp1.Pages
 {
@@ -27,32 +28,27 @@ namespace WpfApp1.Pages
         }
         private void Button4GoForward_Click(object sender, RoutedEventArgs e)
         {
-            Environment.Exit(0);
+            if (int.TryParse(Telephon.Text, out int t))
+            {
+                MessageBox.Show("Неправильный ввод! Введите только 9 цифр номера телефона без посторонних знаков!");
+                return;
+            }
+            else 
+            {
+                Environment.Exit(0);
+            }
         }
         private void Button4GoBack_Click(object sender, RoutedEventArgs e)
         {
             MainWindow.schrt--;
-            //if (HasUnsavedChanges())
-            //{
-            //    var result = MessageBox.Show("Есть несохранённые изменения. Покинуть страницу?", "Подтверждение",
-            //      MessageBoxButton.YesNo);
-            //    if (result == MessageBoxResult.No)
-            //    {
-            //        e.Cancel = true;
-            //    }
-            //}
-        }
-        private void OnNavigating(object sender, NavigatingCancelEventArgs e)
-        {
-            //if (HasUnsavedChanges())
-            //{
-            //    var result = MessageBox.Show("Есть несохранённые изменения. Покинуть страницу?", "Подтверждение",
-            //      MessageBoxButton.YesNo);
-            //    if (result == MessageBoxResult.No)
-            //    {
-            //        e.Cancel = true;
-            //    }
-            //}
+            var result = MessageBox.Show("Есть несохранённые изменения. Покинуть страницу?", "Подтверждение", MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.No)
+            {
+            }
+            else
+            {
+                NavigationService.GoBack();
+            }
         }
     }
 }
