@@ -12,6 +12,7 @@ namespace WpfApp1.Models
         public static AutoType Aut { get; set; }
         public static AutoColor Auc { get; set; }
         public static AutoFunktion Auf { get; set; }
+
         public static int c;
         public static int Summa()
         {

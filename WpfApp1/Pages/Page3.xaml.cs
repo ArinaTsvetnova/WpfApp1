@@ -45,13 +45,18 @@ namespace WpfApp1.Pages
         }
         private void ButtonMath_Click(object sender, RoutedEventArgs e)
         {
-            int.TryParse(Procent.Text, out int k);
+            int.TryParse(Procenttt.Text, out int k);
+            Procent.k = k;
             int.TryParse(Month.Text, out int n);
-            if (n < 12 & n > 96)
+            Procent.n = n;
+            if (n < 12 || n > 96)
             {
                 MessageBox.Show("Неправильный ввод! Введите число в диапазоне от 12 до 96!");
                 return;
             }
+            OutputVsnos.Text = Procent.schet().ToString();
+            OutputCredit.Text = Procent.s.ToString();
+            OutputMoney.Text = Procent.a.ToString();
         }
     }
 }

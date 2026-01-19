@@ -6,18 +6,22 @@ using System.Threading.Tasks;
 
 namespace WpfApp1.Models
 {
-    internal class Procent
+    internal static class Procent
     {
-        //int r = 19; //годовая ставка
-        //double i = 0.01583; //месечная процентная ставка
-        //public static int p;
-        //int p = Car.c /100 * k; //первоначальный взнос
-        //OutputVsnos.Text = p.ToString();
-        //int s = c - p; //сумма кредита
-        //OutputCredit.Text = s.ToString();
-        //double v = pow(1 + i, n);
-        //double vv = pow(1 + i, n - 1);
-        //double a = s * (i * v) / vv; //ежемесячный платеж
-        //OutputMoney.Text = a.ToString();
+        static int r = 19; //годовая ставка
+        static double i = 0.01583; //месечная процентная ставка
+        public static int k;
+        public static int n;
+        public static int p;
+        public static int s;
+        public static double a;
+        public static double schet() 
+        {
+            s = Car.c - p; //сумма кредита
+            double v = Math.Pow(1 + i, n);
+            double vv = Math.Pow(1 + i, n - 1);
+            a = s * (i * v) / vv; //ежемесячный платеж
+            return p = Car.c / 100 * k; //первоначальный взнос
+        }
     }
 }
