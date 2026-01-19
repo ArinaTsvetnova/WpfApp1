@@ -28,7 +28,7 @@ namespace WpfApp1.Pages
         }
         private void Button4GoForward_Click(object sender, RoutedEventArgs e)
         {
-            if (int.TryParse(Telephon.Text, out int t))
+            if (!int.TryParse(Telephon.Text, out int t))
             {
                 MessageBox.Show("Неправильный ввод! Введите только 9 цифр номера телефона без посторонних знаков!");
                 return;

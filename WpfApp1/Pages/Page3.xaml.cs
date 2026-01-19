@@ -30,10 +30,6 @@ namespace WpfApp1.Pages
         {
             MainWindow.schrt++;
             NavigationService.Navigate(new Page4());
-            if (NavigationService.CanGoForward)
-            {
-                NavigationService.GoForward();
-            }
         }
         private void Button3GoBack_Click(object sender, RoutedEventArgs e)
         {
