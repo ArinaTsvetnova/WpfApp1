@@ -13,21 +13,18 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfApp1
+namespace WpfApp1.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для Page1.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Page1 : Page
     {
-        public static int schrt = 1;
-        public MainWindow()
+        public Page1()
         {
             InitializeComponent();
-        }
-        private void MainFrame_Navigated(object sender, NavigationEventArgs e)
-        {
-            Power.Value = schrt;
+            List<Product> product = Core.Context.Product.ToList();
+            ProductListBox.ItemsSource = product;
         }
     }
 }
