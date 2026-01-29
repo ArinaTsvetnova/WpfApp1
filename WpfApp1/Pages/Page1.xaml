@@ -23,7 +23,7 @@
                         <Image Source="{Binding immage}" />
                         <TextBlock Text="{Binding name}"/>
                         <TextBlock Text="{Binding price}"/>
-                        <Button x:Name="Buy" Content="Купить" Width="90" Height="35" Click="ButtonBuy_Click"/>
+                        <Button x:Name="Buy" Content="Купить" Width="90" Height="40" Click="ButtonBuy_Click"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
@@ -33,7 +33,7 @@
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
         </ListBox>
-        <Button x:Name="ButtonGoForward" Content="Вперед" Width="90" Height="35" Click="ButtonGoForward_Click"  Grid.Row="3"/>
+        <Button x:Name="ButtonGoForward" Content="Вперед" Width="90" Height="40" Click="ButtonGoForward_Click"  Grid.Row="3"/>
 
     </Grid>
 </Page>

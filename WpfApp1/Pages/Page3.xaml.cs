@@ -24,5 +24,9 @@ namespace WpfApp1.Pages
         {
             InitializeComponent();
         }
+        private void ButtonSafe_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

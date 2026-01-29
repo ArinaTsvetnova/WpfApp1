@@ -9,6 +9,17 @@
       Title="Page3">
 
     <Grid>
-        
+        <StackPanel>
+            <TextBlock Text="Последний этап овформления заказа" FontSize="20" HorizontalAlignment="Center"/>
+            <TextBlock Text="Имя" FontSize="14" HorizontalAlignment="Center"/>
+            <TextBox x:Name="Name" Height="20" Width="100" Margin="5"/>
+            <TextBlock Text="Телефон" FontSize="14" HorizontalAlignment="Center"/>
+            <TextBox x:Name="Telephon" Height="20" Width="100" Margin="5"/>
+            <TextBlock Text="Почта" FontSize="14" HorizontalAlignment="Center"/>
+            <TextBox x:Name="Mail" Height="20" Width="100" Margin="5"/>
+            
+            <Button x:Name="ButtonSafe" Content="Оформить заказ" Width="120" Height="40" Click="ButtonSafe_Click"/>
+        </StackPanel>
+       
     </Grid>
 </Page>

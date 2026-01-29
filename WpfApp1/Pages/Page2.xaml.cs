@@ -23,6 +23,16 @@ namespace WpfApp1.Pages
         public Page2()
         {
             InitializeComponent();
+            List<Product> product = Core.Context.Product.ToList();
+        }
+        private void ButtonGoForward2_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.schrt++;
+            NavigationService.Navigate(new Page3());
+            if (NavigationService.CanGoForward)
+            {
+                NavigationService.GoForward();
+            }
         }
     }
 }

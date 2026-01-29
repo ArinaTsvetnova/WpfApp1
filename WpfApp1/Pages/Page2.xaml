@@ -9,6 +9,12 @@
       Title="Page2">
 
     <Grid>
+        <StackPanel>
+            <TextBlock Text="Ваша корзина" FontSize="20" HorizontalAlignment="Center"/>
+            <ListBox>
+            </ListBox>
+            <Button x:Name="ButtonGoForward2" Content="Оформить заказ" Width="120" Height="40" Click="ButtonGoForward2_Click"/>
+        </StackPanel>
         
     </Grid>
 </Page>

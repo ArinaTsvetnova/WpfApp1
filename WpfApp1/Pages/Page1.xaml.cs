@@ -29,8 +29,10 @@ namespace WpfApp1.Pages
             ProductListBox.ItemsSource = product;
         }
         private void ButtonBuy_Click(object sender, RoutedEventArgs e)
-        { 
-            
+        {
+            Button btn = sender as Button;
+            Product select_product = btn.DataContext as Product;
+            Class1.basket.Add(select_product);
         }
         private void ButtonGoForward_Click(object sender, RoutedEventArgs e)
         {

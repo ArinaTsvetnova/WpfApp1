@@ -8,6 +8,7 @@ namespace WpfApp1.Models
 {
     internal class Class1
     {
-
+        public static List<Product> basket = new List<Product>();
+        
     }
 }
