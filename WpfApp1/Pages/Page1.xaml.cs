@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.Models;
 
 namespace WpfApp1.Pages
 {
@@ -25,6 +27,19 @@ namespace WpfApp1.Pages
             InitializeComponent();
             List<Product> product = Core.Context.Product.ToList();
             ProductListBox.ItemsSource = product;
+        }
+        private void ButtonBuy_Click(object sender, RoutedEventArgs e)
+        { 
+            
+        }
+        private void ButtonGoForward_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.schrt++;
+            NavigationService.Navigate(new Page2());
+            if (NavigationService.CanGoForward)
+            {
+                NavigationService.GoForward();
+            }
         }
     }
 }

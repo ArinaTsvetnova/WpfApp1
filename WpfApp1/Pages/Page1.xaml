@@ -9,14 +9,21 @@
       Title="Page1">
 
     <Grid>
-        <TextBlock x:Name="HeaderText" Text="Интернет-магазин «Кружки у подружки»" FontSize="20" HorizontalAlignment="Center"/>
-        <ListBox x:Name="ProductListBox">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="350"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="HeaderText" Text="Интернет-магазин «Кружки у подружки»" FontSize="20" HorizontalAlignment="Center" Grid.RowSpan="1"/>
+        <ListBox x:Name="ProductListBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0, 50, 0, 0" Grid.RowSpan="2">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
-                        <Image Source="{Binding immages}" Height="20"/>
+                    <StackPanel Width="250" Height="400">
+                        <Image Source="{Binding immage}" />
                         <TextBlock Text="{Binding name}"/>
                         <TextBlock Text="{Binding price}"/>
+                        <Button x:Name="Buy" Content="Купить" Width="90" Height="35" Click="ButtonBuy_Click"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
@@ -26,5 +33,7 @@
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
         </ListBox>
+        <Button x:Name="ButtonGoForward" Content="Вперед" Width="90" Height="35" Click="ButtonGoForward_Click"  Grid.Row="3"/>
+
     </Grid>
 </Page>
