@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.Models;
 
 namespace WpfApp1.Pages
 {
@@ -24,6 +25,7 @@ namespace WpfApp1.Pages
         {
             InitializeComponent();
             List<Product> product = Core.Context.Product.ToList();
+            ProductListBox2.ItemsSource = Class1.basket;
         }
         private void ButtonGoForward2_Click(object sender, RoutedEventArgs e)
         {

@@ -9,17 +9,36 @@
       Title="Page3">
 
     <Grid>
-        <StackPanel>
-            <TextBlock Text="Последний этап овформления заказа" FontSize="20" HorizontalAlignment="Center"/>
-            <TextBlock Text="Имя" FontSize="14" HorizontalAlignment="Center"/>
-            <TextBox x:Name="Name" Height="20" Width="100" Margin="5"/>
-            <TextBlock Text="Телефон" FontSize="14" HorizontalAlignment="Center"/>
-            <TextBox x:Name="Telephon" Height="20" Width="100" Margin="5"/>
-            <TextBlock Text="Почта" FontSize="14" HorizontalAlignment="Center"/>
-            <TextBox x:Name="Mail" Height="20" Width="100" Margin="5"/>
-            
-            <Button x:Name="ButtonSafe" Content="Оформить заказ" Width="120" Height="40" Click="ButtonSafe_Click"/>
-        </StackPanel>
-       
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Последний этап оформления заказа" FontSize="20" HorizontalAlignment="Center" Grid.Row="0"/>
+        <TextBlock Text="Имя" FontSize="14" HorizontalAlignment="Center" Margin="350, 0, 350, 130" Grid.Row="1"/>
+        <TextBox x:Name="Name" Height="20" Width="100" Margin="350, 20, 350, 110" Grid.Row="1"/>
+        <TextBlock Text="Почта" FontSize="14" HorizontalAlignment="Center" Margin="350, 40, 350, 90" Grid.Row="1"/>
+        <TextBox x:Name="Mail" Height="20" Width="100" Margin="350, 60, 350, 70" Grid.Row="1"/>
+        <TextBlock Text="Адрес доставки" FontSize="14" HorizontalAlignment="Center" Margin="350, 80, 350, 50" Grid.Row="1"/>
+        <TextBox x:Name="Address" Height="20" Width="100" Margin="350, 110, 350, 20" Grid.Row="1"/>
+        <ListBox x:Name="ProductListBox3" Margin="0, 200, 0, 0" Grid.RowSpan="3">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Width="100" Height="200">
+                            <Image Source="{Binding immage}" />
+                            <TextBlock Text="{Binding name}"/>
+                            <TextBlock Text="{Binding price}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+        <Button x:Name="ButtonSafe" Content="Оформить заказ" Width="120" Height="40" Margin="670, 5, 10, 5"  Click="ButtonSafe_Click" Grid.Row="3"/>
+        <TextBlock x:Name="FullPrice" Height="20" Width="100" Grid.Row="3"/>
     </Grid>
 </Page>
