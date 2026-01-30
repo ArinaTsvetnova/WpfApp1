@@ -1,18 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.ConstrainedExecution;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WpfApp1.Models;
 
 namespace WpfApp1.Pages
@@ -38,12 +27,23 @@ namespace WpfApp1.Pages
         {
             Order newOrder = new Order // создание нового пользователя
             {
-                username = ,
-                mail = ,
-                address = 
+                username = Name.Text,
+                mail = Mail.Text,
+                address = Address.Text
             };
             Core.Context.Order.Add(newOrder);
             Core.Context.SaveChanges();
+            foreach (Product pr in Class1.basket)
+            {
+                OrderProduct newOrdpro = new OrderProduct
+                {
+                    ProductID = pr.ID,
+                    OrderID = newOrder.ID
+                };
+                Core.Context.OrderProduct.Add(newOrdpro);
+                Core.Context.SaveChanges();
+            }
+            
         }
     }
 }
