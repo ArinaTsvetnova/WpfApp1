@@ -24,5 +24,8 @@ namespace WpfApp1
         {
             InitializeComponent();
         }
+        private void MainFrame_Navigated(object sender, NavigationEventArgs e)
+        {
+        }
     }
 }
