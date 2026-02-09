@@ -48,7 +48,7 @@ namespace WpfApp1.Pages
             Sort.DisplayMemberPath = "Name";
             Sort.SelectedIndex = 0;
             Shop.ssort = FilmListBox.SelectedItem as Sortir;
-
+            Poisc.Text = string.Empty;
         }
         private void ButtonEntry_Click(object sender, RoutedEventArgs e)
         {
