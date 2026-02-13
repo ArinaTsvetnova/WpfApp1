@@ -12,20 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WpfApp1.Models;
 
 namespace WpfApp1.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для Page3.xaml
+    /// Логика взаимодействия для Page4.xaml
     /// </summary>
-    public partial class Page3 : Page
+    public partial class Page4 : Page
     {
-        public Page3()
+        public Page4()
         {
             InitializeComponent();
-            UName.Text = $"Здравствуй, {UserInfo.kupt.Name}!";
-
         }
     }
 }

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.Models;
 
 namespace WpfApp1.Pages
 {
@@ -23,17 +24,36 @@ namespace WpfApp1.Pages
         public Page2()
         {
             InitializeComponent();
-            email.Text = string.Empty;
-            password.Text = string.Empty;
         }
+
         private void regButton_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Page3());
+            NavigationService.Navigate(new Page4());
             if (NavigationService.CanGoForward)
             {
                 NavigationService.GoForward();
             }
         }
-        
+
+        private void vhod_Click(object sender, RoutedEventArgs e)
+        {
+            List<User> users = Core.Context.User.ToList(); 
+            User afuser = users.FirstOrDefault(U => U.Email.ToLower() == email.Text.ToLower());
+            if (afuser == null)
+                return;
+            if (afuser.Password == password.Text)
+            {
+                UserInfo.kupt = afuser;
+                NavigationService.Navigate(new Page3());
+                if (NavigationService.CanGoForward)
+                {
+                    NavigationService.GoForward();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Неправильный ввод пароля! Попробуйте еще раз");
+            }
+        }
     }
 }

@@ -15,7 +15,6 @@
         <EntityTypeShape EntityType="film_zwekuzaModel.Session" Width="1.5" PointX="8.25" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="film_zwekuzaModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
         <EntityTypeShape EntityType="film_zwekuzaModel.Ticket" Width="1.5" PointX="10.5" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="film_zwekuzaModel.User" Width="1.5" PointX="8.25" PointY="8.875" IsExpanded="true" />
         <EntityTypeShape EntityType="film_zwekuzaModel.SessionPlace" Width="1.5" PointX="10.5" PointY="1.875" IsExpanded="true" />
         <AssociationConnector Association="film_zwekuzaModel.FK_Film_Age" ManuallyRouted="false" />
         <AssociationConnector Association="film_zwekuzaModel.FK_Hall_ClassHall" ManuallyRouted="false" />
@@ -28,7 +27,8 @@
         <AssociationConnector Association="film_zwekuzaModel.FK_Ticket_Place" ManuallyRouted="false" />
         <AssociationConnector Association="film_zwekuzaModel.FK_SessionPlace_Session" ManuallyRouted="false" />
         <AssociationConnector Association="film_zwekuzaModel.FK_Ticket_Session" ManuallyRouted="false" />
-        <AssociationConnector Association="film_zwekuzaModel.FK_Ticket_User" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="film_zwekuzaModel.User" Width="1.5" PointX="8.375" PointY="8.875" />
+        <AssociationConnector Association="film_zwekuzaModel.FK_Ticket_User" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

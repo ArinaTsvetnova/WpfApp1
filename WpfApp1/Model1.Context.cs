@@ -35,7 +35,7 @@ namespace WpfApp1
         public virtual DbSet<Session> Session { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Ticket> Ticket { get; set; }
-        public virtual DbSet<User> User { get; set; }
         public virtual DbSet<SessionPlace> SessionPlace { get; set; }
+        public virtual DbSet<User> User { get; set; }
     }
 }
