@@ -25,6 +25,9 @@ namespace WpfApp1.Pages
         {
             InitializeComponent();
             UName.Text = $"Здравствуй, {UserInfo.kupt.Name}!";
+            List<Film> film = Core.Context.Film.ToList();
+            List<Ticket> ticket = Core.Context.Ticket.Where(t => t.UserID == UserInfo.kupt.ID).ToList();
+            UserInfoListBox.ItemsSource = ticket;
 
         }
     }

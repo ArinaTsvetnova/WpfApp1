@@ -11,13 +11,15 @@
     <Grid>
         <StackPanel>
             <TextBlock x:Name="UName" FontSize="40" Foreground="#215756" HorizontalAlignment="Center" Margin="5"/>
-            <ListBox x:Name="UserInfoListBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0, 0, 0, 0" d:ItemsSource="{d:SampleData ItemCount=5}">
+            <ListBox x:Name="UserInfoListBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" d:ItemsSource="{d:SampleData ItemCount=6}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Width="230" Height="250">
-                            <Image Source="{Binding Image}" />
-                            <TextBlock Text="{Binding Name}"/>
-                            <TextBlock Text="{Binding Rating}"/>
+                        <StackPanel Width="250" Height="320">
+                            <Image Source="{Binding Session.Film.Image}" />
+                            <TextBlock Text="{Binding Session.Film.Name}"/>
+                            <TextBlock Text="{Binding Session.Film.Rating}"/>
+                            <TextBlock Text="{Binding Session.SessionPlace.Place.Nomber}"/>
+                            <TextBlock Text="{Binding Session.Date}"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
