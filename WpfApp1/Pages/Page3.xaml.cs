@@ -28,7 +28,16 @@ namespace WpfApp1.Pages
             List<Film> film = Core.Context.Film.ToList();
             List<Ticket> ticket = Core.Context.Ticket.Where(t => t.UserID == UserInfo.kupt.ID).ToList();
             UserInfoListBox.ItemsSource = ticket;
+            
+        }
+        private void ButtonGoHome_Click(object sender, RoutedEventArgs e)
+        {
 
+            NavigationService.Navigate(new Page1());
+            if (NavigationService.CanGoForward)
+            {
+                NavigationService.GoForward();
+            }
         }
     }
 }

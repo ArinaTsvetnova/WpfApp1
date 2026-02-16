@@ -9,6 +9,15 @@
       Title="Page4">
 
     <Grid>
-        
+        <StackPanel>
+            <TextBlock Text="Регистрация" FontSize="40" Foreground="#215756" HorizontalAlignment="Center" Margin="5"/>
+            <TextBlock Text="Введите своё имя" FontSize="20" Foreground="#215756" HorizontalAlignment="Center" Margin="5"/>
+            <TextBox x:Name="name" FontSize="11" Foreground="#487994" Background="White" Height="40" Width="300" Margin="5"/>
+            <TextBlock Text="Введите свою почту" FontSize="20" Foreground="#215756" HorizontalAlignment="Center" Margin="5"/>
+            <TextBox x:Name="email" FontSize="11" Foreground="#487994" Background="White" Height="40" Width="300" Margin="5"/>
+            <TextBlock Text="Введите пароль" FontSize="20" Foreground="#215756" HorizontalAlignment="Center" Margin="5"/>
+            <TextBox x:Name="password" FontSize="11" Foreground="#487994" Background="White" Height="40" Width="300" Margin="5"/>
+            <Button x:Name="reg" Content="Зарегистрировать" Width="130" Height="40" FontSize="14" Click="regButton_Click" Margin="5"/>
+        </StackPanel>
     </Grid>
 </Page>

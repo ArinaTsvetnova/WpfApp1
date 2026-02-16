@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.Models;
 
 namespace WpfApp1.Pages
 {
@@ -23,6 +24,24 @@ namespace WpfApp1.Pages
         public Page4()
         {
             InitializeComponent();
+        }
+        private void regButton_Click(object sender, RoutedEventArgs e)
+        {
+            List<User> users = Core.Context.User.ToList();
+            User newUser = new User // создание нового пользователя
+            {
+                Name = name.Text,
+                Email = email.Text,
+                Password = password.Text
+            };
+            Core.Context.User.Add(newUser);
+            Core.Context.SaveChanges();
+            UserInfo.kupt = newUser;
+            NavigationService.Navigate(new Page3());
+            if (NavigationService.CanGoForward)
+            {
+                NavigationService.GoForward();
+            }
         }
     }
 }

@@ -13,9 +13,8 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel>
-            <TextBlock x:Name="UName" FontSize="40" Foreground="#215756" HorizontalAlignment="Center" Margin="5" Grid.Row="0"/>
-        </StackPanel>
+        <TextBlock x:Name="UName" FontSize="40" Foreground="#215756" HorizontalAlignment="Center" Margin="5" Grid.Row="0"/>
+        <Button Content="На главную" Click="ButtonGoHome_Click" Margin="5" HorizontalAlignment="Right" Width="100" Height="40"/>
         <ListBox x:Name="UserInfoListBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=6}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>

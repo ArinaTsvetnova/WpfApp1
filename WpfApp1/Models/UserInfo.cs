@@ -8,6 +8,6 @@ namespace WpfApp1.Models
 {
     internal class UserInfo
     {
-        public static User kupt = null;
+        public static User kupt { set; get; }
     }
 }

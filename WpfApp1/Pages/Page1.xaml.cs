@@ -49,6 +49,10 @@ namespace WpfApp1.Pages
             Sort.SelectedIndex = 0;
             Shop.ssort = FilmListBox.SelectedItem as Sortir;
             Poisc.Text = string.Empty;
+            //if ()
+            //{ 
+
+            //}
         }
         private void ButtonEntry_Click(object sender, RoutedEventArgs e)
         {
