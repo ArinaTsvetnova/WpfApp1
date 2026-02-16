@@ -20,10 +20,10 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Width="250" Height="320">
-                            <Image Source="{Binding Session.Film.Image}" />
-                            <TextBlock Text="{Binding Film.Name}"/>
+                        <Image Source="{Binding Session.Film.Image}" Width="230" Height="200" />
+                        <TextBlock Text="{Binding Session.Film.Name}"/>
                             <TextBlock Text="{Binding Session.Film.Rating}"/>
-                            <TextBlock Text="{Binding Session.SessionPlace.Place.Nomber}"/>
+                            <TextBlock Text="{Binding Place.Nomber}"/>
                             <TextBlock Text="{Binding Session.Date}"/>
                         </StackPanel>
                     </DataTemplate>
