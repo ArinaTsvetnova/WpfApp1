@@ -9,14 +9,19 @@
       Title="Page3">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
         <StackPanel>
-            <TextBlock x:Name="UName" FontSize="40" Foreground="#215756" HorizontalAlignment="Center" Margin="5"/>
-            <ListBox x:Name="UserInfoListBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" d:ItemsSource="{d:SampleData ItemCount=6}">
+            <TextBlock x:Name="UName" FontSize="40" Foreground="#215756" HorizontalAlignment="Center" Margin="5" Grid.Row="0"/>
+        </StackPanel>
+        <ListBox x:Name="UserInfoListBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=6}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Width="250" Height="320">
                             <Image Source="{Binding Session.Film.Image}" />
-                            <TextBlock Text="{Binding Session.Film.Name}"/>
+                            <TextBlock Text="{Binding Film.Name}"/>
                             <TextBlock Text="{Binding Session.Film.Rating}"/>
                             <TextBlock Text="{Binding Session.SessionPlace.Place.Nomber}"/>
                             <TextBlock Text="{Binding Session.Date}"/>
@@ -29,6 +34,5 @@
                     </ItemsPanelTemplate>
                 </ListBox.ItemsPanel>
             </ListBox>
-        </StackPanel>
     </Grid>
 </Page>
