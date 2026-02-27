@@ -11,25 +11,66 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="75"/>
             <!--<RowDefinition Height="110"/>
             <RowDefinition Height="100"/>-->
         </Grid.RowDefinitions>
         <!--<Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>-->
+            <!--<ColumnDefinition Width="100"/>
             <ColumnDefinition Width="100"/>
             <ColumnDefinition Width="100"/>
             <ColumnDefinition Width="100"/>
             <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>-->
+            <ColumnDefinition Width="*"/>-->
+        <!--</Grid.ColumnDefinitions>-->
+        
+        <TextBlock Text="Собери компьютер" Grid.Row="0" FontSize="40" HorizontalAlignment="Center" Width="360" />
 
-        <TextBlock Text="Собери компьютер" Grid.Row="0" FontSize="40" HorizontalAlignment="Center" />
+        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
+            <Button x:Name="Filtr" Content="Фильтр" FontSize="20" Margin="5" MinHeight="30" MinWidth="75"/>
+            <TextBox x:Name="Poisc" Margin="5" MinHeight="30" MinWidth="550"/>
+            <Button x:Name="Basket" Content="Корзина" FontSize="20" Margin="5" MinHeight="30" MinWidth="75"/>
+        </StackPanel>
 
-        <Rectangle Fill="LightBlue" Grid.Row="1" Grid.Column="1" Margin="20, 10" />
-        <Rectangle Fill="LightBlue" Grid.Row="2" Grid.Column="1" Margin="20, 10" />
+        <StackPanel  Grid.Row="2" Background="#D0D1D2" Margin="20,5" >
+           
+        </StackPanel>
+        <StackPanel  Grid.Row="3" Background="#D0D1D2" Margin="20,5" >
+
+        </StackPanel>
+        <StackPanel  Grid.Row="4" Background="#D0D1D2" Margin="20,5" >
+
+        </StackPanel>
+        <StackPanel  Grid.Row="5" Background="#D0D1D2" Margin="20,5" >
+
+        </StackPanel>
+        <StackPanel  Grid.Row="6" Background="#D0D1D2" Margin="20,5" >
+
+        </StackPanel>
+        <StackPanel  Grid.Row="7" Background="#D0D1D2" Margin="20,5" >
+
+        </StackPanel>
+        <StackPanel  Grid.Row="8" Background="#D0D1D2" Margin="20,5" >
+
+        </StackPanel>
+        <StackPanel  Grid.Row="9" Background="#D0D1D2" Margin="20,5" >
+
+        </StackPanel>
+        <StackPanel  Grid.Row="10" Background="#D0D1D2" Margin="20,5" >
+
+        </StackPanel>
+
     </Grid>
 </Page>
