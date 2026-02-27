@@ -44,31 +44,33 @@
             <Button x:Name="Basket" Content="Корзина" FontSize="20" Margin="5" MinHeight="30" MinWidth="75"/>
         </StackPanel>
 
-        <StackPanel  Grid.Row="2" Background="#D0D1D2" Margin="20,5" >
-           
+        <StackPanel  Grid.Row="2" Background="#D9DAD8" Margin="20,5" Orientation="Horizontal">
+            <Image Source="/image/image1.png" Height="50" HorizontalAlignment="Left" Margin="8" />
+            <TextBlock Text="Центральный процессор" FontSize="25" VerticalAlignment="Center" Margin="10"/>
+            <Button x:Name=""/>
         </StackPanel>
-        <StackPanel  Grid.Row="3" Background="#D0D1D2" Margin="20,5" >
+        <StackPanel  Grid.Row="3" Background="#D9DAD8" Margin="20,5" >
 
         </StackPanel>
-        <StackPanel  Grid.Row="4" Background="#D0D1D2" Margin="20,5" >
+        <StackPanel  Grid.Row="4" Background="#D9DAD8" Margin="20,5" >
 
         </StackPanel>
-        <StackPanel  Grid.Row="5" Background="#D0D1D2" Margin="20,5" >
+        <StackPanel  Grid.Row="5" Background="#D9DAD8" Margin="20,5" >
 
         </StackPanel>
-        <StackPanel  Grid.Row="6" Background="#D0D1D2" Margin="20,5" >
+        <StackPanel  Grid.Row="6" Background="#D9DAD8" Margin="20,5" >
 
         </StackPanel>
-        <StackPanel  Grid.Row="7" Background="#D0D1D2" Margin="20,5" >
+        <StackPanel  Grid.Row="7" Background="#D9DAD8" Margin="20,5" >
 
         </StackPanel>
-        <StackPanel  Grid.Row="8" Background="#D0D1D2" Margin="20,5" >
+        <StackPanel  Grid.Row="8" Background="#D9DAD8" Margin="20,5" >
 
         </StackPanel>
-        <StackPanel  Grid.Row="9" Background="#D0D1D2" Margin="20,5" >
+        <StackPanel  Grid.Row="9" Background="#D9DAD8" Margin="20,5" >
 
         </StackPanel>
-        <StackPanel  Grid.Row="10" Background="#D0D1D2" Margin="20,5" >
+        <StackPanel  Grid.Row="10" Background="#D9DAD8" Margin="20,5" >
 
         </StackPanel>
 
