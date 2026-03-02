@@ -22,37 +22,32 @@ namespace WpfApp1.Pages
     /// </summary>
     public partial class Page1 : Page
     {
-
+        List<Film> film; //глобальный лист фильмов
         public Page1()
         {
             InitializeComponent();
-            List<Film> film = Core.Context.Film.ToList();
+            film = Core.Context.Film.ToList();
             FilmListBox.ItemsSource = film;
             List<Sortir> ssort = new List<Sortir>()
             {
                 new Sortir
                 {
-                    Name = "-",
-                },
-                new Sortir
-                {
-                    Name = "По жанрам",
+                    Name = "По названию",
                 },
                 new Sortir
                 {
                     Name = "По рейтингу",
+                },
+                new Sortir
+                {
+                    Name = "-",
                 }
             };
 
             Sort.ItemsSource = ssort;
             Sort.DisplayMemberPath = "Name";
-            Sort.SelectedIndex = 0;
+            Sort.SelectedIndex = 2;
             Shop.ssort = FilmListBox.SelectedItem as Sortir;
-            Poisc.Text = string.Empty;
-            //if ()
-            //{ 
-
-            //}
         }
         private void ButtonEntry_Click(object sender, RoutedEventArgs e)
         {
@@ -65,6 +60,31 @@ namespace WpfApp1.Pages
         private void ButtonBuy_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Poisc_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(Poisc.Text))
+            {
+                FilmListBox.ItemsSource = film;
+            }
+            else 
+            {
+                FilmListBox.ItemsSource = Core.Context.Film.Where(f => f.Name.Contains(Poisc.Text)).ToList(); //возвращает список фильмов, которые имеют символы как в поисковой строке и присваивает переменную листбоксу(которую мы привели к типу данных лист)
+            }
+        }
+        private void Sort_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (Sort.SelectionBoxItemStringFormat == "0")
+            {
+                FilmListBox.ItemsSource = Core.Context.Film.OrderBy(f => f.Name).ToList();
+            }
+            else if (Sort.SelectionBoxItemStringFormat == "1")
+            {
+                FilmListBox.ItemsSource = Core.Context.Film.OrderBy(r => r.Rating).ToList();
+            }
+            else
+            { }
         }
     }
 }

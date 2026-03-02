@@ -16,9 +16,9 @@
         </Grid.RowDefinitions>
         <TextBlock Text="Фильмы в шоке" FontSize="40" Foreground="#215756" HorizontalAlignment="Center" Grid.Row="0"/>
         <Button Content="Вход" Height="40" Width="100" FontSize="20" Margin="690, 5, 10, 5" Click="ButtonEntry_Click" Grid.Row="0"/>
-        <ComboBox x:Name="Sort" Height="40" Width="100" Margin="10, 5, 690, 5" Grid.Row="1"/>
-        <TextBox x:Name="Poisc" FontSize="11" Foreground="#487994" Background="White" Height="40" Width="550" Grid.Row="1"/>
-        <ListBox x:Name="FilmListBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0, 0, 0, 0" Grid.Row="2" d:ItemsSource="{d:SampleData ItemCount=5}">
+        <ComboBox x:Name="Sort" Height="40" Width="115" Margin="10, 5, 675, 5" Grid.Row="1" SelectionChanged="Sort_SelectionChanged"/>
+        <TextBox x:Name="Poisc" FontSize="11" Foreground="#487994" Background="White" Height="40" Width="540" Grid.Row="1" TextChanged="Poisc_TextChanged"/>
+        <ListBox x:Name="FilmListBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Row="2" d:ItemsSource="{d:SampleData ItemCount=5}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Width="230" Height="450">
