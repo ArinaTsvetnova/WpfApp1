@@ -6,4 +6,7 @@
     <Style TargetType="Button">
         <Setter Property="Background" Value="#D0D1D2"/>
     </Style>
+    <Style TargetType="ListBox">
+        <Setter Property="Background" Value="#989FA7"/>
+    </Style>
 </ResourceDictionary>

@@ -9,6 +9,6 @@
       Title="Page6">
 
     <Grid>
-        
+        <TextBlock Text="7 куллер"/>
     </Grid>
 </Page>

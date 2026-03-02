@@ -9,6 +9,6 @@
       Title="Page3">
 
     <Grid>
-        
+        <TextBlock Text="3 мат плата"/>
     </Grid>
 </Page>

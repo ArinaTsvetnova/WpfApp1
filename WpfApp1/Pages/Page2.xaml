@@ -9,6 +9,6 @@
       Title="Page2">
 
     <Grid>
-        
+        <TextBlock Text="2 цп"/>
     </Grid>
 </Page>

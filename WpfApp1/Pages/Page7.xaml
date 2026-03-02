@@ -9,6 +9,6 @@
       Title="Page7">
 
     <Grid>
-        
+        <TextBlock Text="7 оп"/>
     </Grid>
 </Page>

@@ -9,6 +9,6 @@
       Title="Page8">
 
     <Grid>
-        
+        <TextBlock Text="8 жесткий диск"/>
     </Grid>
 </Page>

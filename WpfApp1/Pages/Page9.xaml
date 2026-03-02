@@ -9,6 +9,6 @@
       Title="Page9">
 
     <Grid>
-        
+        <TextBlock Text="9 граф проц"/>
     </Grid>
 </Page>

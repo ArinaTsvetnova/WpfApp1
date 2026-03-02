@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WpfApp1.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="800" d:DesignWidth="800"
+      d:DesignHeight="720" d:DesignWidth="800"
       Title="Page1">
     <ScrollViewer>
     <Grid>
@@ -20,90 +20,87 @@
             <RowDefinition Height="75"/>
             <RowDefinition Height="75"/>
             <RowDefinition Height="75"/>
-            <RowDefinition Height="75"/>
-            <!--<RowDefinition Height="110"/>
-            <RowDefinition Height="100"/>-->
         </Grid.RowDefinitions>
-        <!--<Grid.ColumnDefinitions>
+        <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="*"/>-->
-            <!--<ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="*"/>-->
-        <!--</Grid.ColumnDefinitions>-->
-        
-        <TextBlock Text="Собери компьютер" Grid.Row="0" FontSize="40" HorizontalAlignment="Center" Width="360" />
+        </Grid.ColumnDefinitions>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
-            <Button x:Name="Filtr" Content="Фильтр" FontSize="20" Margin="5" MinHeight="30" MinWidth="75"/>
-            <TextBox x:Name="Poisc" Margin="5" MinHeight="30" MinWidth="550"/>
-            <Button x:Name="Basket" Content="Корзина" FontSize="20" Margin="5" MinHeight="30" MinWidth="75"/>
+        
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" Grid.ColumnSpan="2">
+            <Button x:Name="Clear" Content="Очистить" FontSize="20" Margin="5" MinHeight="30" MinWidth="75"/>
+              <TextBlock Text="Собери компьютер" Grid.Row="0" FontSize="40" HorizontalAlignment="Center" Width="360" Grid.ColumnSpan="2" Margin="50, 0"/>
+            <Button x:Name="look" Content="Сборки" FontSize="20" Margin="5" MinHeight="30" MinWidth="75"/>
         </StackPanel>
 
-        <Grid  Grid.Row="2" Background="#D9DAD8" Margin="20, 5" >
+        <Grid Grid.Row="2" Grid.Column="1" Background="#D9DAD8" Margin="20, 5" >
             <StackPanel Orientation="Horizontal">
                 <Image Source="/image/image6.png" Height="60" HorizontalAlignment="Left" />
-                <TextBlock Text="Центральный процессор" FontSize="25" VerticalAlignment="Center"  HorizontalAlignment="Center" Margin="25, 5" />
+                <TextBlock TextWrapping="Wrap" Text="Центральный процессор" FontSize="25" VerticalAlignment="Center"  HorizontalAlignment="Center" Margin="25, 5" />
+            <Button x:Name="Chois1" Content="Выбрать" FontSize="20" Height="45" Width="90" HorizontalAlignment="Right" Margin="10, 5" Click="Chois1_Click"/>
             </StackPanel>
-            <Button x:Name="Chois1" Content="Выбрать" FontSize="20" Height="45" Width="90" HorizontalAlignment="Right" Margin="10, 5"/>
         </Grid>
 
-        <Grid Grid.Row="3" Background="#D9DAD8" Margin="20,5" >
+        <Grid Grid.Row="3" Grid.Column="1" Background="#D9DAD8" Margin="20,5" >
             <StackPanel  Orientation="Horizontal">
                 <Image Source="/image/image4.png" Height="70" HorizontalAlignment="Left" Margin="0"/>
-                <TextBlock Text="Материнская плата" FontSize="25" VerticalAlignment="Center" Grid.Row="3" Margin="15"/>
+                    <TextBlock TextWrapping="Wrap" Text="Материнская плата" FontSize="25" VerticalAlignment="Center" Grid.Row="3" Margin="15"/>
             </StackPanel>
-            <Button x:Name="Chois2" Content="Выбрать" FontSize="20" Height="45" Width="90" HorizontalAlignment="Right" Margin="10, 5"/>
+            <Button x:Name="Chois2" Content="Выбрать" FontSize="20" Height="45" Width="90" HorizontalAlignment="Right" Margin="10, 5" Click="Chois2_Click"/>
         </Grid>
-        
 
-        <StackPanel  Grid.Row="4" Background="#D9DAD8" Margin="20,5" Orientation="Horizontal">
-            <Image Source="/image/image7.png" Height="70" HorizontalAlignment="Left" Margin="0"/>
-            <TextBlock Text="Блок питания" FontSize="25" VerticalAlignment="Center" Grid.Row="3" Margin="15"/>
-            <Button x:Name="Chois3" Content="Выбрать" FontSize="20" Height="45" Width="90" HorizontalAlignment="Right"/>
-        </StackPanel>
-        
-        <StackPanel  Grid.Row="5" Background="#D9DAD8" Margin="20,5" Orientation="Horizontal">
-            <Image Source="/image/image3.png" Height="70" HorizontalAlignment="Left" Margin="0"/>
-            <TextBlock Text="Корпус" FontSize="25" VerticalAlignment="Center" Grid.Row="3" Margin="15"/>
-            <Button x:Name="Chois4" Content="Выбрать" FontSize="20" Height="45" Width="90" HorizontalAlignment="Right"/>
-        </StackPanel>
-        
-        <StackPanel  Grid.Row="6" Background="#D9DAD8" Margin="20,5" Orientation="Horizontal">
-            <Image Source="/image/image8.png" Height="70" HorizontalAlignment="Left" Margin="0"/>
-            <TextBlock Text="Куллер" FontSize="25" VerticalAlignment="Center" Grid.Row="3" Margin="15"/>
-            <Button x:Name="Chois5" Content="Выбрать" FontSize="20" Height="45" Width="90" HorizontalAlignment="Right"/>
-        </StackPanel>
-        
-        <StackPanel  Grid.Row="7" Background="#D9DAD8" Margin="20,5" Orientation="Horizontal">
-            <Image Source="/image/image5.png" Height="70" HorizontalAlignment="Left" Margin="0"/>
-            <TextBlock Text="Оперативная память" FontSize="25" VerticalAlignment="Center" Grid.Row="3" Margin="15"/>
-            <Button x:Name="Chois6" Content="Выбрать" FontSize="20" Height="45" Width="90" HorizontalAlignment="Right"/>
-        </StackPanel>
-        
-        <StackPanel  Grid.Row="8" Background="#D9DAD8" Margin="20,5" Orientation="Horizontal">
-            <Image Source="/image/image2.png" Height="70" HorizontalAlignment="Left" Margin="0"/>
-            <TextBlock Text="Жесткий диск" FontSize="25" VerticalAlignment="Center" Grid.Row="3" Margin="15"/>
-            <Button x:Name="Chois7" Content="Выбрать" FontSize="20" Height="45" Width="90" HorizontalAlignment="Right"/>
-        </StackPanel>
-        
-        <StackPanel  Grid.Row="9" Background="#D9DAD8" Margin="20,5" Orientation="Horizontal">
-            <Image Source="/image/image1.png" Height="45" HorizontalAlignment="Left" Margin="10"/>
-            <TextBlock Text="Корпус" FontSize="25" VerticalAlignment="Center" Grid.Row="3" Margin="15"/>
-            <Button x:Name="Chois8" Content="Выбрать" FontSize="20" Height="45" Width="90" HorizontalAlignment="Right"/>
-        </StackPanel>
+        <Grid Grid.Row="4" Grid.Column="1" Background="#D9DAD8" Margin="20,5"  > 
+           <StackPanel  Orientation="Horizontal">
+                <Image Source="/image/image7.png" Height="70" HorizontalAlignment="Left" Margin="0"/>
+                <TextBlock Text="Блок питания" FontSize="25" VerticalAlignment="Center" Grid.Row="3" Margin="15"/>
+           </StackPanel>
+           <Button x:Name="Chois3" Content="Выбрать" FontSize="20" Height="45" Width="90" HorizontalAlignment="Right" Margin="10, 5" Click="Chois3_Click"/>
+        </Grid>
 
-        <StackPanel  Grid.Row="10" Background="#D9DAD8" Margin="20,5" Orientation="Horizontal">
-            <TextBlock Text="Просмотр предыдущих сборок" FontSize="25" VerticalAlignment="Center" Grid.Row="3" Margin="15"/>
-            <Button x:Name="Look" Content="Просмотр" FontSize="20" Height="45" Width="120" HorizontalAlignment="Right"/>
-        </StackPanel>
+        <Grid Grid.Row="5" Grid.Column="1" Background="#D9DAD8" Margin="20,5" >
+            <StackPanel  Orientation="Horizontal">
+                <Image Source="/image/image3.png" Height="70" HorizontalAlignment="Left" Margin="0"/>
+                <TextBlock Text="Корпус" FontSize="25" VerticalAlignment="Center" Grid.Row="3" Margin="15"/>
+            </StackPanel>
+            <Button x:Name="Chois4" Content="Выбрать" FontSize="20" Height="45" Width="90" HorizontalAlignment="Right" Margin="10, 5" Click="Chois4_Click"/>
+        </Grid>
 
+        <Grid Grid.Row="6" Grid.Column="1" Background="#D9DAD8" Margin="20,5" >
+            <StackPanel  Orientation="Horizontal">
+                <Image Source="/image/image8.png" Height="70" HorizontalAlignment="Left" Margin="0"/>
+                    <TextBlock Text="Куллер" FontSize="25" VerticalAlignment="Center" Grid.Row="3" Margin="15"/>
+            </StackPanel>
+            <Button x:Name="Chois5" Content="Выбрать" FontSize="20" Height="45" Width="90" HorizontalAlignment="Right" Margin="10, 5" Click="Chois5_Click"/>
+        </Grid>
+
+        <Grid Grid.Row="7" Grid.Column="1" Background="#D9DAD8" Margin="20,5" >
+            <StackPanel  Orientation="Horizontal">
+                <Image Source="/image/image5.png" Height="70" HorizontalAlignment="Left" Margin="0"/>
+                <TextBlock Text="Оперативная память" FontSize="25" VerticalAlignment="Center" Grid.Row="3" Margin="15"/>
+            </StackPanel> 
+         <Button x:Name="Chois6" Content="Выбрать" FontSize="20" Height="45" Width="90" HorizontalAlignment="Right" Margin="10, 5" Click="Chois6_Click"/>   
+        </Grid>
+
+        <Grid Grid.Row="8" Grid.Column="1" Background="#D9DAD8" Margin="20,5" >
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/image/image2.png" Height="70" HorizontalAlignment="Left" Margin="0"/>
+                <TextBlock Text="Жесткий диск" FontSize="25" VerticalAlignment="Center" Grid.Row="3" Margin="15"/>
+            </StackPanel>
+            <Button x:Name="Chois7" Content="Выбрать" FontSize="20" Height="45" Width="90" HorizontalAlignment="Right" Margin="10, 5" Click="Chois7_Click"/>
+        </Grid>
+
+            <Grid Grid.Row="9" Grid.Column="1" Background="#D9DAD8" Margin="20,5" >
+                <StackPanel  Orientation="Horizontal">
+                    <Image Source="/image/image1.png" Height="45" HorizontalAlignment="Left" Margin="10"/>
+                    <TextBlock Text="Графический процессор" FontSize="25" VerticalAlignment="Center" Grid.Row="3" Margin="15"/>
+                </StackPanel>
+                <Button x:Name="Chois8" Content="Выбрать" FontSize="20" Height="45" Width="90" HorizontalAlignment="Right" Margin="10, 5" Click="Chois8_Click"/>
+            </Grid>
+            <ListBox x:Name="DetailsChois" Grid.Row="2" Grid.Column="0" Grid.RowSpan="8" d:ItemsSource="{d:SampleData ItemCount=5}">
+                
+            </ListBox>
         
-        
-    </Grid>
+        </Grid>
     </ScrollViewer>
 </Page>
