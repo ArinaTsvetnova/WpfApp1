@@ -16,16 +16,13 @@ using System.Windows.Shapes;
 namespace WpfApp1.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для Page5.xaml
+    /// Логика взаимодействия для Page7.xaml
     /// </summary>
-    public partial class Page5 : Page
+    public partial class Page7 : Page
     {
-        public Film film { get; set; }
-        public Page5( Film f)
+        public Page7()
         {
             InitializeComponent();
-            film = f;
-            this.DataContext = this;
         }
     }
 }

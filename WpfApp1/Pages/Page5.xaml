@@ -14,12 +14,12 @@
             <RowDefinition Height="210"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="name" Text="t" FontSize="40" Foreground="#215756" HorizontalAlignment="Center" Grid.Row="0"/>
-        <Image Source="/fotos/foto1.png" Grid.Row="1" Height="200"/>
+        <TextBlock x:Name="name" Text="{Binding film.Name}" FontSize="40" Foreground="#215756" HorizontalAlignment="Center" Grid.Row="0"/>
+        <Image Source="{Binding film.Image}" Grid.Row="1" Height="200"/>
         <StackPanel Grid.Row="2">
-            <TextBlock x:Name="rating" Text="t" FontSize="20" Foreground="#215756" HorizontalAlignment="Center"/>
-            <TextBlock x:Name="ganre" Text="t" FontSize="20" Foreground="#215756" HorizontalAlignment="Center"/>
-            <TextBlock x:Name="opisanie" Text="t" FontSize="20" Foreground="#215756" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="rating" Text="{Binding film.Rating}" FontSize="20" Foreground="#215756" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="ganre" Text="{Binding film.}" FontSize="20" Foreground="#215756" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="opisanie" Text="{Binding film.Info}" FontSize="20" Foreground="#215756" HorizontalAlignment="Center"/>
         </StackPanel>
         
     </Grid>

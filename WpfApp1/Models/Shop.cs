@@ -10,7 +10,5 @@ namespace WpfApp1.Models
     internal class Shop
     {
         public static Sortir ssort { get; set; }
-
-        public static int s;
     }
 }

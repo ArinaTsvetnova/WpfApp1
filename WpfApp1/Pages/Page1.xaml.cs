@@ -59,7 +59,17 @@ namespace WpfApp1.Pages
         }
         private void ButtonBuy_Click(object sender, RoutedEventArgs e)
         {
-
+            Button btn = sender as Button; //кнопка, которая отправляет нам инфу
+            Film selectFilm = btn.DataContext as Film; //прировняли 
+            if (selectFilm == null)
+            {
+                MessageBox.Show("Фильм закрыт для проката, попробуйте зайти позднее");
+            }
+            NavigationService.Navigate(new Page5( selectFilm));
+            if (NavigationService.CanGoForward)
+            {
+                NavigationService.GoForward();
+            }
         }
 
         private void Poisc_TextChanged(object sender, TextChangedEventArgs e)
