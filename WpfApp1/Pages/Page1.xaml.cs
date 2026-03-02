@@ -13,75 +13,34 @@ namespace WpfApp1.Pages
             InitializeComponent();
         }
 
-        private void Chois1_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void Chois_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Page2());
-            if (NavigationService.CanGoForward)
+            switch((sender as Button).Tag)
             {
-                NavigationService.GoForward();
-            }
-        }
-
-        private void Chois2_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new Page3());
-            if (NavigationService.CanGoForward)
-            {
-                NavigationService.GoForward();
-            }   
-        }
-
-        private void Chois3_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new Page4());
-            if (NavigationService.CanGoForward)
-            {
-                NavigationService.GoForward();
-            }
-        }
-
-        private void Chois4_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new Page5());
-            if (NavigationService.CanGoForward)
-            {
-                NavigationService.GoForward();
-            }
-        }
-
-        private void Chois5_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new Page6());
-            if (NavigationService.CanGoForward)
-            {
-                NavigationService.GoForward();
-            }
-        }
-
-        private void Chois6_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new Page7());
-            if (NavigationService.CanGoForward)
-            {
-                NavigationService.GoForward();
-            }
-        }
-
-        private void Chois7_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new Page8());
-            if (NavigationService.CanGoForward)
-            {
-                NavigationService.GoForward();
-            }
-        }
-
-        private void Chois8_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new Page9());
-            if (NavigationService.CanGoForward)
-            {
-                NavigationService.GoForward();
+                case "1":
+                    NavigationService.Navigate(new Page2(1));
+                    break;
+                case "2":
+                    NavigationService.Navigate(new Page2(2));
+                    break;
+                case "3":
+                    NavigationService.Navigate(new Page2(3));
+                    break;
+                case "4":
+                    NavigationService.Navigate(new Page2(4));
+                    break;
+                case "5":
+                    NavigationService.Navigate(new Page2(5));
+                    break;
+                case "6":
+                    NavigationService.Navigate(new Page2(6));
+                    break;
+                case "7":
+                    NavigationService.Navigate(new Page2(7));
+                    break;
+                case "8":
+                    NavigationService.Navigate(new Page2(8));
+                    break;
             }
         }
     }

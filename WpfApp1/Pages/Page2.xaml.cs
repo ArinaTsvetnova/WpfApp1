@@ -20,9 +20,10 @@ namespace WpfApp1.Pages
     /// </summary>
     public partial class Page2 : Page
     {
-        public Page2()
+        public Page2( int t)
         {
             InitializeComponent();
+            DetaelLstBx.ItemsSource = Core1.Context.basepart_.Where(b => b.parttypeid == t).ToList();
         }
     }
 }
