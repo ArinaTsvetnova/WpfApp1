@@ -16,7 +16,7 @@ namespace WpfApp1
                     case 1:
                         return $"Тип сокета {cpu_.socket_.name}, \nчисло ядер {cpu_.numberofcores}, \nмаксимальная основная частота {cpu_.maxcorefrequency}, \nкэш l3 {cpu_.cachel3}, \nигпу {cpu_.igpu_.name}, \nтепловая мощность {cpu_.thermalpower}, \nимеет встроенное графическое ядро  {cpu_.hasigpu}";
                     case 2:
-                        return $"";
+                        return $"Графический интерфейс {gpu_.gpuinterface_.name}, \nчастота микросхемы {gpu_.chipfrequency}, \nвидеопамять {gpu_.videomemory}, \nшина памяти {gpu_.memorybus}, \nрекомендуемая мощность {gpu_.recommendpower}";
                     default:
                         return "";
                 }

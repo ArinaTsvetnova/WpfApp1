@@ -25,5 +25,14 @@ namespace WpfApp1.Pages
             InitializeComponent();
             DetaelLstBx.ItemsSource = Core1.Context.basepart_.Where(b => b.parttypeid == t).ToList();
         }
+
+        private void Back1_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Page1());
+            if (NavigationService.CanGoForward)
+            {
+                NavigationService.GoForward();
+            }
+        }
     }
 }
