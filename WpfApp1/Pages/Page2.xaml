@@ -24,7 +24,7 @@
                             <TextBlock TextWrapping="Wrap" Text="{Binding name}" FontSize="20"/>
                             <TextBlock TextWrapping="Wrap" Text="{Binding opis}" FontSize="15"/>
                         </StackPanel>
-                        <Button x:Name="Buy" Content="Выбрать" Width="75" Height="30"/>
+                        <Button x:Name="Buy" Content="Выбрать" Width="75" Height="30" Click="Buy_Click"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

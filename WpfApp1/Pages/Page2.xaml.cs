@@ -34,5 +34,10 @@ namespace WpfApp1.Pages
                 NavigationService.GoForward();
             }
         }
+
+        private void Buy_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }
