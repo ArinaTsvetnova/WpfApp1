@@ -6,7 +6,8 @@
       xmlns:local="clr-namespace:WpfApp1.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="720" d:DesignWidth="800"
-      Title="Page1">
+      Title="Page1"
+      Loaded="Page_Loaded">
     <ScrollViewer>
     <Grid>
         <Grid.RowDefinitions>

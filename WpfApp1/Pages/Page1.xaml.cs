@@ -1,4 +1,5 @@
 ﻿using System.Windows.Controls;
+using WpfApp1.Models;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace WpfApp1.Pages
@@ -11,6 +12,7 @@ namespace WpfApp1.Pages
         public Page1()
         {
             InitializeComponent();
+            Load();
         }
 
         private void Chois_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -47,6 +49,16 @@ namespace WpfApp1.Pages
         private void Clear_Click(object sender, System.Windows.RoutedEventArgs e)
         {
 
+        }
+
+        private void Load()
+        {
+            DetailsChois.ItemsSource = Lists.sborka;
+        }
+
+        private void Page_Loaded(object sender, System.Windows.RoutedEventArgs e)
+        {
+            Load();
         }
     }
 }
