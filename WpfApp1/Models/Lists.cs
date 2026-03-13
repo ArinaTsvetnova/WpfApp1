@@ -10,6 +10,7 @@ namespace WpfApp1.Models
     public static class Lists
     {
         public static List<basepart_> sborka { get; } = new List<basepart_>();
+        public static List<string> erersb { get; } = new List<string>();  
         public static void Add(basepart_ i)
         {
             if (sborka.Count == 0)
@@ -30,6 +31,11 @@ namespace WpfApp1.Models
             {
                 MessageBox.Show("Деталь не подходит!");
             }
+            //else if (sborka.Any(s => s.cpu_.socketid == i.motherboard_.socketid))
+            //{
+            //    erersb.Add("Деталь добавлена!");
+            //}
+
             else
             {
                 sborka.Add(i);
@@ -38,6 +44,7 @@ namespace WpfApp1.Models
 
 
         }
+
         public static void Clean() 
         {
             sborka.Clear();
