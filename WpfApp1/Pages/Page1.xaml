@@ -99,7 +99,23 @@
                 <Button x:Name="Chois8" Content="Выбрать" FontSize="20" Height="45" Width="90" HorizontalAlignment="Right" Margin="10, 5" Click="Chois_Click" Tag="2"/>
             </Grid>
             <ListBox x:Name="DetailsChois" Grid.Row="2" Grid.Column="0" Grid.RowSpan="8" d:ItemsSource="{d:SampleData ItemCount=5}">
-                
+                <ListBox.ItemTemplate >
+                    <DataTemplate>
+                        <StackPanel Margin="15, 5" Orientation="Vertical">
+                            <Image Height="100" Width="120" Source="{Binding image}"/>
+                            <StackPanel Margin="5" HorizontalAlignment="Center" Width="200">
+                                <TextBlock TextWrapping="Wrap" Text="{Binding name}" FontSize="20"/>
+                                <TextBlock TextWrapping="Wrap" Text="{Binding opis}" FontSize="15"/>
+                            </StackPanel>
+                            <Button x:Name="Del" Content="Удалить" Width="75" Height="30" Click="Del_Click"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
             </ListBox>
         
         </Grid>

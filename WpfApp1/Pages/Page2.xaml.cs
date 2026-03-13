@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.Models;
 
 namespace WpfApp1.Pages
 {
@@ -37,7 +38,8 @@ namespace WpfApp1.Pages
 
         private void Buy_Click(object sender, RoutedEventArgs e)
         {
-            
+            Button btn = sender as Button;
+            Lists.Add(btn.DataContext as basepart_);
         }
     }
 }

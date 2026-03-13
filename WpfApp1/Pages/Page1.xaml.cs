@@ -48,16 +48,26 @@ namespace WpfApp1.Pages
 
         private void Clear_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-
+            Lists.Clean();
+            Load();
         }
 
         private void Load()
         {
+            DetailsChois.ItemsSource = null;
             DetailsChois.ItemsSource = Lists.sborka;
+            
         }
 
         private void Page_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
+            Load();
+        }
+
+        private void Del_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            Button b = sender as Button;
+            Lists.Remove(b.DataContext as basepart_);
             Load();
         }
     }

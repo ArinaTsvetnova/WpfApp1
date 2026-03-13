@@ -15,17 +15,43 @@ namespace WpfApp1.Models
             if (sborka.Count == 0)
             {
                 sborka.Add(i);
+                MessageBox.Show("Деталь добавлена!");
             }
             else if (sborka.Any(s => s.parttypeid == i.parttypeid))
             {
                 MessageBox.Show("Деталь уже добавлена!");
             }
+            else if (sborka.Any(s => s.motherboard_.socketid == i.cpu_.socketid))
+            {
+                sborka.Add(i);
+                MessageBox.Show("Деталь добавлена!");
+            }
+            else if (sborka.Any(s => s.motherboard_.socketid != i.cpu_.socketid))
+            {
+                MessageBox.Show("Деталь не подходит!");
+            }
+            else
+            {
+                sborka.Add(i);
+                MessageBox.Show("Деталь добавлена!");
+            }
+
 
         }
-        public static void Clean(basepart_ i) 
+        public static void Clean() 
         {
             sborka.Clear();
         }
-        
+        public static void Remove(basepart_ i)
+        {
+            if (sborka.Remove(i))
+            {
+                MessageBox.Show("Удалено");
+            }
+            else
+            {
+                MessageBox.Show("Не получилось удалить");
+            }
+        }
     }
 }
