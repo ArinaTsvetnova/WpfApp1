@@ -43,5 +43,10 @@ namespace WpfApp1.Pages
                     break;
             }
         }
+
+        private void Clear_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+        }
     }
 }

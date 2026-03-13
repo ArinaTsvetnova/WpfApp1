@@ -125,24 +125,6 @@
     <Compile Include="Pages\Page3.xaml.cs">
       <DependentUpon>Page3.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Page4.xaml.cs">
-      <DependentUpon>Page4.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Page5.xaml.cs">
-      <DependentUpon>Page5.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Page6.xaml.cs">
-      <DependentUpon>Page6.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Page7.xaml.cs">
-      <DependentUpon>Page7.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Page8.xaml.cs">
-      <DependentUpon>Page8.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Page9.xaml.cs">
-      <DependentUpon>Page9.xaml</DependentUpon>
-    </Compile>
     <Compile Include="partassembly_.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -210,30 +192,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Page3.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Page4.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Page5.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Page6.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Page7.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Page8.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Page9.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
