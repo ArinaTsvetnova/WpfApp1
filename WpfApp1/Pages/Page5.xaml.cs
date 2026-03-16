@@ -20,12 +20,43 @@ namespace WpfApp1.Pages
     /// </summary>
     public partial class Page5 : Page
     {
+        List<Session> sessions;
         public Film film { get; set; }
+        public GenerFilm genref { get; set; }
+        public Session session { get; set; }
         public Page5( Film f)
         {
             InitializeComponent();
             film = f;
             this.DataContext = this;
+            foreach(var a in film.GenerFilm)
+                ganre.Text = a.Genre.Genre1;
+            sessions = Core.Context.Session.ToList();
+            FilmListBox.ItemsSource = sessions;
+        }
+
+        private void Buy_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = sender as Button;
+            Session selectSession = btn.DataContext as Session;
+            if (selectSession == null)
+            {
+                MessageBox.Show("Фильм закрыт для проката, попробуйте зайти позднее");
+            }
+            NavigationService.Navigate(new Page6( selectSession));
+            if (NavigationService.CanGoForward)
+            {
+                NavigationService.GoForward();
+            }
+        }
+
+        private void BackToMain_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Page1());
+            if (NavigationService.CanGoForward)
+            {
+                NavigationService.GoForward();
+            }
         }
     }
 }

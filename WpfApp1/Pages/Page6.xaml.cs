@@ -20,9 +20,10 @@ namespace WpfApp1.Pages
     /// </summary>
     public partial class Page6 : Page
     {
-        public Page6()
+        public Page6(Session s)
         {
             InitializeComponent();
+
         }
     }
 }

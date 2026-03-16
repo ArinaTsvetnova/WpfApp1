@@ -59,7 +59,7 @@ namespace WpfApp1.Pages
         }
         private void ButtonBuy_Click(object sender, RoutedEventArgs e)
         {
-            Button btn = sender as Button; //кнопка, которая отправляет нам инфу
+            Button btn = sender as Button; //кнопка, которая запускает метод ButtonBuy_Click
             Film selectFilm = btn.DataContext as Film; //прировняли 
             if (selectFilm == null)
             {
@@ -85,13 +85,15 @@ namespace WpfApp1.Pages
         }
         private void Sort_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (Sort.SelectionBoxItemStringFormat == "0")
+            if (Sort.SelectedIndex == 0)
             {
+                FilmListBox.ItemsSource = null;
                 FilmListBox.ItemsSource = Core.Context.Film.OrderBy(f => f.Name).ToList();
             }
-            else if (Sort.SelectionBoxItemStringFormat == "1")
+            else if (Sort.SelectedIndex == 1)
             {
-                FilmListBox.ItemsSource = Core.Context.Film.OrderBy(r => r.Rating).ToList();
+                FilmListBox.ItemsSource = null;
+                FilmListBox.ItemsSource = Core.Context.Film.OrderByDescending(r => r.Rating).ToList();
             }
             else
             { }
