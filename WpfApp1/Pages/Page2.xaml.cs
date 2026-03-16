@@ -52,7 +52,7 @@ namespace WpfApp1.Pages
             }
             else
             {
-                DetaelLstBx.ItemsSource = Core1.Context.basepart_.Where(d => d.name.Contains(Poisc.Text)).ToList();
+                DetaelLstBx.ItemsSource = detali.Where(d => d.name.ToLower().Contains(Poisc.Text.ToLower())).ToList();
             }
         }
     }
