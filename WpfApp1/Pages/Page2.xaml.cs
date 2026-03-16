@@ -21,10 +21,12 @@ namespace WpfApp1.Pages
     /// </summary>
     public partial class Page2 : Page
     {
+        List<basepart_> detali;
         public Page2( int t)
         {
             InitializeComponent();
-            DetaelLstBx.ItemsSource = Core1.Context.basepart_.Where(b => b.parttypeid == t).ToList();
+            detali = Core1.Context.basepart_.Where(b => b.parttypeid == t).ToList();
+            DetaelLstBx.ItemsSource = detali;
         }
 
         private void Back1_Click(object sender, RoutedEventArgs e)
@@ -40,6 +42,18 @@ namespace WpfApp1.Pages
         {
             Button btn = sender as Button;
             Lists.Add(btn.DataContext as basepart_);
+        }
+
+        private void Poisc_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(Poisc.Text))
+            {
+                DetaelLstBx.ItemsSource = detali;
+            }
+            else
+            {
+                DetaelLstBx.ItemsSource = Core1.Context.basepart_.Where(d => d.name.Contains(Poisc.Text)).ToList();
+            }
         }
     }
 }

@@ -11,11 +11,11 @@
     <Grid Margin="0,0,10,-195">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="2 цп" Grid.RowSpan="2"/>
-        <Button x:Name="Back" Height="30" Width="50" Content="На главную" Margin="0,20,750,6"/>
-        <ListBox x:Name="DetaelLstBx" ScrollViewer.HorizontalScrollBarVisibility="Disabled" d:ItemsSource="{d:SampleData ItemCount=5}" >
+        <TextBox x:Name="Poisc" FontSize="25" Background="White" Height="40" Width="540" Grid.Row="0" TextChanged="Poisc_TextChanged" Margin="15"/>
+        <ListBox x:Name="DetaelLstBx" ScrollViewer.HorizontalScrollBarVisibility="Disabled" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Row="1">
             <ListBox.ItemTemplate >
                 <DataTemplate>
                     <StackPanel Margin="15, 5" Orientation="Horizontal">
@@ -34,6 +34,6 @@
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
         </ListBox>
-        <Button x:Name="Back1" Content="Назад" Width="100" Height="50" Grid.Row="1" FontSize="20" Click="Back1_Click"/>
+        <Button x:Name="Back1" Content="Назад" Width="100" Height="50" Grid.Row="2" FontSize="20" Click="Back1_Click"/>
     </Grid>
 </Page>

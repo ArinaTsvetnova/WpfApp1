@@ -56,7 +56,8 @@ namespace WpfApp1.Pages
         {
             DetailsChois.ItemsSource = null;
             DetailsChois.ItemsSource = Lists.sborka;
-            
+            Error.ItemsSource = null;
+            Error.ItemsSource = Lists.erersb;
         }
 
         private void Page_Loaded(object sender, System.Windows.RoutedEventArgs e)
