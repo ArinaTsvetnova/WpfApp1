@@ -40,7 +40,7 @@ namespace WpfApp1.Pages
                 },
                 new Sortir
                 {
-                    Name = "-",
+                    Name = "Фильтрация",
                 }
             };
 
