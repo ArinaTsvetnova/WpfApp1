@@ -27,6 +27,27 @@ namespace WpfApp1.Pages
             InitializeComponent();
             detali = Core1.Context.basepart_.Where(b => b.parttypeid == t).ToList();
             DetaelLstBx.ItemsSource = detali;
+
+            List<manufacturer_> manuf = new List<manufacturer_>()
+            {
+                new manufacturer_
+                {
+                    name = "Фильтрация"
+                }
+            };
+
+            // = Core1.Context.manufacturer_.ToList(); //
+            foreach (var d in detali)
+            {
+                if (manuf.Any(m => m.id == d.manufacturerid))
+                {
+                    continue;
+                }
+                manuf.Add(d.manufacturer_);
+            }
+            
+            Sort.ItemsSource = null;
+            Sort.ItemsSource = manuf.Select(s => s.name);
         }
 
         private void Back1_Click(object sender, RoutedEventArgs e)
@@ -54,6 +75,20 @@ namespace WpfApp1.Pages
             {
                 DetaelLstBx.ItemsSource = detali.Where(d => d.name.ToLower().Contains(Poisc.Text.ToLower())).ToList();
             }
+        }
+
+        private void Sort_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (Sort.SelectedIndex == 0)
+            {
+                DetaelLstBx.ItemsSource = detali;
+            }
+            else
+            {
+                //Sort.SelectedValue  использовать в LINQ
+                DetaelLstBx.ItemsSource = detali.Where(d => d.manufacturer_.name == Sort.SelectedValue);
+            }
+                
         }
     }
 }

@@ -108,6 +108,7 @@
                                 <StackPanel Margin="5" HorizontalAlignment="Center" Width="200">
                                     <TextBlock TextWrapping="Wrap" Text="{Binding name}" FontSize="20"/>
                                     <TextBlock TextWrapping="Wrap" Text="{Binding opis}" FontSize="15"/>
+                                    <TextBlock TextWrapping="Wrap" Text="{Binding price}" FontSize="15"/>
                                 </StackPanel>
                                 <Button x:Name="Del" Content="Удалить" Width="75" Height="30" Click="Del_Click"/>
                             </StackPanel>
