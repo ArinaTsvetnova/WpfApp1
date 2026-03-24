@@ -37,11 +37,16 @@ namespace WpfApp1.Pages
 
         private void vhod_Click(object sender, RoutedEventArgs e)
         {
+            Auth(password.Text);
+        }
+        public bool Auth(string pass)
+        {
             List<User> users = Core1.Context.User.ToList(); 
             User afuser = users.FirstOrDefault(U => U.Email.ToLower() == email.Text.ToLower());
+            pass = password.Text;
             if (afuser == null)
-                return;
-            if (afuser.Password == password.Text)
+               return false;
+            if (afuser.Password == pass)
             {
                 UserInfo.kupt = afuser;
                 NavigationService.Navigate(new Page3());
@@ -49,11 +54,14 @@ namespace WpfApp1.Pages
                 {
                     NavigationService.GoForward();
                 }
+                return true;
             }
             else
             {
                 MessageBox.Show("Неправильный ввод пароля! Попробуйте еще раз");
+                return false;
             }
+            
         }
     }
 }
