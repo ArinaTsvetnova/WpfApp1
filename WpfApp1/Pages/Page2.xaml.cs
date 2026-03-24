@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,23 +38,32 @@ namespace WpfApp1.Pages
 
         private void vhod_Click(object sender, RoutedEventArgs e)
         {
-            Auth(password.Text);
-        }
-        public bool Auth(string pass)
-        {
-            List<User> users = Core1.Context.User.ToList(); 
-            User afuser = users.FirstOrDefault(U => U.Email.ToLower() == email.Text.ToLower());
-            pass = password.Text;
-            if (afuser == null)
-               return false;
-            if (afuser.Password == pass)
+            string log = email.Text;
+            string pass = password.Text;
+            Auth(pass, log);
+            if (Auth(pass, log) == true)
             {
-                UserInfo.kupt = afuser;
                 NavigationService.Navigate(new Page3());
                 if (NavigationService.CanGoForward)
                 {
                     NavigationService.GoForward();
                 }
+            }
+        }
+        public bool Auth(string pass, string log)
+        {
+            List<User> users = Core1.Context.User.ToList();
+           
+            User afuser = users.FirstOrDefault(U => U.Email.ToLower() == log.ToLower());
+            
+            if (afuser == null)
+            {
+                return false;
+            }
+               
+            if (afuser.Password == pass)
+            {
+                UserInfo.kupt = afuser;
                 return true;
             }
             else

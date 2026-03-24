@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WpfApp1.Models;
 
 namespace WpfApp1.Pages
@@ -27,20 +18,39 @@ namespace WpfApp1.Pages
         }
         private void regButton_Click(object sender, RoutedEventArgs e)
         {
-            List<User> users = Core1.Context.User.ToList();
-            User newUser = new User // создание нового пользователя
+            string N = name.Text;
+            string E = email.Text;
+            string P = password.Text;
+            Reg(N, E, P);
+            if (Reg(N, E, P) == true)
             {
-                Name = name.Text,
-                Email = email.Text,
-                Password = password.Text
-            };
-            Core1.Context.User.Add(newUser);
-            Core1.Context.SaveChanges();
-            UserInfo.kupt = newUser;
-            NavigationService.Navigate(new Page3());
-            if (NavigationService.CanGoForward)
+                NavigationService.Navigate(new Page3());
+                if (NavigationService.CanGoForward)
+                {
+                    NavigationService.GoForward();
+                }
+            }
+        }
+        public bool Reg(string N, string E, string P)
+        {
+            if (N != "" && E != "" && P != "" && N != " " && E != " " && P != " ")
             {
-                NavigationService.GoForward();
+                List<User> users = Core1.Context.User.ToList();
+                User newUser = new User // создание нового пользователя
+                {
+                    Name = N,
+                    Email = E,
+                    Password = P
+                };
+                Core1.Context.User.Add(newUser);
+                Core1.Context.SaveChanges();
+                UserInfo.kupt = newUser;
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Ошибка ввода полей");
+                return false; 
             }
         }
     }
