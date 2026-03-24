@@ -26,7 +26,7 @@ namespace WpfApp1.Pages
         public Page1()
         {
             InitializeComponent();
-            film = Core.Context.Film.ToList();
+            film = Core1.Context.Film.ToList();
             FilmListBox.ItemsSource = film;
             List<Sortir> ssort = new List<Sortir>()
             {
@@ -80,7 +80,7 @@ namespace WpfApp1.Pages
             }
             else 
             {
-                FilmListBox.ItemsSource = Core.Context.Film.Where(f => f.Name.Contains(Poisc.Text)).ToList(); //возвращает список фильмов, которые имеют символы как в поисковой строке и присваивает переменную листбоксу(которую мы привели к типу данных лист)
+                FilmListBox.ItemsSource = Core1.Context.Film.Where(f => f.Name.Contains(Poisc.Text)).ToList(); //возвращает список фильмов, которые имеют символы как в поисковой строке и присваивает переменную листбоксу(которую мы привели к типу данных лист)
             }
         }
         private void Sort_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -88,12 +88,12 @@ namespace WpfApp1.Pages
             if (Sort.SelectedIndex == 0)
             {
                 FilmListBox.ItemsSource = null;
-                FilmListBox.ItemsSource = Core.Context.Film.OrderBy(f => f.Name).ToList();
+                FilmListBox.ItemsSource = Core1.Context.Film.OrderBy(f => f.Name).ToList();
             }
             else if (Sort.SelectedIndex == 1)
             {
                 FilmListBox.ItemsSource = null;
-                FilmListBox.ItemsSource = Core.Context.Film.OrderByDescending(r => r.Rating).ToList();
+                FilmListBox.ItemsSource = Core1.Context.Film.OrderByDescending(r => r.Rating).ToList();
             }
             else
             { }

@@ -37,7 +37,7 @@ namespace WpfApp1.Pages
 
         private void vhod_Click(object sender, RoutedEventArgs e)
         {
-            List<User> users = Core.Context.User.ToList(); 
+            List<User> users = Core1.Context.User.ToList(); 
             User afuser = users.FirstOrDefault(U => U.Email.ToLower() == email.Text.ToLower());
             if (afuser == null)
                 return;

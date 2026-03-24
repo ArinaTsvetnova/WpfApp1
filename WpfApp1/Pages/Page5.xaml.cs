@@ -31,7 +31,7 @@ namespace WpfApp1.Pages
             this.DataContext = this;
             foreach(var a in film.GenerFilm)
                 ganre.Text = a.Genre.Genre1;
-            sessions = Core.Context.Session.ToList();
+            sessions = Core1.Context.Session.ToList();
             FilmListBox.ItemsSource = sessions;
         }
 

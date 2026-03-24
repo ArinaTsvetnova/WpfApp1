@@ -27,15 +27,15 @@ namespace WpfApp1.Pages
         }
         private void regButton_Click(object sender, RoutedEventArgs e)
         {
-            List<User> users = Core.Context.User.ToList();
+            List<User> users = Core1.Context.User.ToList();
             User newUser = new User // создание нового пользователя
             {
                 Name = name.Text,
                 Email = email.Text,
                 Password = password.Text
             };
-            Core.Context.User.Add(newUser);
-            Core.Context.SaveChanges();
+            Core1.Context.User.Add(newUser);
+            Core1.Context.SaveChanges();
             UserInfo.kupt = newUser;
             NavigationService.Navigate(new Page3());
             if (NavigationService.CanGoForward)
