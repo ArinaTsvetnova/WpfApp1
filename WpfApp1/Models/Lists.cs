@@ -79,15 +79,17 @@ namespace WpfApp1.Models
             
         public static void Clean()
         {
-            sborka.Clear();
             pr = 0;
+            sborka.Clear();
+            
             Error();
         }
         public static void Remove(basepart_ i)
         {
+            pr -= i.price;
             if (sborka.Remove(i))
             {
-                pr -= i.price;
+                
                 MessageBox.Show("Удалено");
             }
             else

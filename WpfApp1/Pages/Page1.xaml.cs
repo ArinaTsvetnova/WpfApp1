@@ -59,6 +59,7 @@ namespace WpfApp1.Pages
             DetailsChois.ItemsSource = Lists.sborka;
             Error.ItemsSource = null;
             Error.ItemsSource = Lists.erersb;
+            sum.Text = Lists.pr.ToString();
         }
 
         private void Page_Loaded(object sender, System.Windows.RoutedEventArgs e)
