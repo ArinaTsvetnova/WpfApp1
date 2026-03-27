@@ -30,8 +30,8 @@ namespace WpfApp1.Pages
             InitializeComponent();
             session = s;
             this.DataContext = this;
-            foreach (var a in hall.ClassHall)
-                classh.Text = a.Class;
+            //foreach (var a in hall.ClassHall)
+            //    classh.Text = a.Class;
         }
     }
 }
