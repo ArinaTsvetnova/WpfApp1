@@ -17,9 +17,8 @@
         <TextBlock Text="{Binding session.Date}" FontSize="20" Foreground="#215756" HorizontalAlignment="Left" Grid.Row="0"/>
         <TextBlock Text="{Binding session.Time}" FontSize="20" Foreground="#215756" HorizontalAlignment="Left" Grid.Row="0"/>
         <TextBlock x:Name="classh"  FontSize="20" Foreground="#215756" Grid.Row="0"/>
-        <Rectangle Height="40" Width="600" Fill="HotPink" Grid.Row="1">
-            <TextBlock FontSize="20" Height="40" Width="600" Text="ЭКРАН" />
-        </Rectangle>
+        <Rectangle Height="40" Width="600" Fill="HotPink" Grid.Row="1"/>
+        <TextBlock FontSize="25" Text="ЭКРАН" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Button Height="40" Width="110" Content="Оформить билет" HorizontalAlignment="Right" Grid.Row="0"/>
         
     </Grid>
