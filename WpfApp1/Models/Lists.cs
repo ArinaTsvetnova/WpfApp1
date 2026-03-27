@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Windows;
 
@@ -8,11 +9,13 @@ namespace WpfApp1.Models
     {
         public static ICollection<basepart_> sborka { get; } = new List<basepart_>();
         public static ICollection<string> erersb { get; } = new List<string>();
+        public static decimal pr = 0;
         public static void Add(basepart_ i)
         {
             if (sborka.Count == 0)
             {
                 sborka.Add(i);
+                pr += i.price;
                 MessageBox.Show("Деталь добавлена!");
             }
             else if (sborka.Any(s => s.parttypeid == i.parttypeid))
@@ -26,6 +29,7 @@ namespace WpfApp1.Models
             else
             {
                 sborka.Add(i);
+                pr += i.price;
                 MessageBox.Show("Деталь добавлена!");
             }
             Error();
@@ -76,12 +80,14 @@ namespace WpfApp1.Models
         public static void Clean()
         {
             sborka.Clear();
+            pr = 0;
             Error();
         }
         public static void Remove(basepart_ i)
         {
             if (sborka.Remove(i))
             {
+                pr -= i.price;
                 MessageBox.Show("Удалено");
             }
             else

@@ -13,6 +13,7 @@ namespace WpfApp1.Pages
         {
             InitializeComponent();
             Load();
+            sum.Text = Lists.pr.ToString();
         }
 
         private void Chois_Click(object sender, System.Windows.RoutedEventArgs e)
