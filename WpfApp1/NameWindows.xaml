@@ -1,0 +1,23 @@
+﻿<Window x:Class="WpfApp1.NameWindows"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="NameWindows" SizeToContent="WidthAndHeight">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Введите название сборки" FontSize="25" Grid.Row="0" HorizontalAlignment="Center"/>
+        <TextBox x:Name="NameSb" Grid.Row="1" Margin="10"/>
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <Button x:Name="Enter" Content="Сохранить" FontSize="15" Height="25" Width="100" Margin="30, 10" IsDefault="True"/>
+            <Button x:Name="Cansel" Content="Отмена" FontSize="15" Height="25" Width="100" Margin="10" IsCancel="True"/>
+        </StackPanel>
+        
+    </Grid>
+</Window>
