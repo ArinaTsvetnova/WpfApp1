@@ -20,10 +20,18 @@ namespace WpfApp1.Pages
     /// </summary>
     public partial class Page6 : Page
     {
+        List<Session> sessions;
+        public Film film { get; set; }
+        public Hall hall { get; set; }
+        public ClassHall CH { get; set; }
+        public Session session { get; set; }
         public Page6(Session s)
         {
             InitializeComponent();
-
+            session = s;
+            this.DataContext = this;
+            foreach (var a in hall.ClassHall)
+                classh.Text = a.Class;
         }
     }
 }

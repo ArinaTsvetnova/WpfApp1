@@ -9,6 +9,15 @@
       Title="Page6">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="{Binding Session.Data}" FontSize="20" Foreground="#215756" HorizontalAlignment="Left" Grid.Row="0"/>
+        <TextBlock Text="{Binding Session.Time}" FontSize="20" Foreground="#215756" HorizontalAlignment="Left" Grid.Row="0"/>
+        <TextBlock x:Name="classh"  FontSize="20" Foreground="#215756" Grid.Row="0"/>
+        <Button Height="40" Width="110" Content="Оформить билет" HorizontalAlignment="Right" Grid.Row="0"/>
         
     </Grid>
 </Page>
