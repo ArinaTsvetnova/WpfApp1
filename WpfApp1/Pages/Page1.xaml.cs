@@ -73,5 +73,14 @@ namespace WpfApp1.Pages
             Lists.Remove(b.DataContext as basepart_);
             Load();
         }
+
+        private void look_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Page3());
+            if (NavigationService.CanGoForward)
+            {
+                NavigationService.GoForward();
+            }
+        }
     }
 }

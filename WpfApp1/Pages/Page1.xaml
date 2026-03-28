@@ -23,7 +23,7 @@
             <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Center" Grid.ColumnSpan="2">
                 <Button x:Name="Clear" Content="Очистить" FontSize="20" Margin="5" MinHeight="30" MinWidth="75" Click="Clear_Click"/>
                 <TextBlock Text="Собери компьютер" Grid.Row="0" FontSize="40" HorizontalAlignment="Center" Width="360" Grid.ColumnSpan="2" Margin="50, 0"/>
-                <Button x:Name="look" Content="Сборки" FontSize="20" Margin="5" MinHeight="30" MinWidth="75"/>
+                <Button x:Name="look" Content="Сборки" FontSize="20" Margin="5" MinHeight="30" MinWidth="75" Click="look_Click"/>
             </StackPanel>
 
             <StackPanel Grid.Row="1" Grid.Column="1">
