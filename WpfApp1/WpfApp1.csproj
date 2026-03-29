@@ -136,7 +136,7 @@
     <Compile Include="motherboard_.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
-    <Compile Include="NameWindows.xaml.cs">
+    <Compile Include="Windouw\NameWindows.xaml.cs">
       <DependentUpon>NameWindows.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Page2.xaml.cs">
@@ -160,6 +160,7 @@
     <Compile Include="ram_.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Sborka.cs" />
     <Compile Include="socketprocessorcooler_.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
@@ -203,7 +204,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="NameWindows.xaml">
+    <Page Include="Windouw\NameWindows.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

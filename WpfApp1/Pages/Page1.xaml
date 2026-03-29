@@ -123,7 +123,7 @@
                 
                 <ListBox x:Name="Error" Grid.Row="1" Grid.Column="0" d:ItemsSource="{d:SampleData ItemCount=5}" FontSize="20"/>
                 <TextBlock x:Name="sum"  Grid.Row="2" Margin="15" FontSize="15"/>
-                <Button Content="Сохранить" Grid.Row="2" Width="100" Height="50" FontSize="18" Margin="15"/>
+                <Button Content="Сохранить" Grid.Row="2" Width="100" Height="50" FontSize="18" Margin="15" Click="Button_Click"/>
             </Grid>
             
         </Grid>

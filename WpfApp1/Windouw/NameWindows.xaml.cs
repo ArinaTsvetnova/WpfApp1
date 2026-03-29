@@ -23,5 +23,28 @@ namespace WpfApp1
         {
             InitializeComponent();
         }
+
+        public string Name
+        {
+            get
+            {
+                return NameSb.Text;
+            }
+        }
+        public string Author
+        {
+            get
+            {
+                return AuthorSb.Text;
+            }
+        }
+
+        private void Enter_Click(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(NameSb.Text) && !string.IsNullOrWhiteSpace(AuthorSb.Text))
+            {
+                DialogResult = true;
+            }
+        }
     }
 }

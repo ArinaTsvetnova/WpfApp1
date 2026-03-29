@@ -1,6 +1,6 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
 using WpfApp1.Models;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace WpfApp1.Pages
 {
@@ -14,11 +14,12 @@ namespace WpfApp1.Pages
             InitializeComponent();
             Load();
             sum.Text = Lists.pr.ToString();
+            //List<assembly_> assembly = Core2.Context.assembly_.ToList();
         }
 
         private void Chois_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            switch((sender as Button).Tag)
+            switch ((sender as Button).Tag)
             {
                 case "1":
                     NavigationService.Navigate(new Page2(1));
@@ -81,6 +82,30 @@ namespace WpfApp1.Pages
             {
                 NavigationService.GoForward();
             }
+        }
+
+        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            if (DetailsChois.Items.Count > 0)
+            {
+                NameWindows nameWindows = new NameWindows();
+
+                if (nameWindows.ShowDialog() == true)
+                {
+                    MessageBox.Show("Сборка сохранена");
+                    Lists.Clean();
+                    Load();
+                }
+                else
+                {
+                    MessageBox.Show("Сборка не сохранена");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Добавьте минимум одну деталь!");
+            }
+
         }
     }
 }

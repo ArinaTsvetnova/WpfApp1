@@ -10,12 +10,16 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <TextBlock Text="Введите название сборки" FontSize="25" Grid.Row="0" HorizontalAlignment="Center"/>
         <TextBox x:Name="NameSb" Grid.Row="1" Margin="10"/>
-        <StackPanel Grid.Row="2" Orientation="Horizontal">
-            <Button x:Name="Enter" Content="Сохранить" FontSize="15" Height="25" Width="100" Margin="30, 10" IsDefault="True"/>
+        <TextBlock Text="Введите автора сборки" FontSize="25" Grid.Row="2" HorizontalAlignment="Center"/>
+        <TextBox x:Name="AuthorSb" Grid.Row="3" Margin="10"/>
+        <StackPanel Grid.Row="4" Orientation="Horizontal">
+            <Button x:Name="Enter" Content="Сохранить" FontSize="15" Height="25" Width="100" Margin="30, 10" IsDefault="True" Click="Enter_Click"/>
             <Button x:Name="Cansel" Content="Отмена" FontSize="15" Height="25" Width="100" Margin="10" IsCancel="True"/>
         </StackPanel>
         
