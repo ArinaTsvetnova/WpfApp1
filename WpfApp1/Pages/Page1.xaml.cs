@@ -14,7 +14,7 @@ namespace WpfApp1.Pages
             InitializeComponent();
             Load();
             sum.Text = Lists.pr.ToString();
-            //List<assembly_> assembly = Core2.Context.assembly_.ToList();
+            
         }
 
         private void Chois_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -93,6 +93,13 @@ namespace WpfApp1.Pages
                 if (nameWindows.ShowDialog() == true)
                 {
                     MessageBox.Show("Сборка сохранена");
+                    assembly_ newAs = new assembly_ { name = nameWindows.Name, author = nameWindows.Author };
+                    Core.Context.assembly_.Add(newAs);
+                    foreach (basepart_ sbd in Lists.sborka)
+                    {
+                        Core.Context.partassembly_.Add(new partassembly_ { partid = sbd.id, assemblyid = newAs.id });
+                    }
+                    Core.Context.SaveChanges();
                     Lists.Clean();
                     Load();
                 }

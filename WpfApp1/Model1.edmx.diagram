@@ -4,9 +4,9 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f8edd22ea0cd406a99aeedb7a877ae2f" Name="Diagram1" ZoomLevel="77">
+      <Diagram DiagramId="0f1b00a3bd1648ceb928d3e717d9b10b" Name="Diagram1">
         <EntityTypeShape EntityType="zwekuza_pkModel.assembly_" Width="1.5" PointX="6" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="zwekuza_pkModel.basepart_" Width="1.5" PointX="21.375" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="zwekuza_pkModel.basepart_" Width="1.5" PointX="3" PointY="15.875" IsExpanded="true" />
         <EntityTypeShape EntityType="zwekuza_pkModel.boardformfactorcase_" Width="1.5" PointX="13.5" PointY="17.125" IsExpanded="true" />
         <EntityTypeShape EntityType="zwekuza_pkModel.case_" Width="1.5" PointX="5.25" PointY="16.875" IsExpanded="true" />
         <EntityTypeShape EntityType="zwekuza_pkModel.casesize_" Width="1.5" PointX="3" PointY="21.25" IsExpanded="true" />

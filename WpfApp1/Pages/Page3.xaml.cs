@@ -20,9 +20,35 @@ namespace WpfApp1.Pages
     /// </summary>
     public partial class Page3 : Page
     {
+        List<assembly_> sborkapk;
         public Page3()
         {
             InitializeComponent();
+            sborkapk = Core.Context.assembly_.ToList();
+            SborkaBx.ItemsSource = sborkapk;
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Page1());
+            if (NavigationService.CanGoForward)
+            {
+                NavigationService.GoForward();
+            }
+        }
+
+        private void SborkaBx_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var g = SborkaBx.SelectedItem as assembly_;
+            if (g != null)
+            {
+                Opis.Visibility = Visibility;
+                Opis.ItemsSource = g.partassembly_;
+            }
+            else
+            {
+                MessageBox.Show("Ничего не выбранно");
+            }
         }
     }
 }

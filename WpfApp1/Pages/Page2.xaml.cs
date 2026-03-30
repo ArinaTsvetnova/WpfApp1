@@ -25,7 +25,7 @@ namespace WpfApp1.Pages
         public Page2( int t)
         {
             InitializeComponent();
-            detali = Core2.Context.basepart_.Where(b => b.parttypeid == t).ToList();
+            detali = Core.Context.basepart_.Where(b => b.parttypeid == t).ToList();
             DetaelLstBx.ItemsSource = detali;
 
             List<manufacturer_> manuf = new List<manufacturer_>()

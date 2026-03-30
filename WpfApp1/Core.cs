@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace WpfApp1
 {
-    internal class Core2
+    internal class Core
     {
-        public static zwekuza_pkEntities1 Context = new zwekuza_pkEntities1();
+        public static zwekuza_pkEntities Context = new zwekuza_pkEntities();
     }
 }
