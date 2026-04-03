@@ -43,11 +43,17 @@ namespace WpfApp1.Pages
             {
                 MessageBox.Show("Фильм закрыт для проката, попробуйте зайти позднее");
             }
-            NavigationService.Navigate(new Page6( selectSession));
-            if (NavigationService.CanGoForward)
+            if (session != null)
             {
-                NavigationService.GoForward();
+                if (NavigationService.CanGoForward)
+                {
+                    NavigationService.GoForward();
+                }
             }
+            else
+            {
+                MessageBox.Show("Свободных мест на сеанс нет!");
+            }    
         }
 
         private void BackToMain_Click(object sender, RoutedEventArgs e)

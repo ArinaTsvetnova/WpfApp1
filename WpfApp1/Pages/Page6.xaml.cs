@@ -20,7 +20,7 @@ namespace WpfApp1.Pages
     /// </summary>
     public partial class Page6 : Page
     {
-        List<Session> sessions;
+        Session sessions;
         public Film film { get; set; }
         public Hall hall { get; set; }
         public ClassHall CH { get; set; }
@@ -30,8 +30,19 @@ namespace WpfApp1.Pages
             InitializeComponent();
             session = s;
             this.DataContext = this;
-            //foreach (var a in hall.ClassHall)
-            //    classh.Text = a.Class;
+            if (session != null)
+            {
+                SitListBox.ItemsSource = sessions.SessionPlace;
+            }
+            else 
+            {
+                MessageBox.Show("Свободных мест на сеанс нет!");
+            }
+        }
+
+        private void sit_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
