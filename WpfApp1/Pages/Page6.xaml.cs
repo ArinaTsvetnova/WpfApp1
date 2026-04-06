@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.Models;
 
 namespace WpfApp1.Pages
 {
@@ -20,29 +22,43 @@ namespace WpfApp1.Pages
     /// </summary>
     public partial class Page6 : Page
     {
-        Session sessions;
+        public Session sessions { get; set; }
         public Film film { get; set; }
         public Hall hall { get; set; }
         public ClassHall CH { get; set; }
-        public Session session { get; set; }
         public Page6(Session s)
         {
             InitializeComponent();
-            session = s;
+            sessions = s;
             this.DataContext = this;
-            if (session != null)
+            if (sessions != null)
             {
-                SitListBox.ItemsSource = sessions.SessionPlace;
+                SitListBox.ItemsSource = sessions.SessionPlace.Where(g => g.Occupied == false);
             }
             else 
             {
                 MessageBox.Show("Свободных мест на сеанс нет!");
             }
+            SitAddListBox.ItemsSource = AddSits.AddNewSit;
         }
 
         private void sit_Click(object sender, RoutedEventArgs e)
         {
+            Button btn = sender as Button;
+            AddSits.AddNewSit.Add(btn.DataContext as Place);
 
+        }
+
+        private void buy_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = sender as Button;
+            Session selSession = btn.DataContext as Session;
+            NavigationService.Navigate(new Page7(selSession));
+        }
+
+        private void clear_Click(object sender, RoutedEventArgs e)
+        {
+            AddSits.AddNewSit.Clear();
         }
     }
 }

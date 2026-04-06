@@ -15,10 +15,23 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
+        <Button x:Name="buy"  Height="40" Width="110" Content="Оформить билет" Margin="5"  HorizontalAlignment="Right" Grid.Row="0" Click="buy_Click"/>
         <StackPanel Grid.Row="0" Orientation="Horizontal">
-            <TextBlock Text="{Binding session.Date}" FontSize="20" Foreground="#215756" HorizontalAlignment="Left"/>
-            <TextBlock Text="{Binding session.Time}" FontSize="20" Foreground="#215756" HorizontalAlignment="Left"/>
-            <TextBlock Text="{Binding session.Hall.ClassHall.Class}" FontSize="20" Foreground="#215756" HorizontalAlignment="Left"/>
+            <TextBlock Text="{Binding sessions.Date, StringFormat={}{0:d}}" FontSize="20" Foreground="#215756" Margin="5" HorizontalAlignment="Left"/>
+            <TextBlock Text="{Binding sessions.Time}" FontSize="20" Foreground="#215756" Margin="5" HorizontalAlignment="Left"/>
+            <TextBlock Text="{Binding sessions.Hall.ClassHall.Class}" FontSize="20" Foreground="#215756" Margin="5" HorizontalAlignment="Left"/>
+            <ListBox x:Name="SitAddListBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" d:ItemsSource="{d:SampleData ItemCount=5}" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock x:Name="sits" Height="20" Width="20"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
         </StackPanel>
         <TextBlock x:Name="classh"  FontSize="20" Foreground="#215756" Grid.Row="0"/>
         <Rectangle Height="40" Width="600" Fill="HotPink" Grid.Row="1" Margin="5"/>
@@ -35,7 +48,6 @@
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
         </ListBox>
-        <Button Height="40" Width="110" Content="Оформить билет" HorizontalAlignment="Right" Grid.Row="0"/>
-        <Button x:Name="clear" Content="Сбросить" Height="40" Width="110" HorizontalAlignment="Right" Grid.Row="3"/>
+        <Button x:Name="clear" Content="Сбросить" Height="40" Width="110" HorizontalAlignment="Right" Grid.Row="3" Click="clear_Click"/>
     </Grid>
 </Page>

@@ -26,9 +26,9 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Width="300" Height="70" Orientation="Horizontal">
-                            <TextBlock Text="{Binding Date}"/>
-                            <TextBlock Text="{Binding Tame}"/>
-                            <TextBlock Text="{Binding Hall.ClassHall.Class}"/>
+                        <TextBlock Text="{Binding Date, StringFormat={}{0:d}}" Margin="5"/>
+                        <TextBlock Text="{Binding Time}" Margin="5"/>
+                        <TextBlock Text="{Binding Hall.ClassHall.Class}" Margin="5"/>
                             <Button x:Name="Buy" Content="Купить билет" Width="90" Height="40" Click="Buy_Click"/>
                         </StackPanel>
                     </DataTemplate>

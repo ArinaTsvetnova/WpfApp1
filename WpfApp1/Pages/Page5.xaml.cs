@@ -31,7 +31,7 @@ namespace WpfApp1.Pages
             this.DataContext = this;
             foreach(var a in film.GenerFilm)
                 ganre.Text = a.Genre.Genre1;
-            sessions = Core1.Context.Session.ToList();
+            sessions = Core1.Context.Session.Where(g => g.FilmID==film.ID).ToList();
             FilmListBox.ItemsSource = sessions;
         }
 
@@ -43,17 +43,18 @@ namespace WpfApp1.Pages
             {
                 MessageBox.Show("Фильм закрыт для проката, попробуйте зайти позднее");
             }
-            if (session != null)
+            if (selectSession != null)
             {
-                if (NavigationService.CanGoForward)
-                {
-                    NavigationService.GoForward();
-                }
+                NavigationService.Navigate(new Page6(selectSession));
+                //if (NavigationService.CanGoForward)
+                //{
+                //    NavigationService.GoForward();
+                //}
             }
             else
             {
                 MessageBox.Show("Свободных мест на сеанс нет!");
-            }    
+            }
         }
 
         private void BackToMain_Click(object sender, RoutedEventArgs e)

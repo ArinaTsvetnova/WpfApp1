@@ -103,6 +103,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model2.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\AddSits.cs" />
     <Compile Include="Models\Shop.cs" />
     <Compile Include="Models\Sortir.cs" />
     <Compile Include="Models\UserInfo.cs" />
