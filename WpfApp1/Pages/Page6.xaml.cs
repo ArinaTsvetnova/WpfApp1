@@ -39,26 +39,12 @@ namespace WpfApp1.Pages
             {
                 MessageBox.Show("Свободных мест на сеанс нет!");
             }
-            SitAddListBox.ItemsSource = AddSits.AddNewSit;
         }
 
         private void sit_Click(object sender, RoutedEventArgs e)
         {
             Button btn = sender as Button;
-            AddSits.AddNewSit.Add(btn.DataContext as Place);
 
-        }
-
-        private void buy_Click(object sender, RoutedEventArgs e)
-        {
-            Button btn = sender as Button;
-            Session selSession = btn.DataContext as Session;
-            NavigationService.Navigate(new Page7(selSession));
-        }
-
-        private void clear_Click(object sender, RoutedEventArgs e)
-        {
-            AddSits.AddNewSit.Clear();
         }
     }
 }
