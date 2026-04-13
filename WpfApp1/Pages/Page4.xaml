@@ -18,6 +18,7 @@
             <TextBlock Text="Введите пароль" FontSize="20" Foreground="#215756" HorizontalAlignment="Center" Margin="5"/>
             <TextBox x:Name="password" FontSize="11" Foreground="#487994" Background="White" Height="40" Width="300" Margin="5"/>
             <Button x:Name="reg" Content="Зарегистрировать" Width="130" Height="40" FontSize="14" Click="regButton_Click" Margin="5"/>
+            <Button x:Name="BackToMain" Content="На главное меню" Width="110" Height="40" HorizontalAlignment="Right" Click="BackToMain_Click"/>
         </StackPanel>
     </Grid>
 </Page>

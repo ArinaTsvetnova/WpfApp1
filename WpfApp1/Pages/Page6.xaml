@@ -35,5 +35,6 @@
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
         </ListBox>
+        <Button x:Name="BackToMain" Content="На главное меню" Width="110" Height="40" HorizontalAlignment="Right" Click="BackToMain_Click"/>
     </Grid>
 </Page>

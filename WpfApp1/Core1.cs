@@ -8,6 +8,6 @@ namespace WpfApp1
 {
     internal class Core1
     {
-        public static film_zwekuzaEntities1 Context = new film_zwekuzaEntities1();
+        public static film_zwekuzaEntities Context = new film_zwekuzaEntities();
     }
 }

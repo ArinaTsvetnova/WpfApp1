@@ -18,6 +18,7 @@
             <Button x:Name="vhod" Content="Вход" Width="100" Height="40" FontSize="14" Click="vhod_Click"/>
             <TextBlock Text="Не зарегистрированы? Ошибка. Регайся." FontSize="20" Foreground="#215756" HorizontalAlignment="Center" Margin="5"/>
             <Button x:Name="reg" Content="Регистрация" Width="100" Height="40" FontSize="14" Click="regButton_Click"/>
+            <Button x:Name="BackToMain" Content="На главное меню" Width="110" Height="40" HorizontalAlignment="Right" Click="BackToMain_Click"/>
         </StackPanel>
                 
     </Grid>

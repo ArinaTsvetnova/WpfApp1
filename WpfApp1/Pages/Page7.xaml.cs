@@ -33,7 +33,17 @@ namespace WpfApp1.Pages
 
         private void BYE_Click(object sender, RoutedEventArgs e)
         {
-
+            //sessio.Occupied = true;
+            Core1.Context.SessionPlace.First(u=>u.PlaceID == sessio.PlaceID).Occupied = true;
+            Core1.Context.SaveChanges();
+            NavigationService.Navigate(new Page1());
+            if (NavigationService.CanGoForward)
+            {
+                NavigationService.GoForward();
+            }
+        }
+        private void BackToMain_Click(object sender, RoutedEventArgs e)
+        {
             NavigationService.Navigate(new Page1());
             if (NavigationService.CanGoForward)
             {

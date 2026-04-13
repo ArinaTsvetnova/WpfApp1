@@ -18,6 +18,7 @@
             <TextBlock Text="Итого:" FontSize="20" Foreground="#215756" Margin="5" HorizontalAlignment="Center"/>
             <TextBlock Text="549" FontSize="20" Foreground="#215756" Margin="5" HorizontalAlignment="Center"/>
             <Button x:Name="BYE" Content="Оформить билет" Margin="5" Width="110" Height="40" HorizontalAlignment="Center" Click="BYE_Click"/>
+            <Button x:Name="BackToMain" Content="Отказ" Width="80" Height="40" HorizontalAlignment="Right" Click="BackToMain_Click"/>
         </StackPanel>
     </Grid>
 </Page>

@@ -53,5 +53,13 @@ namespace WpfApp1.Pages
                 return false; 
             }
         }
+        private void BackToMain_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Page1());
+            if (NavigationService.CanGoForward)
+            {
+                NavigationService.GoForward();
+            }
+        }
     }
 }

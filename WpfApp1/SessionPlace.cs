@@ -17,6 +17,7 @@ namespace WpfApp1
         public int PlaceID { get; set; }
         public int SessionID { get; set; }
         public bool Occupied { get; set; }
+        public int ID_SP { get; set; }
     
         public virtual Place Place { get; set; }
         public virtual Session Session { get; set; }

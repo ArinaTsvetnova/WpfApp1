@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище film_zwekuzaModel1" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище film_zwekuzaModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Age">
           <Key>
             <PropertyRef Name="ID" />
@@ -71,17 +71,14 @@
           <Property Name="HallID" Type="int" Nullable="false" />
           <Property Name="FilmID" Type="int" Nullable="false" />
         </EntityType>
-        <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "film_zwekuza.dbo.SessionPlace" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
         <EntityType Name="SessionPlace">
           <Key>
-            <PropertyRef Name="PlaceID" />
-            <PropertyRef Name="SessionID" />
-            <PropertyRef Name="Occupied" />
+            <PropertyRef Name="ID_SP" />
           </Key>
           <Property Name="PlaceID" Type="int" Nullable="false" />
           <Property Name="SessionID" Type="int" Nullable="false" />
           <Property Name="Occupied" Type="bit" Nullable="false" />
+          <Property Name="ID_SP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -255,7 +252,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище film_zwekuzaModel1Container">
+        <EntityContainer Name="Хранилище film_zwekuzaModelContainer">
           <EntitySet Name="Age" EntityType="Self.Age" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ClassHall" EntityType="Self.ClassHall" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Film" EntityType="Self.Film" Schema="dbo" store:Type="Tables" />
@@ -264,16 +261,10 @@
           <EntitySet Name="Hall" EntityType="Self.Hall" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Place" EntityType="Self.Place" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Session" EntityType="Self.Session" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SessionPlace" EntityType="Self.SessionPlace" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ticket" EntityType="Self.Ticket" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SessionPlace" EntityType="Self.SessionPlace" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [SessionPlace].[PlaceID] AS [PlaceID], 
-    [SessionPlace].[SessionID] AS [SessionID], 
-    [SessionPlace].[Occupied] AS [Occupied]
-    FROM [dbo].[SessionPlace] AS [SessionPlace]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_Film_Age" Association="Self.FK_Film_Age">
             <End Role="Age" EntitySet="Age" />
             <End Role="Film" EntitySet="Film" />
@@ -327,7 +318,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="film_zwekuzaModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="film_zwekuzaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Age">
           <Key>
             <PropertyRef Name="ID" />
@@ -412,6 +403,17 @@
           <NavigationProperty Name="SessionPlace" Relationship="Self.FK_SessionPlace_Session" FromRole="Session" ToRole="SessionPlace" />
           <NavigationProperty Name="Ticket" Relationship="Self.FK_Ticket_Session" FromRole="Session" ToRole="Ticket" />
         </EntityType>
+        <EntityType Name="SessionPlace">
+          <Key>
+            <PropertyRef Name="ID_SP" />
+          </Key>
+          <Property Name="PlaceID" Type="Int32" Nullable="false" />
+          <Property Name="SessionID" Type="Int32" Nullable="false" />
+          <Property Name="Occupied" Type="Boolean" Nullable="false" />
+          <Property Name="ID_SP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Place" Relationship="Self.FK_SessionPlace_Place" FromRole="SessionPlace" ToRole="Place" />
+          <NavigationProperty Name="Session" Relationship="Self.FK_SessionPlace_Session" FromRole="SessionPlace" ToRole="Session" />
+        </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -443,18 +445,6 @@
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Ticket" Relationship="Self.FK_Ticket_User" FromRole="User" ToRole="Ticket" />
-        </EntityType>
-        <EntityType Name="SessionPlace">
-          <Key>
-            <PropertyRef Name="PlaceID" />
-            <PropertyRef Name="SessionID" />
-            <PropertyRef Name="Occupied" />
-          </Key>
-          <Property Name="PlaceID" Type="Int32" Nullable="false" />
-          <Property Name="SessionID" Type="Int32" Nullable="false" />
-          <Property Name="Occupied" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Place" Relationship="Self.FK_SessionPlace_Place" FromRole="SessionPlace" ToRole="Place" />
-          <NavigationProperty Name="Session" Relationship="Self.FK_SessionPlace_Session" FromRole="SessionPlace" ToRole="Session" />
         </EntityType>
         <Association Name="FK_Film_Age">
           <End Role="Age" Type="Self.Age" Multiplicity="1" />
@@ -600,7 +590,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="film_zwekuzaEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="film_zwekuzaEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Age" EntityType="Self.Age" />
           <EntitySet Name="ClassHall" EntityType="Self.ClassHall" />
           <EntitySet Name="Film" EntityType="Self.Film" />
@@ -609,10 +599,10 @@
           <EntitySet Name="Hall" EntityType="Self.Hall" />
           <EntitySet Name="Place" EntityType="Self.Place" />
           <EntitySet Name="Session" EntityType="Self.Session" />
+          <EntitySet Name="SessionPlace" EntityType="Self.SessionPlace" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Ticket" EntityType="Self.Ticket" />
           <EntitySet Name="User" EntityType="Self.User" />
-          <EntitySet Name="SessionPlace" EntityType="Self.SessionPlace" />
           <AssociationSet Name="FK_Film_Age" Association="Self.FK_Film_Age">
             <End Role="Age" EntitySet="Age" />
             <End Role="Film" EntitySet="Film" />
@@ -667,9 +657,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище film_zwekuzaModel1Container" CdmEntityContainer="film_zwekuzaEntities1">
+        <EntityContainerMapping StorageEntityContainer="Хранилище film_zwekuzaModelContainer" CdmEntityContainer="film_zwekuzaEntities">
           <EntitySetMapping Name="Age">
-            <EntityTypeMapping TypeName="film_zwekuzaModel1.Age">
+            <EntityTypeMapping TypeName="film_zwekuzaModel.Age">
               <MappingFragment StoreEntitySet="Age">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Age1" ColumnName="Age" />
@@ -677,7 +667,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ClassHall">
-            <EntityTypeMapping TypeName="film_zwekuzaModel1.ClassHall">
+            <EntityTypeMapping TypeName="film_zwekuzaModel.ClassHall">
               <MappingFragment StoreEntitySet="ClassHall">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Class" ColumnName="Class" />
@@ -685,7 +675,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Film">
-            <EntityTypeMapping TypeName="film_zwekuzaModel1.Film">
+            <EntityTypeMapping TypeName="film_zwekuzaModel.Film">
               <MappingFragment StoreEntitySet="Film">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -698,7 +688,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="GenerFilm">
-            <EntityTypeMapping TypeName="film_zwekuzaModel1.GenerFilm">
+            <EntityTypeMapping TypeName="film_zwekuzaModel.GenerFilm">
               <MappingFragment StoreEntitySet="GenerFilm">
                 <ScalarProperty Name="GenerID" ColumnName="GenerID" />
                 <ScalarProperty Name="FilmID" ColumnName="FilmID" />
@@ -707,7 +697,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Genre">
-            <EntityTypeMapping TypeName="film_zwekuzaModel1.Genre">
+            <EntityTypeMapping TypeName="film_zwekuzaModel.Genre">
               <MappingFragment StoreEntitySet="Genre">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Genre1" ColumnName="Genre" />
@@ -715,7 +705,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Hall">
-            <EntityTypeMapping TypeName="film_zwekuzaModel1.Hall">
+            <EntityTypeMapping TypeName="film_zwekuzaModel.Hall">
               <MappingFragment StoreEntitySet="Hall">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="CassID" ColumnName="CassID" />
@@ -723,7 +713,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Place">
-            <EntityTypeMapping TypeName="film_zwekuzaModel1.Place">
+            <EntityTypeMapping TypeName="film_zwekuzaModel.Place">
               <MappingFragment StoreEntitySet="Place">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="HallID" ColumnName="HallID" />
@@ -732,7 +722,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Session">
-            <EntityTypeMapping TypeName="film_zwekuzaModel1.Session">
+            <EntityTypeMapping TypeName="film_zwekuzaModel.Session">
               <MappingFragment StoreEntitySet="Session">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
@@ -742,8 +732,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="SessionPlace">
+            <EntityTypeMapping TypeName="film_zwekuzaModel.SessionPlace">
+              <MappingFragment StoreEntitySet="SessionPlace">
+                <ScalarProperty Name="PlaceID" ColumnName="PlaceID" />
+                <ScalarProperty Name="SessionID" ColumnName="SessionID" />
+                <ScalarProperty Name="Occupied" ColumnName="Occupied" />
+                <ScalarProperty Name="ID_SP" ColumnName="ID_SP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="film_zwekuzaModel1.sysdiagrams">
+            <EntityTypeMapping TypeName="film_zwekuzaModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -754,7 +754,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Ticket">
-            <EntityTypeMapping TypeName="film_zwekuzaModel1.Ticket">
+            <EntityTypeMapping TypeName="film_zwekuzaModel.Ticket">
               <MappingFragment StoreEntitySet="Ticket">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
@@ -764,21 +764,12 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="User">
-            <EntityTypeMapping TypeName="film_zwekuzaModel1.User">
+            <EntityTypeMapping TypeName="film_zwekuzaModel.User">
               <MappingFragment StoreEntitySet="User">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SessionPlace">
-            <EntityTypeMapping TypeName="film_zwekuzaModel1.SessionPlace">
-              <MappingFragment StoreEntitySet="SessionPlace">
-                <ScalarProperty Name="PlaceID" ColumnName="PlaceID" />
-                <ScalarProperty Name="SessionID" ColumnName="SessionID" />
-                <ScalarProperty Name="Occupied" ColumnName="Occupied" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

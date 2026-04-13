@@ -13,10 +13,10 @@ namespace WpfApp1
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class film_zwekuzaEntities1 : DbContext
+    public partial class film_zwekuzaEntities : DbContext
     {
-        public film_zwekuzaEntities1()
-            : base("name=film_zwekuzaEntities1")
+        public film_zwekuzaEntities()
+            : base("name=film_zwekuzaEntities")
         {
         }
     
@@ -33,9 +33,9 @@ namespace WpfApp1
         public virtual DbSet<Hall> Hall { get; set; }
         public virtual DbSet<Place> Place { get; set; }
         public virtual DbSet<Session> Session { get; set; }
+        public virtual DbSet<SessionPlace> SessionPlace { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Ticket> Ticket { get; set; }
         public virtual DbSet<User> User { get; set; }
-        public virtual DbSet<SessionPlace> SessionPlace { get; set; }
     }
 }
