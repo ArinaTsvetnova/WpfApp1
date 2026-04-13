@@ -41,11 +41,17 @@ namespace WpfApp1.Pages
         private void sit_Click(object sender, RoutedEventArgs e)
         {
             Button btn = sender as Button;
-            Session selectSess = btn.DataContext as Session;
-            NavigationService.Navigate(new Page7( selectSess));
-            if (NavigationService.CanGoForward)
+            if (btn != null)
             {
-                NavigationService.GoForward();
+                SessionPlace selectSess = btn.DataContext as SessionPlace;
+                if (selectSess != null)
+                {
+                    NavigationService.Navigate(new Page7(selectSess, sessions));
+                    if (NavigationService.CanGoForward)
+                    {
+                        NavigationService.GoForward();
+                    }
+                }
             }
         }
     }

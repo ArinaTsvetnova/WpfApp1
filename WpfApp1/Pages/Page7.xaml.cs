@@ -20,13 +20,25 @@ namespace WpfApp1.Pages
     /// </summary>
     public partial class Page7 : Page
     {
-        public Session sessio { get; set; }
+        public SessionPlace sessio { get; set; }
+        public Session sesions { get; set; }
 
-        public Page7(Session ss)
+        public Page7(SessionPlace ss, Session se)
         {
-            sessio = ss;
-            this.DataContext = this;
             InitializeComponent();
+            sessio = ss;
+            sesions = se;
+            this.DataContext = this;
+        }
+
+        private void BYE_Click(object sender, RoutedEventArgs e)
+        {
+
+            NavigationService.Navigate(new Page1());
+            if (NavigationService.CanGoForward)
+            {
+                NavigationService.GoForward();
+            }
         }
     }
 }
