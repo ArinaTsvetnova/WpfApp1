@@ -9,6 +9,11 @@
       Title="Page7">
 
     <Grid>
-        <TextBlock Text="hhhhh" />
+        <StackPanel>
+            <TextBlock Text="{Binding sessio.Film.Name}" FontSize="20" Foreground="#215756" Margin="5" HorizontalAlignment="Center"/>
+            <TextBlock Text="{Binding sessio.Date, StringFormat={}{0:d}}" FontSize="20" Foreground="#215756" Margin="5" HorizontalAlignment="Center"/>
+            <TextBlock Text="{Binding sessio.Time}" FontSize="20" Foreground="#215756" Margin="5" HorizontalAlignment="Center"/>
+            <TextBlock Text="{Binding sessio.Hall.ClassHall.Class}" FontSize="20" Foreground="#215756" Margin="5" HorizontalAlignment="Center"/>
+        </StackPanel>
     </Grid>
 </Page>

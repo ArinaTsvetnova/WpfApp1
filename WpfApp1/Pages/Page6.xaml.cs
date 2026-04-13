@@ -23,9 +23,6 @@ namespace WpfApp1.Pages
     public partial class Page6 : Page
     {
         public Session sessions { get; set; }
-        public Film film { get; set; }
-        public Hall hall { get; set; }
-        public ClassHall CH { get; set; }
         public Page6(Session s)
         {
             InitializeComponent();
@@ -44,7 +41,12 @@ namespace WpfApp1.Pages
         private void sit_Click(object sender, RoutedEventArgs e)
         {
             Button btn = sender as Button;
-
+            Session selectSess = btn.DataContext as Session;
+            NavigationService.Navigate(new Page7( selectSess));
+            if (NavigationService.CanGoForward)
+            {
+                NavigationService.GoForward();
+            }
         }
     }
 }

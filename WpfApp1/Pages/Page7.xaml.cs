@@ -20,9 +20,12 @@ namespace WpfApp1.Pages
     /// </summary>
     public partial class Page7 : Page
     {
+        public Session sessio { get; set; }
 
         public Page7(Session ss)
         {
+            sessio = ss;
+            this.DataContext = this;
             InitializeComponent();
         }
     }
