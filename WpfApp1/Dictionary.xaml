@@ -4,11 +4,10 @@
         <Setter Property="Background" Value="#EACDDB"/>
     </Style>
     <Style TargetType="Button">
-        <Setter Property="Foreground" Value="#E963A7"/>
         <Setter Property="Background" Value="#F0A6C5"/>
     </Style>
     <Style TargetType="TextBlock">
-        <Setter Property="Foreground" Value="#E963A7"/>
+        <Setter Property="Foreground" Value="#cf5488"/>
         <Setter Property="FontFamily" Value="Constantia"/>
         <Setter Property="FontWeight" Value="Bold"/>
     </Style>

@@ -24,5 +24,20 @@ namespace WpfApp1.Pages
         {
             InitializeComponent();
         }
+
+        private void Shop_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Account_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void LogIn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
