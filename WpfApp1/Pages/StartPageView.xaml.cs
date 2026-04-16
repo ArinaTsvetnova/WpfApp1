@@ -35,36 +35,27 @@ namespace WpfApp1.Pages
             ListMasterType.SelectedValuePath = "Id";
             ListMasterType.ItemsSource = MasterUser.Where(d => d.Role == 1);
             ListServiceType.SelectedIndex = -1;
-
         }
 
         private void ListServiceType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ListMasterType.ItemsSource = null;
             ListMasterType.IsEnabled = false;
-            ComListBox.ItemsSource = null;
 
             if (ListServiceType.SelectedItem is ServiceTypes selectedService)
             {
-                // Логика поиска мастеров:
-                // 1. Берем таблицу связи MasterServices
-                // 2. Фильтруем по ID выбранной услуги
-                // 3. Джойним с таблицей Users, чтобы получить ФИО мастера
-                
-                TextName.Text = masterServices.Where(q => q.IdUsers == MasterUser.IdUsers);
-
                 var mastersQuery = from ms in Core.Context.MasterServices
-                                   join u in Core.Context.Users on ms.MasterId equals u.Id
-                                   where ms.ServiceTypeId == selectedService.Id && u.Role == 1 // Только роль Мастер
+                                   join u in Core.Context.Users on ms.IdUsers equals u.IdUsers
+                                   where ms.IdServiceTypes == selectedService.IdServiceTypes && u.Role == 1 // Только роль Мастер
                                    select u;
 
                 var mastersList = mastersQuery.ToList();
 
                 if (mastersList.Any())
                 {
-                    CmbMaster.ItemsSource = mastersList;
-                    CmbMaster.DisplayMemberPath = "FullName";
-                    CmbMaster.IsEnabled = true;
+                    ListMasterType.ItemsSource = mastersList;
+                    ListMasterType.DisplayMemberPath = "FullName";
+                    ListMasterType.IsEnabled = true;
                 }
                 else
                 {
@@ -72,34 +63,16 @@ namespace WpfApp1.Pages
                 }
             }
         }
-
-        /// <summary>
-        /// Срабатывает при выборе МАСТЕРА
-        /// Задача: Показать в ListBox услуги, которые делает этот мастер
-        /// </summary>
         private void ListMasterType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            LbDetails.ItemsSource = null;
-
-            if (CmbMaster.SelectedItem is Users selectedMaster)
+            if (ListMasterType.SelectedItem is Users selectedMaster)
             {
-                // Логика поиска услуг мастера:
-                // 1. Берем таблицу связи MasterServices
-                // 2. Фильтруем по ID выбранного мастера
-                // 3. Джойним с ServiceTypes, чтобы получить названия услуг
-
                 var servicesQuery = from ms in Core.Context.MasterServices
-                                    join st in Core.Context.ServiceTypes on ms.ServiceTypeId equals st.Id
-                                    where ms.MasterId == selectedMaster.Id
+                                    join st in Core.Context.ServiceTypes on ms.IdServiceTypes equals st.IdServiceTypes
+                                    where ms.IdUsers == selectedMaster.IdUsers
                                     select st;
 
                 var masterServicesList = servicesQuery.ToList();
-
-                // Выводим результат в ListBox
-                LbDetails.ItemsSource = masterServicesList;
-
-                // Опционально: можно менять заголовок
-                TxtListHeader.Text = $"Услуги мастера {selectedMaster.FullName}:";
             }
         }
         private void Shop_Click(object sender, RoutedEventArgs e)
@@ -114,7 +87,11 @@ namespace WpfApp1.Pages
 
         private void LogIn_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new LoginPage());
+            if (NavigationService.CanGoForward)
+            { 
+                NavigationService.GoForward();
+            }
         }
     }
 }

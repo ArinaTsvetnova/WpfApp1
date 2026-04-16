@@ -39,20 +39,6 @@
                     <ComboBox x:Name="ListMasterType" SelectionChanged="ListMasterType_SelectionChanged" Height="35"/>
                 </StackPanel>
             </Grid>
-            <ListBox x:Name="ComListBox" Margin="5" Height="200" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Row="2" d:ItemsSource="{d:SampleData ItemCount=5}">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel>
-                            <TextBlock x:Name="TextName"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-                <ListBox.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel/>
-                    </ItemsPanelTemplate>
-                </ListBox.ItemsPanel>
-            </ListBox>
         </StackPanel>
     </Grid>
 </Page>
