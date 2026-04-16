@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="IdAppointments" />
           </Key>
-          <Property Name="IdAppointments" Type="int" Nullable="false" />
+          <Property Name="IdAppointments" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdUsersC" Type="int" Nullable="false" />
           <Property Name="IdUsersM" Type="int" Nullable="false" />
           <Property Name="IdServiceTypes" Type="int" Nullable="false" />
@@ -23,29 +23,23 @@
           <Key>
             <PropertyRef Name="IdManufacturers" />
           </Key>
-          <Property Name="IdManufacturers" Type="int" Nullable="false" />
+          <Property Name="IdManufacturers" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="MasterServices">
           <Key>
             <PropertyRef Name="IdMasterServices" />
           </Key>
-          <Property Name="IdMasterServices" Type="int" Nullable="false" />
+          <Property Name="IdMasterServices" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdUsers" Type="int" Nullable="false" />
           <Property Name="IdServiceTypes" Type="int" Nullable="false" />
           <Property Name="PersonalPrice" Type="float" Nullable="false" />
         </EntityType>
-        <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "zwekuza_beaute.dbo.OrderItems" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
         <EntityType Name="OrderItems">
           <Key>
             <PropertyRef Name="IdOrderItems" />
-            <PropertyRef Name="IdOrders" />
-            <PropertyRef Name="IdProducts" />
-            <PropertyRef Name="Quantity" />
-            <PropertyRef Name="PriceAtMoment" />
           </Key>
-          <Property Name="IdOrderItems" Type="int" Nullable="false" />
+          <Property Name="IdOrderItems" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdOrders" Type="int" Nullable="false" />
           <Property Name="IdProducts" Type="int" Nullable="false" />
           <Property Name="Quantity" Type="int" Nullable="false" />
@@ -55,7 +49,7 @@
           <Key>
             <PropertyRef Name="IdOrders" />
           </Key>
-          <Property Name="IdOrders" Type="int" Nullable="false" />
+          <Property Name="IdOrders" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdUsers" Type="int" Nullable="false" />
           <Property Name="OrderDate" Type="datetime" Nullable="false" />
           <Property Name="PickupDate" Type="datetime" Nullable="false" />
@@ -67,7 +61,7 @@
           <Key>
             <PropertyRef Name="IdProducts" />
           </Key>
-          <Property Name="IdProducts" Type="int" Nullable="false" />
+          <Property Name="IdProducts" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Price" Type="float" Nullable="false" />
@@ -82,14 +76,14 @@
           <Key>
             <PropertyRef Name="IdProductTypes" />
           </Key>
-          <Property Name="IdProductTypes" Type="int" Nullable="false" />
+          <Property Name="IdProductTypes" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="ServiceTypes">
           <Key>
             <PropertyRef Name="IdServiceTypes" />
           </Key>
-          <Property Name="IdServiceTypes" Type="int" Nullable="false" />
+          <Property Name="IdServiceTypes" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
           <Property Name="BasePrice" Type="float" Nullable="false" />
           <Property Name="DurationMinutes" Type="int" Nullable="false" />
@@ -108,7 +102,7 @@
           <Key>
             <PropertyRef Name="IdUsers" />
           </Key>
-          <Property Name="IdUsers" Type="int" Nullable="false" />
+          <Property Name="IdUsers" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Login" Type="nvarchar(max)" Nullable="false" />
           <Property Name="PasswordHash" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Role" Type="int" Nullable="false" />
@@ -253,21 +247,13 @@
           <EntitySet Name="Appointments" EntityType="Self.Appointments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Manufacturers" EntityType="Self.Manufacturers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MasterServices" EntityType="Self.MasterServices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderItems" EntityType="Self.OrderItems" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductTypes" EntityType="Self.ProductTypes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ServiceTypes" EntityType="Self.ServiceTypes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="OrderItems" EntityType="Self.OrderItems" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [OrderItems].[IdOrderItems] AS [IdOrderItems], 
-    [OrderItems].[IdOrders] AS [IdOrders], 
-    [OrderItems].[IdProducts] AS [IdProducts], 
-    [OrderItems].[Quantity] AS [Quantity], 
-    [OrderItems].[PriceAtMoment] AS [PriceAtMoment]
-    FROM [dbo].[OrderItems] AS [OrderItems]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_Appointments_ServiceTypes" Association="Self.FK_Appointments_ServiceTypes">
             <End Role="ServiceTypes" EntitySet="ServiceTypes" />
             <End Role="Appointments" EntitySet="Appointments" />
@@ -322,7 +308,7 @@
           <Key>
             <PropertyRef Name="IdAppointments" />
           </Key>
-          <Property Name="IdAppointments" Type="Int32" Nullable="false" />
+          <Property Name="IdAppointments" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdUsersC" Type="Int32" Nullable="false" />
           <Property Name="IdUsersM" Type="Int32" Nullable="false" />
           <Property Name="IdServiceTypes" Type="Int32" Nullable="false" />
@@ -340,7 +326,7 @@
           <Key>
             <PropertyRef Name="IdManufacturers" />
           </Key>
-          <Property Name="IdManufacturers" Type="Int32" Nullable="false" />
+          <Property Name="IdManufacturers" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Products" Relationship="Self.FK_Products_Manufacturers" FromRole="Manufacturers" ToRole="Products" />
         </EntityType>
@@ -348,18 +334,30 @@
           <Key>
             <PropertyRef Name="IdMasterServices" />
           </Key>
-          <Property Name="IdMasterServices" Type="Int32" Nullable="false" />
+          <Property Name="IdMasterServices" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdUsers" Type="Int32" Nullable="false" />
           <Property Name="IdServiceTypes" Type="Int32" Nullable="false" />
           <Property Name="PersonalPrice" Type="Double" Nullable="false" />
           <NavigationProperty Name="ServiceTypes" Relationship="Self.FK_MasterServices_ServiceTypes" FromRole="MasterServices" ToRole="ServiceTypes" />
           <NavigationProperty Name="Users" Relationship="Self.FK_MasterServices_Users" FromRole="MasterServices" ToRole="Users" />
         </EntityType>
+        <EntityType Name="OrderItems">
+          <Key>
+            <PropertyRef Name="IdOrderItems" />
+          </Key>
+          <Property Name="IdOrderItems" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdOrders" Type="Int32" Nullable="false" />
+          <Property Name="IdProducts" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="PriceAtMoment" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_OrderItems_Orders" FromRole="OrderItems" ToRole="Orders" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_OrderItems_Products" FromRole="OrderItems" ToRole="Products" />
+        </EntityType>
         <EntityType Name="Orders">
           <Key>
             <PropertyRef Name="IdOrders" />
           </Key>
-          <Property Name="IdOrders" Type="Int32" Nullable="false" />
+          <Property Name="IdOrders" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdUsers" Type="Int32" Nullable="false" />
           <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="PickupDate" Type="DateTime" Nullable="false" Precision="3" />
@@ -373,7 +371,7 @@
           <Key>
             <PropertyRef Name="IdProducts" />
           </Key>
-          <Property Name="IdProducts" Type="Int32" Nullable="false" />
+          <Property Name="IdProducts" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Price" Type="Double" Nullable="false" />
@@ -391,7 +389,7 @@
           <Key>
             <PropertyRef Name="IdProductTypes" />
           </Key>
-          <Property Name="IdProductTypes" Type="Int32" Nullable="false" />
+          <Property Name="IdProductTypes" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Products" Relationship="Self.FK_Products_ProductTypes" FromRole="ProductTypes" ToRole="Products" />
         </EntityType>
@@ -399,7 +397,7 @@
           <Key>
             <PropertyRef Name="IdServiceTypes" />
           </Key>
-          <Property Name="IdServiceTypes" Type="Int32" Nullable="false" />
+          <Property Name="IdServiceTypes" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="BasePrice" Type="Double" Nullable="false" />
           <Property Name="DurationMinutes" Type="Int32" Nullable="false" />
@@ -421,7 +419,7 @@
           <Key>
             <PropertyRef Name="IdUsers" />
           </Key>
-          <Property Name="IdUsers" Type="Int32" Nullable="false" />
+          <Property Name="IdUsers" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Login" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Role" Type="Int32" Nullable="false" />
@@ -433,22 +431,6 @@
           <NavigationProperty Name="Appointments1" Relationship="Self.FK_Appointments_Users1" FromRole="Users" ToRole="Appointments" />
           <NavigationProperty Name="MasterServices" Relationship="Self.FK_MasterServices_Users" FromRole="Users" ToRole="MasterServices" />
           <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Users" FromRole="Users" ToRole="Orders" />
-        </EntityType>
-        <EntityType Name="OrderItems">
-          <Key>
-            <PropertyRef Name="IdOrderItems" />
-            <PropertyRef Name="IdOrders" />
-            <PropertyRef Name="IdProducts" />
-            <PropertyRef Name="Quantity" />
-            <PropertyRef Name="PriceAtMoment" />
-          </Key>
-          <Property Name="IdOrderItems" Type="Int32" Nullable="false" />
-          <Property Name="IdOrders" Type="Int32" Nullable="false" />
-          <Property Name="IdProducts" Type="Int32" Nullable="false" />
-          <Property Name="Quantity" Type="Int32" Nullable="false" />
-          <Property Name="PriceAtMoment" Type="Double" Nullable="false" />
-          <NavigationProperty Name="Orders" Relationship="Self.FK_OrderItems_Orders" FromRole="OrderItems" ToRole="Orders" />
-          <NavigationProperty Name="Products" Relationship="Self.FK_OrderItems_Products" FromRole="OrderItems" ToRole="Products" />
         </EntityType>
         <Association Name="FK_Appointments_ServiceTypes">
           <End Role="ServiceTypes" Type="Self.ServiceTypes" Multiplicity="1" />
@@ -546,18 +528,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Orders_Users">
-          <End Role="Users" Type="Self.Users" Multiplicity="1" />
-          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="IdUsers" />
-            </Principal>
-            <Dependent Role="Orders">
-              <PropertyRef Name="IdUsers" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_OrderItems_Products">
           <End Role="Products" Type="Self.Products" Multiplicity="1" />
           <End Role="OrderItems" Type="Self.OrderItems" Multiplicity="*" />
@@ -567,6 +537,18 @@
             </Principal>
             <Dependent Role="OrderItems">
               <PropertyRef Name="IdProducts" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="IdUsers" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="IdUsers" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -586,13 +568,13 @@
           <EntitySet Name="Appointments" EntityType="Self.Appointments" />
           <EntitySet Name="Manufacturers" EntityType="Self.Manufacturers" />
           <EntitySet Name="MasterServices" EntityType="Self.MasterServices" />
+          <EntitySet Name="OrderItems" EntityType="Self.OrderItems" />
           <EntitySet Name="Orders" EntityType="Self.Orders" />
           <EntitySet Name="Products" EntityType="Self.Products" />
           <EntitySet Name="ProductTypes" EntityType="Self.ProductTypes" />
           <EntitySet Name="ServiceTypes" EntityType="Self.ServiceTypes" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Users" EntityType="Self.Users" />
-          <EntitySet Name="OrderItems" EntityType="Self.OrderItems" />
           <AssociationSet Name="FK_Appointments_ServiceTypes" Association="Self.FK_Appointments_ServiceTypes">
             <End Role="ServiceTypes" EntitySet="ServiceTypes" />
             <End Role="Appointments" EntitySet="Appointments" />
@@ -625,13 +607,13 @@
             <End Role="Orders" EntitySet="Orders" />
             <End Role="OrderItems" EntitySet="OrderItems" />
           </AssociationSet>
-          <AssociationSet Name="FK_Orders_Users" Association="Self.FK_Orders_Users">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Orders" EntitySet="Orders" />
-          </AssociationSet>
           <AssociationSet Name="FK_OrderItems_Products" Association="Self.FK_OrderItems_Products">
             <End Role="Products" EntitySet="Products" />
             <End Role="OrderItems" EntitySet="OrderItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Users" Association="Self.FK_Orders_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
           <AssociationSet Name="FK_Products_ProductTypes" Association="Self.FK_Products_ProductTypes">
             <End Role="ProductTypes" EntitySet="ProductTypes" />
@@ -674,6 +656,17 @@
                 <ScalarProperty Name="IdUsers" ColumnName="IdUsers" />
                 <ScalarProperty Name="IdServiceTypes" ColumnName="IdServiceTypes" />
                 <ScalarProperty Name="PersonalPrice" ColumnName="PersonalPrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderItems">
+            <EntityTypeMapping TypeName="zwekuza_beauteModel.OrderItems">
+              <MappingFragment StoreEntitySet="OrderItems">
+                <ScalarProperty Name="IdOrderItems" ColumnName="IdOrderItems" />
+                <ScalarProperty Name="IdOrders" ColumnName="IdOrders" />
+                <ScalarProperty Name="IdProducts" ColumnName="IdProducts" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="PriceAtMoment" ColumnName="PriceAtMoment" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -746,17 +739,6 @@
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="IsFrozen" ColumnName="IsFrozen" />
                 <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="OrderItems">
-            <EntityTypeMapping TypeName="zwekuza_beauteModel.OrderItems">
-              <MappingFragment StoreEntitySet="OrderItems">
-                <ScalarProperty Name="IdOrderItems" ColumnName="IdOrderItems" />
-                <ScalarProperty Name="IdOrders" ColumnName="IdOrders" />
-                <ScalarProperty Name="IdProducts" ColumnName="IdProducts" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="PriceAtMoment" ColumnName="PriceAtMoment" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

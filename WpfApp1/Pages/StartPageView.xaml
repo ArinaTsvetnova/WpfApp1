@@ -32,13 +32,27 @@
                 </Grid.ColumnDefinitions>
                 <StackPanel Grid.Column="0">
                     <TextBlock Text="Выберите услугу:" Margin="5"/>
-                    <ComboBox ItemsSource="{Binding ServiceTypesList}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedServiceType}" Height="35"/>
+                    <ComboBox x:Name="ListServiceType" Height="35" SelectionChanged="ListServiceType_SelectionChanged"/>
                 </StackPanel>
                 <StackPanel Grid.Column="2">
-                    <TextBlock Text="Выберите мастера:" Margin="0,0,0,5"/>
-                    <ComboBox ItemsSource="{Binding MastersList}" DisplayMemberPath="FullName" SelectedItem="{Binding SelectedMaster}" IsEnabled="{Binding IsServiceSelected}" Height="35"/>
+                    <TextBlock Text="Выберите мастера:" Margin="5"/>
+                    <ComboBox x:Name="ListMasterType" SelectionChanged="ListMasterType_SelectionChanged" Height="35"/>
                 </StackPanel>
             </Grid>
+            <ListBox x:Name="ComListBox" Margin="5" Height="200" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Row="2" d:ItemsSource="{d:SampleData ItemCount=5}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock x:Name="TextName"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
         </StackPanel>
     </Grid>
 </Page>
