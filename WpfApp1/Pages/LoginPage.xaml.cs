@@ -30,43 +30,28 @@ namespace WpfApp1.Pages
             string login = TextLogin.Text.Trim();
             string password = TextPassword.Password;
 
-            // 1. Базовая валидация
             if (string.IsNullOrWhiteSpace(login) || string.IsNullOrEmpty(password))
             {
                 MessageBox.Show("Пожалуйста, заполните все поля.");
                 return;
             }
-                // 2. Поиск пользователя в БД
-                var user = Core.Context.Users.FirstOrDefault(u => u.Login == login);
-                if (user == null)
-                {
-                    MessageBox.Show("Пользователь с таким логином не найден.");
-                    return;
-                }
+            var user = Core.Context.Users.FirstOrDefault(u => u.Login == login);
+            if (user == null)
+            {
+                MessageBox.Show("Пользователь с таким логином не найден.");
+                return;
+            }
+            if (user.IsFrozen)
+            {
+                MessageBox.Show("Ваш аккаунт заблокирован. Обратитесь к администратору.");
+                return;
+            }
+            if (user.PasswordHash != password)
+            {
+                MessageBox.Show("Неверный пароль.");
+                return;
+            }
 
-                // 3. Проверка блокировки (IsFrozen)
-                if (user.IsFrozen)
-                {
-                    MessageBox.Show("Ваш аккаунт заблокирован. Обратитесь к администратору.");
-                    return;
-                }
-
-                // 4. Проверка пароля
-                // В учебных проектах часто хранят пароль как строку.
-                // В реальном приложении здесь сравниваются хеши (например, через BCrypt).
-                if (user.PasswordHash != password)
-                {
-                    MessageBox.Show("Неверный пароль.");
-                    return;
-                }
-
-                // 5. Успешная авторизация
-                // Сохраняем пользователя в глобальную сессию
-                AppSession.CurrentUser = user;
-
-                // Закрываем окно и возвращаем успех
-                this.DialogResult = true;
-                this.Close();
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
