@@ -20,9 +20,28 @@ namespace WpfApp1.Pages
     /// </summary>
     public partial class AdminPageView : Page
     {
+        List<Users> users;
         public AdminPageView()
         {
             InitializeComponent();
+            Load();
+        }
+        private void Load()
+        {
+            users = Core.Context.Users.ToList();
+            UserAll.ItemsSource = null;
+            UserAll.ItemsSource = users;
+
+        }
+
+        private void Del_Click(object sender, RoutedEventArgs e)
+        {
+            Button b = sender as Button;
+            Users remouveUser = b.DataContext as Users;
+            Core.Context.Users.Remove(remouveUser);
+            Core.Context.SaveChanges();
+            users.Remove(remouveUser);
+            Load();
         }
     }
 }
