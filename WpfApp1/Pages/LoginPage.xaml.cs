@@ -86,10 +86,5 @@ namespace WpfApp1.Pages
                 NavigationService.GoForward();
             }
         }
-
-        public static class AppSession
-        {
-            public static Users CurrentUser { get; set; }
-        }
     }
 }

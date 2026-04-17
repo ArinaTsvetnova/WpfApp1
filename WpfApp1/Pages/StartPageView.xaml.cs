@@ -93,5 +93,17 @@ namespace WpfApp1.Pages
                 NavigationService.GoForward();
             }
         }
+        private void BtnBook_Click(object sender, RoutedEventArgs e)
+        {
+            if (AppSession.CurrentUser == null)
+            {
+                MessageBox.Show("Для записи необходимо войти в аккаунт.");
+                NavigationService.Navigate(new LoginPage());
+            }
+            else
+            {
+                NavigationService.Navigate(new AppointmentListPageView());
+            }
+        }
     }
 }

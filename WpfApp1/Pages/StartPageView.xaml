@@ -39,6 +39,7 @@
                     <ComboBox x:Name="ListMasterType" SelectionChanged="ListMasterType_SelectionChanged" Height="35"/>
                 </StackPanel>
             </Grid>
+            <Button x:Name="BtnBook" Content="Записаться" Width="140" Height="35" Margin="10" Grid.Column="4" Click="BtnBook_Click"/>
         </StackPanel>
     </Grid>
 </Page>
