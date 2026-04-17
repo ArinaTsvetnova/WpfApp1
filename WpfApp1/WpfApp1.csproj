@@ -81,6 +81,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserInfo.cs" />
     <Compile Include="OrderItems.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

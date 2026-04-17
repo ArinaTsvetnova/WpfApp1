@@ -20,12 +20,11 @@ namespace WpfApp1.Pages
     /// </summary>
     public partial class AccountPageView : Page
     {
-        private ServiceTypes _service;
-        private Users _master;
 
         public AccountPageView()
         {
             InitializeComponent();
+
         }
         private void Exit_Click(object sender, RoutedEventArgs e)
         {

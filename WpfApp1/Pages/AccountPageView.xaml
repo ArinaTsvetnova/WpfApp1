@@ -11,41 +11,50 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Row="0">
-            <StackPanel VerticalAlignment="Center">
-                <TextBlock x:Name="TxtFullName" Text="ФИО Клиента" FontSize="30"/>
-                <TextBlock x:Name="TxtPhone" Text="+7 (999) 000-00-00" FontSize="20" Margin="5"/>
-            </StackPanel>
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="5" VerticalAlignment="Center">
+            <Button x:Name ="Exit" Content="На главную" Width="120" Height="40" Margin="5" HorizontalAlignment="Right" Click="Exit_Click"/>
+            <TextBlock x:Name="TxtFullName" Text="ФИО Клиента" FontSize="30"/>
+            <TextBlock x:Name="TxtPhone" Text="+7 (999) 000-00-00" FontSize="20" Margin="5"/>
+            <TextBlock Text="История визитов и предстоящие процедуры" FontSize="15"  Margin="5"/>
         </StackPanel>
-        <TextBlock Text="История визитов и предстоящие процедуры" FontSize="15"  Margin="5"/>
-        <StackPanel Grid.Row="1" Orientation="Horizontal">
-            <TextBlock Text="Дата и время"/>
-            <TextBlock Text="Услуга"/>
-            <TextBlock Text="Мастер"/>
-            <TextBlock Text="Цена"/>
-            <TextBlock Text="Статус"/>
-        </StackPanel>
-        <StackPanel Grid.Row="1">
-            <TextBlock Text="{Binding AppointmentDateTime, StringFormat={}{0:dd.MM.yyyy HH:mm}}"/>
-            <TextBlock Text="{Binding ServiceType.Name}"/>
-            <TextBlock Text="{Binding Master.FullName}"/>
-            <TextBlock Text="{Binding FinalPrice, StringFormat={}{0} ₽}"/>
-            <TextBlock Text="{Binding Status}"/>
-        </StackPanel>
+        <TextBlock Text="Дата и время" Grid.Row="1" Grid.Column="0"/>
+        <TextBlock Text="Услуга" Grid.Row="1" Grid.Column="1"/>
+        <TextBlock Text="Мастер" Grid.Row="1" Grid.Column="2"/>
+        <TextBlock Text="Цена" Grid.Row="1" Grid.Column="3"/>
+        <TextBlock Text="Статус" Grid.Row="1" Grid.Column="4"/>
 
-                                <DataGridTextColumn Header="№ Заказа" Binding="{Binding Id}" Width="0.5*"/>
-                                <DataGridTextColumn Header="Дата заказа" Binding="{Binding OrderDate, StringFormat={}{0:dd.MM.yyyy}}" Width="*"/>
-                                <DataGridTextColumn Header="Дата получения" Binding="{Binding PickupDate, StringFormat={}{0:dd.MM.yyyy}}" Width="*"/>
-                                <DataGridTextColumn Header="Сумма" Binding="{Binding TotalAmount, StringFormat={}{0} ₽}" Width="*"/>
-                                <DataGridTextColumn Header="Статус" Binding="{Binding Status}" Width="*">             
+        <TextBlock Text="{Binding AppointmentDateTime, StringFormat={}{0:dd.MM.yyyy HH:mm}}" Grid.Row="2" Grid.Column="0"/>
+        <TextBlock Text="{Binding ServiceType.Name}" Grid.Row="2" Grid.Column="1"/>
+        <TextBlock Text="{Binding Master.FullName}" Grid.Row="2" Grid.Column="2"/>
+        <TextBlock Text="{Binding FinalPrice, StringFormat={}{0} ₽}" Grid.Row="2" Grid.Column="3"/>
+        <TextBlock Text="{Binding Status}" Grid.Row="2" Grid.Column="4"/>
+
+        <TextBlock Text="История покупок" FontSize="15"  Margin="5" Grid.Row="3" Grid.Column="0"/>
+        
+        <TextBlock Text="№ Заказа" Grid.Row="4" Grid.Column="0"/>
+        <TextBlock Text="Дата заказа" Grid.Row="4" Grid.Column="1"/>
+        <TextBlock Text="Дата получения" Grid.Row="4" Grid.Column="2"/>
+        <TextBlock Text="Сумма" Grid.Row="4" Grid.Column="3"/>
+        <TextBlock Text="Статус" Grid.Row="4" Grid.Column="4"/>
+        
+        <TextBlock Text="{Binding Id}" Grid.Row="5" Grid.Column="0"/>
+        <TextBlock Text="{Binding OrderDate, StringFormat={}{0:dd.MM.yyyy}}" Grid.Row="5" Grid.Column="1"/>
+        <TextBlock Text="{Binding PickupDate, StringFormat={}{0:dd.MM.yyyy}}" Grid.Row="5" Grid.Column="2"/>
+        <TextBlock Text="{Binding TotalAmount, StringFormat={}{0} ₽}" Grid.Row="5" Grid.Column="3"/>
+        <TextBlock Text="{Binding Status}" Grid.Row="5" Grid.Column="4"/>
     </Grid>
 </Page>
