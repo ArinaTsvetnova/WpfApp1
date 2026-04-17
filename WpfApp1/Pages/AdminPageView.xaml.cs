@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace WpfApp1.Pages
 {
@@ -34,14 +25,31 @@ namespace WpfApp1.Pages
 
         }
 
-        private void Del_Click(object sender, RoutedEventArgs e)
+        private void Fruzen_Click(object sender, RoutedEventArgs e)
         {
             Button b = sender as Button;
-            Users remouveUser = b.DataContext as Users;
-            Core.Context.Users.Remove(remouveUser);
-            Core.Context.SaveChanges();
-            users.Remove(remouveUser);
-            Load();
+            Users editUsers = b.DataContext as Users;
+            if (editUsers.IsFrozen == false)
+            {
+                editUsers.IsFrozen = true;
+
+                Load();
+            }
+            else
+            {
+                editUsers.IsFrozen = false;
+                Load();
+            }
+
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new StartPageView());
+            if (NavigationService.CanGoForward)
+            {
+                NavigationService.GoForward();
+            }
         }
     }
 }
