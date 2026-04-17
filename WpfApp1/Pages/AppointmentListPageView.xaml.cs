@@ -20,9 +20,24 @@ namespace WpfApp1.Pages
     /// </summary>
     public partial class AppointmentListPageView : Page
     {
-        public AppointmentListPageView()
+        private ServiceTypes _service;
+        private Users _master;
+        public AppointmentListPageView(ServiceTypes service, Users master)
         {
             InitializeComponent();
+            _service = service;
+            _master = master;
+
+            // Заполняем интерфейс данными
+            //TxtServiceName.Text = _service.Name;
+            //TxtMasterName.Text = _master.FullName;
+            //TxtPrice.Text = $"{_service.BasePrice} руб."; // Или цена из MasterServices
+
+            // Можно сразу подставить клиента, если он есть в сессии
+            if (AppSession.CurrentUser != null)
+            {
+                // Если нужно отображать данные клиента
+            }
         }
     }
 }

@@ -9,6 +9,6 @@
       Title="MasterPageView">
 
     <Grid>
-        
+        <TextBlock Text="master"/>
     </Grid>
 </Page>

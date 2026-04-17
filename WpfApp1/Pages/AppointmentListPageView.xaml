@@ -9,6 +9,6 @@
       Title="AppointmentListPageView">
 
     <Grid>
-        
+        <TextBlock Text="запись"/>
     </Grid>
 </Page>

@@ -9,6 +9,7 @@
       Title="AccountPageView">
 
     <Grid>
-        
+        <TextBlock Text="account"/>
+        <Button x:Name ="Exit" Content="На главную" Width="120" Height="40" Margin="5" HorizontalAlignment="Right" Grid.Row="5" Click="Exit_Click"/>
     </Grid>
 </Page>

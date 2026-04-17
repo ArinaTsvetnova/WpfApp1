@@ -9,6 +9,6 @@
       Title="AdminPageView">
 
     <Grid>
-        
+        <TextBlock Text="admin"/>
     </Grid>
 </Page>

@@ -23,6 +23,8 @@ namespace WpfApp1.Pages
         public static List<ServiceTypes> listsertype = Core.Context.ServiceTypes.ToList();
         public static List<Users> MasterUser = Core.Context.Users.ToList();
         public static List<MasterServices> masterServices = Core.Context.MasterServices.ToList();
+        private ServiceTypes _selectedService;
+        private Users _selectedMaster;
         public StartPageView()
         {
             InitializeComponent();
@@ -41,7 +43,8 @@ namespace WpfApp1.Pages
         {
             ListMasterType.ItemsSource = null;
             ListMasterType.IsEnabled = false;
-
+            _selectedService = ListServiceType.SelectedItem as ServiceTypes;
+            _selectedMaster = null;
             if (ListServiceType.SelectedItem is ServiceTypes selectedService)
             {
                 var mastersQuery = from ms in Core.Context.MasterServices
@@ -65,6 +68,9 @@ namespace WpfApp1.Pages
         }
         private void ListMasterType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            _selectedMaster = ListMasterType.SelectedItem as Users;
+            ListServiceType.ItemsSource = null;
+            UpdateBookButton();
             if (ListMasterType.SelectedItem is Users selectedMaster)
             {
                 var servicesQuery = from ms in Core.Context.MasterServices
@@ -74,6 +80,10 @@ namespace WpfApp1.Pages
 
                 var masterServicesList = servicesQuery.ToList();
             }
+        }
+        private void UpdateBookButton()
+        {
+            BtnBook.IsEnabled = (_selectedService != null && _selectedMaster != null);
         }
         private void Shop_Click(object sender, RoutedEventArgs e)
         {
@@ -102,7 +112,8 @@ namespace WpfApp1.Pages
             }
             else
             {
-                NavigationService.Navigate(new AppointmentListPageView());
+                NavigationService.Navigate(new AppointmentListPageView(_selectedService, _selectedMaster));
+                var bookingPage = new AppointmentListPageView(_selectedService, _selectedMaster);
             }
         }
     }
