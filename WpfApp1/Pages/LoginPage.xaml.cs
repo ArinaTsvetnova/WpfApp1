@@ -51,12 +51,31 @@ namespace WpfApp1.Pages
                 MessageBox.Show("Неверный пароль.");
                 return;
             }
-
+            AppSession.CurrentUser = user;
+            if (AppSession.CurrentUser != null)
+            {
+                switch (AppSession.CurrentUser.Role)
+                {
+                    case 0: // Клиент
+                        NavigationService.Navigate(new AccountPageView());
+                        break;
+                    case 1: // Мастер
+                        NavigationService.Navigate(new MasterPageView());
+                        break;
+                    case 2: // Менеджер
+                        NavigationService.Navigate(new ManagerPageView());
+                        break;
+                    case 3: // Админ
+                        NavigationService.Navigate(new AdminPageView());
+                        break;
+                }
+            }
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-
+            TextLogin.Clear();
+            TextPassword.Clear();
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
@@ -66,6 +85,11 @@ namespace WpfApp1.Pages
             {
                 NavigationService.GoForward();
             }
+        }
+
+        public static class AppSession
+        {
+            public static Users CurrentUser { get; set; }
         }
     }
 }
