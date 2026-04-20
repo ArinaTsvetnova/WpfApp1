@@ -91,6 +91,9 @@
     <Compile Include="Pages\AccountPageView.xaml.cs">
       <DependentUpon>AccountPageView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AddPage.xaml.cs">
+      <DependentUpon>AddPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AdminPageView.xaml.cs">
       <DependentUpon>AdminPageView.xaml</DependentUpon>
     </Compile>
@@ -138,6 +141,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Pages\AccountPageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AddPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

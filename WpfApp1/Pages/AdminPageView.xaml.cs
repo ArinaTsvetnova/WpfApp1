@@ -51,5 +51,14 @@ namespace WpfApp1.Pages
                 NavigationService.GoForward();
             }
         }
+
+        private void AddUser_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddPage());
+            if (NavigationService.CanGoForward)
+            {
+                NavigationService.GoForward();
+            }
+        }
     }
 }

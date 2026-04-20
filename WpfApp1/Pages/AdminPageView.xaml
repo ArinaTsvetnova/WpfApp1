@@ -12,6 +12,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions> 
         <TextBlock Text="Admin" FontSize="30" Margin="10" Grid.Row="0"/>
         <ListBox x:Name="UserAll" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
@@ -35,5 +36,6 @@
             </ListBox.ItemsPanel>
         </ListBox>
         <Button x:Name="Back" Grid.Row="0" Content="На главную" Height="45" Width="150" FontSize="24" HorizontalAlignment="Right" Margin="10" Click="Back_Click"/>
+        <Button x:Name="AddUser" Grid.Row="2" Content="Добавить" Height="45" Width="150" FontSize="24" Margin="10" Click="AddUser_Click"/>
     </Grid>
 </Page>
