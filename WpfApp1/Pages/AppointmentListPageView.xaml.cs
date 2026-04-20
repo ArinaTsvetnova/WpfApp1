@@ -31,19 +31,25 @@ namespace WpfApp1.Pages
             _master = master;
 
             appoin = Core.Context.Appointments.ToList();
-            PayComboBox.ItemsSource = appoin;
-            PayComboBox.DisplayMemberPath = "PaymentMethod";
-            PayComboBox.SelectedIndex = 0;
 
-            //ServiceName.Text = _service.Name;
-            //MasterName.Text = _master.FullName;
-            //Price.Text = $"{_service.BasePrice} руб.";
+            //List<string> PayMet = new List<string>()
+            //{
+            //    new 
+            //    {
+            //        Name = "Карта",
+            //    },
+            //    new
+            //    {
+            //        Name = "Наличые",
+            //    }
+            //};
+            //PayComboBox.ItemsSource = PayMet;
+            //PayComboBox.DisplayMemberPath = "Name";
+            //PayComboBox.SelectedIndex = 0;
 
-
-            if (AppSession.CurrentUser != null)
-            {
-
-            }
+            Service.Text = _service.Name;
+            Master.Text = _master.FullName;
+            Price.Text = $"{_service.BasePrice} руб.";
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
@@ -63,7 +69,7 @@ namespace WpfApp1.Pages
 
             //MessageBox.Show("Вы успешно записаны!");
         }
-        private void Exit_Click(object sender, RoutedEventArgs e)
+        private void Escape_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new StartPageView());
             if (NavigationService.CanGoForward)

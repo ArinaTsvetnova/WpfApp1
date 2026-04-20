@@ -49,8 +49,6 @@ namespace WpfApp1.Pages
 
         private void ListServiceType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ListMasterType.ItemsSource = null;
-            ListMasterType.IsEnabled = false;
             _selectedService = ListServiceType.SelectedItem as ServiceTypes;
             _selectedMaster = null;
             if (ListServiceType.SelectedItem is ServiceTypes selectedService)
@@ -77,8 +75,6 @@ namespace WpfApp1.Pages
         private void ListMasterType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             _selectedMaster = ListMasterType.SelectedItem as Users;
-            ListServiceType.ItemsSource = null;
-            UpdateBookButton();
             if (ListMasterType.SelectedItem is Users selectedMaster)
             {
                 var servicesQuery = from ms in Core.Context.MasterServices
@@ -88,10 +84,6 @@ namespace WpfApp1.Pages
 
                 var masterServicesList = servicesQuery.ToList();
             }
-        }
-        private void UpdateBookButton()
-        {
-            BtnBook.IsEnabled = (_selectedService != null && _selectedMaster != null);
         }
         private void Shop_Click(object sender, RoutedEventArgs e)
         {

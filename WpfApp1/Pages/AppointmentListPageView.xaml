@@ -33,23 +33,11 @@
                 <TextBlock Text="Стоимость:"/>
                 <TextBlock x:Name="Price"/>
             </StackPanel>
-            <TextBlock Text="Способ оплаты:" FontWeight="SemiBold" Margin="5"/>
+            <TextBlock Text="Способ оплаты:" FontWeight="SemiBold" Margin="1"/>
             <ComboBox x:Name="PayComboBox" Height="30" Width="100" HorizontalAlignment="Left" Margin="5"/>
-        
-            <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
-                <Button Content="Отмена" 
-                    Width="100" 
-                    Height="35" 
-                    Margin="0,0,10,0"
-                    Command="{Binding CancelCommand}"
-                    />
-
-                <Button Content="Записаться" 
-                    Width="120" 
-                    Height="35"
-                    Command="{Binding ConfirmCommand}"
-                    IsEnabled="{Binding IsConfirmEnabled}"
-                    />
+            <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                <Button x:Name="Escape" Content="Отмена" Width="100" Height="35" Margin="10" Click="Escape_Click"/>
+                <Button x:Name="Add" Content="Записаться" Width="100" Height="35" Click="Add_Click"/>
             </StackPanel>
         </StackPanel>
     </Grid>
