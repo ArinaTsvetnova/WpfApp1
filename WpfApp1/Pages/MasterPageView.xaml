@@ -26,7 +26,7 @@
                             <TextBlock TextWrapping="Wrap" Text="{Binding Role}" FontSize="15"/>
                             <TextBlock TextWrapping="Wrap" Text="{Binding IsFrozen}" FontSize="15"/>
                         </StackPanel>
-                        <Button x:Name="Look" Content="Подробнее" Width="95" Height="30" Click="Fruzen_Click" FontSize="15" Margin="5" Visibility="Visible"/>
+                        <Button x:Name="Look" Content="Подробнее" Width="95" Height="30" FontSize="15" Margin="5" Visibility="Visible"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
