@@ -20,9 +20,12 @@ namespace WpfApp1.Pages
     /// </summary>
     public partial class MasterPageView : Page
     {
+        List<Appointments> appointments;
+        List<ServiceTypes> serviceTypes;
         public MasterPageView()
         {
             InitializeComponent();
+            Load();
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
@@ -32,6 +35,15 @@ namespace WpfApp1.Pages
             {
                 NavigationService.GoForward();
             }
+        }
+        private void Load()
+        {
+            appointments = Core.Context.Appointments.Where(a => a.IdUsersM == AppSession.CurrentUser.IdUsers).ToList();
+            serviceTypes = Core.Context.ServiceTypes.ToList();
+            Zapis.ItemsSource = null;
+            Zapis.ItemsSource = appointments;
+            Yslug.ItemsSource = null;
+            Yslug.ItemsSource = serviceTypes;
         }
     }
 }
