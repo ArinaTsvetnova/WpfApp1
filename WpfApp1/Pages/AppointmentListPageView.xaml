@@ -15,7 +15,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Text="Подтверждение записи" FontSize="20" HorizontalAlignment="Center"Margin="5"/>
+        <TextBlock Grid.Row="0" Text="Подтверждение записи" FontSize="20" HorizontalAlignment="Center" Margin="5"/>
         <StackPanel Grid.Row="1">
             <StackPanel Orientation="Horizontal" Margin="1">
                 <TextBlock Text="Услуга:"/>
