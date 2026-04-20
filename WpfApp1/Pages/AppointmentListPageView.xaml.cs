@@ -23,21 +23,26 @@ namespace WpfApp1.Pages
     {
         private ServiceTypes _service;
         private Users _master;
+        List<Appointments> appoin;
         public AppointmentListPageView(ServiceTypes service, Users master)
         {
             InitializeComponent();
             _service = service;
             _master = master;
 
-            // Заполняем интерфейс данными
+            appoin = Core.Context.Appointments.ToList();
+            PayComboBox.ItemsSource = appoin;
+            PayComboBox.DisplayMemberPath = "PaymentMethod";
+            PayComboBox.SelectedIndex = 0;
+
             //ServiceName.Text = _service.Name;
             //MasterName.Text = _master.FullName;
-            //Price.Text = $"{_service.BasePrice} руб."; // Или цена из MasterServices
+            //Price.Text = $"{_service.BasePrice} руб.";
 
-            // Можно сразу подставить клиента, если он есть в сессии
+
             if (AppSession.CurrentUser != null)
             {
-                // Если нужно отображать данные клиента
+
             }
         }
 
