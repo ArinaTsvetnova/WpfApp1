@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище zwekuza_beauteModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище zwekuza_beauteModel1" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Appointments">
           <Key>
             <PropertyRef Name="IdAppointments" />
@@ -242,7 +242,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище zwekuza_beauteModelContainer">
+        <EntityContainer Name="Хранилище zwekuza_beauteModel1Container">
           <EntitySet Name="Appointments" EntityType="Self.Appointments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Manufacturers" EntityType="Self.Manufacturers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MasterServices" EntityType="Self.MasterServices" Schema="dbo" store:Type="Tables" />
@@ -298,10 +298,11 @@
             <End Role="Products" EntitySet="Products" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="zwekuza_beauteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="zwekuza_beauteModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Appointments">
           <Key>
             <PropertyRef Name="IdAppointments" />
@@ -311,7 +312,7 @@
           <Property Name="IdUsersM" Type="Int32" Nullable="false" />
           <Property Name="IdServiceTypes" Type="Int32" Nullable="false" />
           <Property Name="AppointmentDateTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Status" Type="String" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
           <Property Name="PaymentMethod" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="FinalPrice" Type="Double" Nullable="false" />
@@ -335,7 +336,6 @@
           <Property Name="IdMasterServices" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdUsers" Type="Int32" Nullable="false" />
           <Property Name="IdServiceTypes" Type="Int32" Nullable="false" />
-          <Property Name="PersonalPrice" Type="Double" Nullable="false" />
           <NavigationProperty Name="ServiceTypes" Relationship="Self.FK_MasterServices_ServiceTypes" FromRole="MasterServices" ToRole="ServiceTypes" />
           <NavigationProperty Name="Users" Relationship="Self.FK_MasterServices_Users" FromRole="MasterServices" ToRole="Users" />
         </EntityType>
@@ -562,7 +562,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="zwekuza_beauteEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="zwekuza_beauteEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Appointments" EntityType="Self.Appointments" />
           <EntitySet Name="Manufacturers" EntityType="Self.Manufacturers" />
           <EntitySet Name="MasterServices" EntityType="Self.MasterServices" />
@@ -623,9 +623,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище zwekuza_beauteModelContainer" CdmEntityContainer="zwekuza_beauteEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище zwekuza_beauteModel1Container" CdmEntityContainer="zwekuza_beauteEntities1">
           <EntitySetMapping Name="Appointments">
-            <EntityTypeMapping TypeName="zwekuza_beauteModel.Appointments">
+            <EntityTypeMapping TypeName="zwekuza_beauteModel1.Appointments">
               <MappingFragment StoreEntitySet="Appointments">
                 <ScalarProperty Name="IdAppointments" ColumnName="IdAppointments" />
                 <ScalarProperty Name="IdUsersC" ColumnName="IdUsersC" />
@@ -640,7 +640,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Manufacturers">
-            <EntityTypeMapping TypeName="zwekuza_beauteModel.Manufacturers">
+            <EntityTypeMapping TypeName="zwekuza_beauteModel1.Manufacturers">
               <MappingFragment StoreEntitySet="Manufacturers">
                 <ScalarProperty Name="IdManufacturers" ColumnName="IdManufacturers" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -648,7 +648,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MasterServices">
-            <EntityTypeMapping TypeName="zwekuza_beauteModel.MasterServices">
+            <EntityTypeMapping TypeName="zwekuza_beauteModel1.MasterServices">
               <MappingFragment StoreEntitySet="MasterServices">
                 <ScalarProperty Name="IdMasterServices" ColumnName="IdMasterServices" />
                 <ScalarProperty Name="IdUsers" ColumnName="IdUsers" />
@@ -657,7 +657,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OrderItems">
-            <EntityTypeMapping TypeName="zwekuza_beauteModel.OrderItems">
+            <EntityTypeMapping TypeName="zwekuza_beauteModel1.OrderItems">
               <MappingFragment StoreEntitySet="OrderItems">
                 <ScalarProperty Name="IdOrderItems" ColumnName="IdOrderItems" />
                 <ScalarProperty Name="IdOrders" ColumnName="IdOrders" />
@@ -668,7 +668,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Orders">
-            <EntityTypeMapping TypeName="zwekuza_beauteModel.Orders">
+            <EntityTypeMapping TypeName="zwekuza_beauteModel1.Orders">
               <MappingFragment StoreEntitySet="Orders">
                 <ScalarProperty Name="IdOrders" ColumnName="IdOrders" />
                 <ScalarProperty Name="IdUsers" ColumnName="IdUsers" />
@@ -681,7 +681,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Products">
-            <EntityTypeMapping TypeName="zwekuza_beauteModel.Products">
+            <EntityTypeMapping TypeName="zwekuza_beauteModel1.Products">
               <MappingFragment StoreEntitySet="Products">
                 <ScalarProperty Name="IdProducts" ColumnName="IdProducts" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -697,7 +697,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ProductTypes">
-            <EntityTypeMapping TypeName="zwekuza_beauteModel.ProductTypes">
+            <EntityTypeMapping TypeName="zwekuza_beauteModel1.ProductTypes">
               <MappingFragment StoreEntitySet="ProductTypes">
                 <ScalarProperty Name="IdProductTypes" ColumnName="IdProductTypes" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -705,7 +705,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ServiceTypes">
-            <EntityTypeMapping TypeName="zwekuza_beauteModel.ServiceTypes">
+            <EntityTypeMapping TypeName="zwekuza_beauteModel1.ServiceTypes">
               <MappingFragment StoreEntitySet="ServiceTypes">
                 <ScalarProperty Name="IdServiceTypes" ColumnName="IdServiceTypes" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -715,7 +715,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="zwekuza_beauteModel.sysdiagrams">
+            <EntityTypeMapping TypeName="zwekuza_beauteModel1.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -726,7 +726,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="zwekuza_beauteModel.Users">
+            <EntityTypeMapping TypeName="zwekuza_beauteModel1.Users">
               <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="IdUsers" ColumnName="IdUsers" />
                 <ScalarProperty Name="Login" ColumnName="Login" />

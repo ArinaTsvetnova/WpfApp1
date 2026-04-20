@@ -63,7 +63,13 @@ namespace WpfApp1.Pages
                 };
                 Core.Context.Users.Add(user);
                 Core.Context.SaveChanges();
-                MessageBox.Show("Заполните все поля!");
+                MessageBox.Show("Пользователь добавлен!");
+                login.Clear();
+                Pass.Clear();
+                Role.Clear();
+                Name.Clear();
+                Phone.Clear();
+
             }
             else
             {

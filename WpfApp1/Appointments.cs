@@ -19,7 +19,7 @@ namespace WpfApp1
         public int IdUsersM { get; set; }
         public int IdServiceTypes { get; set; }
         public System.DateTime AppointmentDateTime { get; set; }
-        public string Status { get; set; }
+        public bool Status { get; set; }
         public string PaymentMethod { get; set; }
         public string Comment { get; set; }
         public double FinalPrice { get; set; }

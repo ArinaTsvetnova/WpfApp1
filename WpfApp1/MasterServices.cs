@@ -17,7 +17,6 @@ namespace WpfApp1
         public int IdMasterServices { get; set; }
         public int IdUsers { get; set; }
         public int IdServiceTypes { get; set; }
-        public double PersonalPrice { get; set; }
     
         public virtual ServiceTypes ServiceTypes { get; set; }
         public virtual Users Users { get; set; }

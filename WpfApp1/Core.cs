@@ -8,6 +8,6 @@ namespace WpfApp1
 {
     internal class Core
     {
-        public static zwekuza_beauteEntities Context = new zwekuza_beauteEntities();
+        public static zwekuza_beauteEntities1 Context = new zwekuza_beauteEntities1();
     }
 }
