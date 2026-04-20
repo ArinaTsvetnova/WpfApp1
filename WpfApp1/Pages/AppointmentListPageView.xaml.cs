@@ -54,16 +54,22 @@ namespace WpfApp1.Pages
                 IdUsersC = AppSession.CurrentUser.IdUsers,
                 IdUsersM = _master.IdUsers,
                 IdServiceTypes = _service.IdServiceTypes,
-                AppointmentDateTime = Calendar.SelectedDate,
+                AppointmentDateTime = Calendar.SelectedDate ?? DateTime.Now,
                 Status = false,
                 PaymentMethod = PayComboBox.SelectedValue.ToString(),
-                Comment = "отсутствует",
+                Comment = com.Text,
                 FinalPrice = _service.BasePrice,
             };
             Core.Context.Appointments.Add(newappoin);
             Core.Context.SaveChanges();
 
             MessageBox.Show("Вы успешно записаны!");
+
+            NavigationService.Navigate(new StartPageView());
+            if (NavigationService.CanGoForward)
+            {
+                NavigationService.GoForward();
+            }
         }
         private void Escape_Click(object sender, RoutedEventArgs e)
         {

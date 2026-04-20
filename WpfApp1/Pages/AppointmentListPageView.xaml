@@ -39,6 +39,8 @@
             </StackPanel>
             <TextBlock Text="Способ оплаты:" FontSize="20" Margin="1"/>
             <ComboBox x:Name="PayComboBox" Height="30" Width="100" HorizontalAlignment="Left" Margin="5"/>
+            <TextBlock Text="Комментарии:" FontSize="20" Margin="1"/>
+            <TextBox x:Name="com" Height="40"/>
             <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
                 <Button x:Name="Escape" Content="Отмена" Width="100" Height="35" Margin="10" Click="Escape_Click"/>
                 <Button x:Name="Add" Content="Записаться" Width="100" Height="35" Click="Add_Click"/>
