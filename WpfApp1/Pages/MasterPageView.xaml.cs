@@ -47,5 +47,14 @@ namespace WpfApp1.Pages
             Yslug.ItemsSource = null;
             Yslug.ItemsSource = serviceTypes;
         }
+
+        private void AddYslug_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddYslPage());
+            if (NavigationService.CanGoForward)
+            {
+                NavigationService.GoForward();
+            }
+        }
     }
 }

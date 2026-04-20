@@ -109,6 +109,9 @@
     <Compile Include="Pages\AddPage.xaml.cs">
       <DependentUpon>AddPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AddYslPage.xaml.cs">
+      <DependentUpon>AddYslPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AdminPageView.xaml.cs">
       <DependentUpon>AdminPageView.xaml</DependentUpon>
     </Compile>
@@ -160,6 +163,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\AddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AddYslPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
