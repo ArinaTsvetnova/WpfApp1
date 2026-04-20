@@ -20,15 +20,15 @@
 
         <StackPanel Grid.Row="0" VerticalAlignment="Center">
             <Button x:Name ="Exit" Content="На главную" Width="120" Height="40" Margin="5" HorizontalAlignment="Right" Click="Exit_Click"/>
-            <TextBlock x:Name="TxtFullName" Text="ФИО Клиента" FontSize="30"/>
-            <TextBlock x:Name="TxtPhone" Text="+7 (999) 000-00-00" FontSize="20" Margin="5"/>
+            <TextBlock x:Name="Name" FontSize="30" Margin="5"/>
+            <TextBlock x:Name="Phone" FontSize="20" Margin="5"/>
             <TextBlock Text="История визитов и предстоящие процедуры" FontSize="15"  Margin="5"/>
         </StackPanel>
-
-        <ListBox x:Name="HistoryGo" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}">
+        
+        <ListBox x:Name="HistoryGo" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=3}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Width="230" Height="450">
+                    <StackPanel Width="150" Height="75">
                         <TextBlock Text="{Binding AppointmentDateTime, StringFormat={}{0:dd.MM.yyyy HH:mm}}"/>
                         <TextBlock Text="{Binding ServiceTypes.Name}"/>
                         <TextBlock Text="{Binding Users.FullName}"/>
@@ -46,11 +46,11 @@
 
         <TextBlock Text="История покупок" FontSize="15"  Margin="5" Grid.Row="2"/>
 
-        <ListBox x:Name="HistoryBuy" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Row="3" d:ItemsSource="{d:SampleData ItemCount=5}">
+        <ListBox x:Name="HistoryBuy" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Row="3" d:ItemsSource="{d:SampleData ItemCount=3}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Width="230" Height="450">
-                        <TextBlock Text="{Binding Id}"/>
+                    <StackPanel Width="150" Height="75">
+                        <TextBlock Text="{Binding IdOrders}"/>
                         <TextBlock Text="{Binding OrderDate, StringFormat={}{0:dd.MM.yyyy}}"/>
                         <TextBlock Text="{Binding PickupDate, StringFormat={}{0:dd.MM}}"/>
                         <TextBlock Text="{Binding Status}"/>

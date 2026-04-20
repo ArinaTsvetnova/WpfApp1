@@ -21,12 +21,17 @@ namespace WpfApp1.Pages
     public partial class AccountPageView : Page
     {
         List<Appointments> appoin;
+        List<Orders> order;
 
         public AccountPageView()
         {
             InitializeComponent();
-            appoin = Core.Context.Appointments.ToList();
+            Name.Text = AppSession.CurrentUser.FullName;
+            Phone.Text = AppSession.CurrentUser.Phone;
+            appoin = Core.Context.Appointments.Where(a => a.IdUsersC == AppSession.CurrentUser.IdUsers).ToList();
             HistoryGo.ItemsSource = appoin;
+            order = Core.Context.Orders.ToList();
+            HistoryBuy.ItemsSource = order;
         }
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
