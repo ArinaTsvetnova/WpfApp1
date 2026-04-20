@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -24,6 +25,7 @@ namespace WpfApp1.Pages
         private ServiceTypes _service;
         private Users _master;
         List<Appointments> appoin;
+
         public AppointmentListPageView(ServiceTypes service, Users master)
         {
             InitializeComponent();
@@ -32,42 +34,36 @@ namespace WpfApp1.Pages
 
             appoin = Core.Context.Appointments.ToList();
 
-            //List<string> PayMet = new List<string>()
-            //{
-            //    new 
-            //    {
-            //        Name = "Карта",
-            //    },
-            //    new
-            //    {
-            //        Name = "Наличые",
-            //    }
-            //};
-            //PayComboBox.ItemsSource = PayMet;
-            //PayComboBox.DisplayMemberPath = "Name";
-            //PayComboBox.SelectedIndex = 0;
+            List<string> PayMet = new List<string>()
+            {"Карта", "Наличые"};
+            PayComboBox.ItemsSource = PayMet;
+            PayComboBox.SelectedIndex = 0;
 
             Service.Text = _service.Name;
             Master.Text = _master.FullName;
             Price.Text = $"{_service.BasePrice} руб.";
+
+            Calendar.BlackoutDates.Add(new CalendarDateRange(DateTime.MinValue, DateTime.Today.AddDays(-1)));
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            //var newAppointment = new Appointments
-            //{
-            //    ClientId = AppSession.CurrentUser.Id,
-            //    MasterId = _master.Id,
-            //    ServiceTypeId = _service.Id,
-            //    AppointmentDateTime = DpDate.SelectedDate.Value + TpTime.SelectedTime.Value,
-            //    Status = "Scheduled",
-            //    Comment = TxtComment.Text
-            //};
+            appoin = Core.Context.Appointments.ToList();
+            Appointments newappoin = new Appointments // создание нового пользователя
+            {
+                IdUsersC = AppSession.CurrentUser.IdUsers,
+                IdUsersM = _master.IdUsers,
+                IdServiceTypes = _service.IdServiceTypes,
+                AppointmentDateTime = Calendar.SelectedDate,
+                Status = false,
+                PaymentMethod = PayComboBox.SelectedValue.ToString(),
+                Comment = "отсутствует",
+                FinalPrice = _service.BasePrice,
+            };
+            Core.Context.Appointments.Add(newappoin);
+            Core.Context.SaveChanges();
 
-            //Core.Context.Appointments.Add(newAppointment);
-            //Core.Context.SaveChanges();
-
-            //MessageBox.Show("Вы успешно записаны!");
+            MessageBox.Show("Вы успешно записаны!");
         }
         private void Escape_Click(object sender, RoutedEventArgs e)
         {

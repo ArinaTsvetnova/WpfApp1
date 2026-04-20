@@ -15,25 +15,29 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Text="Подтверждение записи" FontSize="20" HorizontalAlignment="Center" Margin="5"/>
+        <TextBlock Grid.Row="0" Text="Подтверждение записи" FontSize="40" HorizontalAlignment="Center" Margin="5"/>
         <StackPanel Grid.Row="1">
             <StackPanel Orientation="Horizontal" Margin="1">
-                <TextBlock Text="Услуга:"/>
-                <TextBlock x:Name="Service"/>
+                <TextBlock Text="Услуга:" FontSize="20"/>
+                <TextBlock x:Name="Service" FontSize="20" Margin="1"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="1">
-                <TextBlock Text="Мастер:"/>
-                <TextBlock x:Name="Master"/>
+                <TextBlock Text="Мастер:" FontSize="20"/>
+                <TextBlock x:Name="Master" FontSize="20" Margin="1"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="1">
-                <TextBlock Text="Дата и время:"/>
-                <TextBlock x:Name="Datatime"/>
+                <TextBlock Text="Дата и время:" FontSize="20" Margin="1"/>
+                <Calendar x:Name="Calendar" DisplayDateStart="2026-01-01" DisplayDateEnd="2026-12-31">
+                    <Calendar.BlackoutDates>
+                        <CalendarDateRange Start= "2026-05-20" End="2026-12-31"/>
+                    </Calendar.BlackoutDates>
+                </Calendar>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="1">
-                <TextBlock Text="Стоимость:"/>
-                <TextBlock x:Name="Price"/>
+                <TextBlock Text="Стоимость:" FontSize="20"/>
+                <TextBlock x:Name="Price" FontSize="20" Margin="1"/>
             </StackPanel>
-            <TextBlock Text="Способ оплаты:" FontWeight="SemiBold" Margin="1"/>
+            <TextBlock Text="Способ оплаты:" FontSize="20" Margin="1"/>
             <ComboBox x:Name="PayComboBox" Height="30" Width="100" HorizontalAlignment="Left" Margin="5"/>
             <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
                 <Button x:Name="Escape" Content="Отмена" Width="100" Height="35" Margin="10" Click="Escape_Click"/>
