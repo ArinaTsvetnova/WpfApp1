@@ -30,7 +30,7 @@ namespace WpfApp1.Pages
             Phone.Text = AppSession.CurrentUser.Phone;
             appoin = Core.Context.Appointments.Where(a => a.IdUsersC == AppSession.CurrentUser.IdUsers).ToList();
             HistoryGo.ItemsSource = appoin;
-            order = Core.Context.Orders.ToList();
+            order = Core.Context.Orders.Where(o => o.IdUsers == AppSession.CurrentUser.IdUsers).ToList();
             HistoryBuy.ItemsSource = order;
         }
         private void Exit_Click(object sender, RoutedEventArgs e)
