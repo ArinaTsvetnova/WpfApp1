@@ -38,8 +38,6 @@ namespace WpfApp1.Pages
         }
         private void Load()
         {
-
-           
             appointments = Core.Context.Appointments.Where(a => a.IdUsersM == AppSession.CurrentUser.IdUsers).ToList();
             serviceTypes = AppSession.CurrentUser.MasterServices.ToList();// Core.Context.ServiceTypes.ToList();
             Zapis.ItemsSource = null;
@@ -51,6 +49,17 @@ namespace WpfApp1.Pages
         private void AddYslug_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AddYslPage());
+            if (NavigationService.CanGoForward)
+            {
+                NavigationService.GoForward();
+            }
+        }
+
+        private void Look_Click(object sender, RoutedEventArgs e)
+        {
+            Button b = sender as Button;
+
+            NavigationService.Navigate(new PodrobPage(b.DataContext as Appointments));
             if (NavigationService.CanGoForward)
             {
                 NavigationService.GoForward();

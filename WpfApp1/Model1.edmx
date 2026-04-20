@@ -302,24 +302,6 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="zwekuza_beauteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Appointments">
-          <Key>
-            <PropertyRef Name="IdAppointments" />
-          </Key>
-          <Property Name="IdAppointments" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdUsersC" Type="Int32" Nullable="false" />
-          <Property Name="IdUsersM" Type="Int32" Nullable="false" />
-          <Property Name="IdServiceTypes" Type="Int32" Nullable="false" />
-          <Property Name="AppointmentDateTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Status" Type="String" Nullable="false" />
-          <Property Name="PaymentMethod" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="FinalPrice" Type="Double" Nullable="false" />
-          <NavigationProperty Name="ServiceTypes" Relationship="Self.FK_Appointments_ServiceTypes" FromRole="Appointments" ToRole="ServiceTypes" />
-          <NavigationProperty Name="ServiceTypes1" Relationship="Self.FK_Appointments_ServiceTypes1" FromRole="Appointments" ToRole="ServiceTypes" />
-          <NavigationProperty Name="Users" Relationship="Self.FK_Appointments_Users" FromRole="Appointments" ToRole="Users" />
-          <NavigationProperty Name="Users1" Relationship="Self.FK_Appointments_Users1" FromRole="Appointments" ToRole="Users" />
-        </EntityType>
         <EntityType Name="Manufacturers">
           <Key>
             <PropertyRef Name="IdManufacturers" />
@@ -327,17 +309,6 @@
           <Property Name="IdManufacturers" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Products" Relationship="Self.FK_Products_Manufacturers" FromRole="Manufacturers" ToRole="Products" />
-        </EntityType>
-        <EntityType Name="MasterServices">
-          <Key>
-            <PropertyRef Name="IdMasterServices" />
-          </Key>
-          <Property Name="IdMasterServices" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdUsers" Type="Int32" Nullable="false" />
-          <Property Name="IdServiceTypes" Type="Int32" Nullable="false" />
-          <Property Name="PersonalPrice" Type="Double" Nullable="false" />
-          <NavigationProperty Name="ServiceTypes" Relationship="Self.FK_MasterServices_ServiceTypes" FromRole="MasterServices" ToRole="ServiceTypes" />
-          <NavigationProperty Name="Users" Relationship="Self.FK_MasterServices_Users" FromRole="MasterServices" ToRole="Users" />
         </EntityType>
         <EntityType Name="OrderItems">
           <Key>
@@ -399,9 +370,9 @@
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="BasePrice" Type="Double" Nullable="false" />
           <Property Name="DurationMinutes" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Appointments" Relationship="Self.FK_Appointments_ServiceTypes" FromRole="ServiceTypes" ToRole="Appointments" />
-          <NavigationProperty Name="Appointments1" Relationship="Self.FK_Appointments_ServiceTypes1" FromRole="ServiceTypes" ToRole="Appointments" />
-          <NavigationProperty Name="MasterServices" Relationship="Self.FK_MasterServices_ServiceTypes" FromRole="ServiceTypes" ToRole="MasterServices" />
+          <NavigationProperty Name="MasterServices" Relationship="zwekuza_beauteModel.FK_MasterServices_ServiceTypes" FromRole="ServiceTypes" ToRole="MasterServices" />
+          <NavigationProperty Name="Appointments" Relationship="zwekuza_beauteModel.FK_Appointments_ServiceTypes" FromRole="ServiceTypes" ToRole="Appointments" />
+          <NavigationProperty Name="Appointments1" Relationship="zwekuza_beauteModel.FK_Appointments_ServiceTypes1" FromRole="ServiceTypes" ToRole="Appointments" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -425,59 +396,11 @@
           <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IsFrozen" Type="Boolean" Nullable="false" />
           <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Appointments" Relationship="Self.FK_Appointments_Users" FromRole="Users" ToRole="Appointments" />
-          <NavigationProperty Name="Appointments1" Relationship="Self.FK_Appointments_Users1" FromRole="Users" ToRole="Appointments" />
-          <NavigationProperty Name="MasterServices" Relationship="Self.FK_MasterServices_Users" FromRole="Users" ToRole="MasterServices" />
           <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Users" FromRole="Users" ToRole="Orders" />
+          <NavigationProperty Name="MasterServices" Relationship="zwekuza_beauteModel.FK_MasterServices_Users" FromRole="Users" ToRole="MasterServices" />
+          <NavigationProperty Name="Appointments" Relationship="zwekuza_beauteModel.FK_Appointments_Users" FromRole="Users" ToRole="Appointments" />
+          <NavigationProperty Name="Appointments1" Relationship="zwekuza_beauteModel.FK_Appointments_Users1" FromRole="Users" ToRole="Appointments" />
         </EntityType>
-        <Association Name="FK_Appointments_ServiceTypes">
-          <End Role="ServiceTypes" Type="Self.ServiceTypes" Multiplicity="1" />
-          <End Role="Appointments" Type="Self.Appointments" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ServiceTypes">
-              <PropertyRef Name="IdServiceTypes" />
-            </Principal>
-            <Dependent Role="Appointments">
-              <PropertyRef Name="IdServiceTypes" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Appointments_ServiceTypes1">
-          <End Role="ServiceTypes" Type="Self.ServiceTypes" Multiplicity="1" />
-          <End Role="Appointments" Type="Self.Appointments" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ServiceTypes">
-              <PropertyRef Name="IdServiceTypes" />
-            </Principal>
-            <Dependent Role="Appointments">
-              <PropertyRef Name="IdServiceTypes" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Appointments_Users">
-          <End Role="Users" Type="Self.Users" Multiplicity="1" />
-          <End Role="Appointments" Type="Self.Appointments" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="IdUsers" />
-            </Principal>
-            <Dependent Role="Appointments">
-              <PropertyRef Name="IdUsersC" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Appointments_Users1">
-          <End Role="Users" Type="Self.Users" Multiplicity="1" />
-          <End Role="Appointments" Type="Self.Appointments" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="IdUsers" />
-            </Principal>
-            <Dependent Role="Appointments">
-              <PropertyRef Name="IdUsersM" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Products_Manufacturers">
           <End Role="Manufacturers" Type="Self.Manufacturers" Multiplicity="1" />
           <End Role="Products" Type="Self.Products" Multiplicity="*" />
@@ -487,30 +410,6 @@
             </Principal>
             <Dependent Role="Products">
               <PropertyRef Name="IdManufacturers" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_MasterServices_ServiceTypes">
-          <End Role="ServiceTypes" Type="Self.ServiceTypes" Multiplicity="1" />
-          <End Role="MasterServices" Type="Self.MasterServices" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ServiceTypes">
-              <PropertyRef Name="IdServiceTypes" />
-            </Principal>
-            <Dependent Role="MasterServices">
-              <PropertyRef Name="IdServiceTypes" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_MasterServices_Users">
-          <End Role="Users" Type="Self.Users" Multiplicity="1" />
-          <End Role="MasterServices" Type="Self.MasterServices" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="IdUsers" />
-            </Principal>
-            <Dependent Role="MasterServices">
-              <PropertyRef Name="IdUsers" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -563,9 +462,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="zwekuza_beauteEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Appointments" EntityType="Self.Appointments" />
           <EntitySet Name="Manufacturers" EntityType="Self.Manufacturers" />
-          <EntitySet Name="MasterServices" EntityType="Self.MasterServices" />
           <EntitySet Name="OrderItems" EntityType="Self.OrderItems" />
           <EntitySet Name="Orders" EntityType="Self.Orders" />
           <EntitySet Name="Products" EntityType="Self.Products" />
@@ -573,33 +470,9 @@
           <EntitySet Name="ServiceTypes" EntityType="Self.ServiceTypes" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Users" EntityType="Self.Users" />
-          <AssociationSet Name="FK_Appointments_ServiceTypes" Association="Self.FK_Appointments_ServiceTypes">
-            <End Role="ServiceTypes" EntitySet="ServiceTypes" />
-            <End Role="Appointments" EntitySet="Appointments" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Appointments_ServiceTypes1" Association="Self.FK_Appointments_ServiceTypes1">
-            <End Role="ServiceTypes" EntitySet="ServiceTypes" />
-            <End Role="Appointments" EntitySet="Appointments" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Appointments_Users" Association="Self.FK_Appointments_Users">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Appointments" EntitySet="Appointments" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Appointments_Users1" Association="Self.FK_Appointments_Users1">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Appointments" EntitySet="Appointments" />
-          </AssociationSet>
           <AssociationSet Name="FK_Products_Manufacturers" Association="Self.FK_Products_Manufacturers">
             <End Role="Manufacturers" EntitySet="Manufacturers" />
             <End Role="Products" EntitySet="Products" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MasterServices_ServiceTypes" Association="Self.FK_MasterServices_ServiceTypes">
-            <End Role="ServiceTypes" EntitySet="ServiceTypes" />
-            <End Role="MasterServices" EntitySet="MasterServices" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MasterServices_Users" Association="Self.FK_MasterServices_Users">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="MasterServices" EntitySet="MasterServices" />
           </AssociationSet>
           <AssociationSet Name="FK_OrderItems_Orders" Association="Self.FK_OrderItems_Orders">
             <End Role="Orders" EntitySet="Orders" />
@@ -617,42 +490,144 @@
             <End Role="ProductTypes" EntitySet="ProductTypes" />
             <End Role="Products" EntitySet="Products" />
           </AssociationSet>
+          <EntitySet Name="MasterServices" EntityType="zwekuza_beauteModel.MasterServices" />
+          <AssociationSet Name="FK_MasterServices_ServiceTypes" Association="zwekuza_beauteModel.FK_MasterServices_ServiceTypes">
+            <End Role="ServiceTypes" EntitySet="ServiceTypes" />
+            <End Role="MasterServices" EntitySet="MasterServices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MasterServices_Users" Association="zwekuza_beauteModel.FK_MasterServices_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="MasterServices" EntitySet="MasterServices" />
+          </AssociationSet>
+          <EntitySet Name="Appointments" EntityType="zwekuza_beauteModel.Appointments" />
+          <AssociationSet Name="FK_Appointments_ServiceTypes" Association="zwekuza_beauteModel.FK_Appointments_ServiceTypes">
+            <End Role="ServiceTypes" EntitySet="ServiceTypes" />
+            <End Role="Appointments" EntitySet="Appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Appointments_ServiceTypes1" Association="zwekuza_beauteModel.FK_Appointments_ServiceTypes1">
+            <End Role="ServiceTypes" EntitySet="ServiceTypes" />
+            <End Role="Appointments" EntitySet="Appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Appointments_Users" Association="zwekuza_beauteModel.FK_Appointments_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Appointments" EntitySet="Appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Appointments_Users1" Association="zwekuza_beauteModel.FK_Appointments_Users1">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Appointments" EntitySet="Appointments" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="MasterServices">
+          <Key>
+            <PropertyRef Name="IdMasterServices" />
+          </Key>
+          <Property Name="IdMasterServices" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUsers" Type="Int32" Nullable="false" />
+          <Property Name="IdServiceTypes" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ServiceTypes" Relationship="zwekuza_beauteModel.FK_MasterServices_ServiceTypes" FromRole="MasterServices" ToRole="ServiceTypes" />
+          <NavigationProperty Name="Users" Relationship="zwekuza_beauteModel.FK_MasterServices_Users" FromRole="MasterServices" ToRole="Users" />
+        </EntityType>
+        <Association Name="FK_MasterServices_ServiceTypes">
+          <End Type="zwekuza_beauteModel.ServiceTypes" Role="ServiceTypes" Multiplicity="1" />
+          <End Type="zwekuza_beauteModel.MasterServices" Role="MasterServices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServiceTypes">
+              <PropertyRef Name="IdServiceTypes" />
+            </Principal>
+            <Dependent Role="MasterServices">
+              <PropertyRef Name="IdServiceTypes" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MasterServices_Users">
+          <End Type="zwekuza_beauteModel.Users" Role="Users" Multiplicity="1" />
+          <End Type="zwekuza_beauteModel.MasterServices" Role="MasterServices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="IdUsers" />
+            </Principal>
+            <Dependent Role="MasterServices">
+              <PropertyRef Name="IdUsers" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Appointments">
+          <Key>
+            <PropertyRef Name="IdAppointments" />
+          </Key>
+          <Property Name="IdAppointments" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUsersC" Type="Int32" Nullable="false" />
+          <Property Name="IdUsersM" Type="Int32" Nullable="false" />
+          <Property Name="IdServiceTypes" Type="Int32" Nullable="false" />
+          <Property Name="AppointmentDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="PaymentMethod" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FinalPrice" Type="Double" Nullable="false" />
+          <NavigationProperty Name="ServiceTypes" Relationship="zwekuza_beauteModel.FK_Appointments_ServiceTypes" FromRole="Appointments" ToRole="ServiceTypes" />
+          <NavigationProperty Name="ServiceTypes1" Relationship="zwekuza_beauteModel.FK_Appointments_ServiceTypes1" FromRole="Appointments" ToRole="ServiceTypes" />
+          <NavigationProperty Name="Users" Relationship="zwekuza_beauteModel.FK_Appointments_Users" FromRole="Appointments" ToRole="Users" />
+          <NavigationProperty Name="Users1" Relationship="zwekuza_beauteModel.FK_Appointments_Users1" FromRole="Appointments" ToRole="Users" />
+        </EntityType>
+        <Association Name="FK_Appointments_ServiceTypes">
+          <End Type="zwekuza_beauteModel.ServiceTypes" Role="ServiceTypes" Multiplicity="1" />
+          <End Type="zwekuza_beauteModel.Appointments" Role="Appointments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServiceTypes">
+              <PropertyRef Name="IdServiceTypes" />
+            </Principal>
+            <Dependent Role="Appointments">
+              <PropertyRef Name="IdServiceTypes" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Appointments_ServiceTypes1">
+          <End Type="zwekuza_beauteModel.ServiceTypes" Role="ServiceTypes" Multiplicity="1" />
+          <End Type="zwekuza_beauteModel.Appointments" Role="Appointments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServiceTypes">
+              <PropertyRef Name="IdServiceTypes" />
+            </Principal>
+            <Dependent Role="Appointments">
+              <PropertyRef Name="IdServiceTypes" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Appointments_Users">
+          <End Type="zwekuza_beauteModel.Users" Role="Users" Multiplicity="1" />
+          <End Type="zwekuza_beauteModel.Appointments" Role="Appointments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="IdUsers" />
+            </Principal>
+            <Dependent Role="Appointments">
+              <PropertyRef Name="IdUsersC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Appointments_Users1">
+          <End Type="zwekuza_beauteModel.Users" Role="Users" Multiplicity="1" />
+          <End Type="zwekuza_beauteModel.Appointments" Role="Appointments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="IdUsers" />
+            </Principal>
+            <Dependent Role="Appointments">
+              <PropertyRef Name="IdUsersM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Хранилище zwekuza_beauteModelContainer" CdmEntityContainer="zwekuza_beauteEntities">
-          <EntitySetMapping Name="Appointments">
-            <EntityTypeMapping TypeName="zwekuza_beauteModel.Appointments">
-              <MappingFragment StoreEntitySet="Appointments">
-                <ScalarProperty Name="IdAppointments" ColumnName="IdAppointments" />
-                <ScalarProperty Name="IdUsersC" ColumnName="IdUsersC" />
-                <ScalarProperty Name="IdUsersM" ColumnName="IdUsersM" />
-                <ScalarProperty Name="IdServiceTypes" ColumnName="IdServiceTypes" />
-                <ScalarProperty Name="AppointmentDateTime" ColumnName="AppointmentDateTime" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
-                <ScalarProperty Name="Comment" ColumnName="Comment" />
-                <ScalarProperty Name="FinalPrice" ColumnName="FinalPrice" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Manufacturers">
             <EntityTypeMapping TypeName="zwekuza_beauteModel.Manufacturers">
               <MappingFragment StoreEntitySet="Manufacturers">
                 <ScalarProperty Name="IdManufacturers" ColumnName="IdManufacturers" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="MasterServices">
-            <EntityTypeMapping TypeName="zwekuza_beauteModel.MasterServices">
-              <MappingFragment StoreEntitySet="MasterServices">
-                <ScalarProperty Name="IdMasterServices" ColumnName="IdMasterServices" />
-                <ScalarProperty Name="IdUsers" ColumnName="IdUsers" />
-                <ScalarProperty Name="IdServiceTypes" ColumnName="IdServiceTypes" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -736,6 +711,30 @@
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="IsFrozen" ColumnName="IsFrozen" />
                 <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MasterServices">
+            <EntityTypeMapping TypeName="zwekuza_beauteModel.MasterServices">
+              <MappingFragment StoreEntitySet="MasterServices">
+                <ScalarProperty Name="IdServiceTypes" ColumnName="IdServiceTypes" />
+                <ScalarProperty Name="IdUsers" ColumnName="IdUsers" />
+                <ScalarProperty Name="IdMasterServices" ColumnName="IdMasterServices" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Appointments">
+            <EntityTypeMapping TypeName="zwekuza_beauteModel.Appointments">
+              <MappingFragment StoreEntitySet="Appointments">
+                <ScalarProperty Name="FinalPrice" ColumnName="FinalPrice" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="AppointmentDateTime" ColumnName="AppointmentDateTime" />
+                <ScalarProperty Name="IdServiceTypes" ColumnName="IdServiceTypes" />
+                <ScalarProperty Name="IdUsersM" ColumnName="IdUsersM" />
+                <ScalarProperty Name="IdUsersC" ColumnName="IdUsersC" />
+                <ScalarProperty Name="IdAppointments" ColumnName="IdAppointments" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

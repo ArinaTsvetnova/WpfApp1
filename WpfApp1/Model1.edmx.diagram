@@ -4,10 +4,8 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="33b75018af3f42779f7ebca6f13b2863" Name="Diagram1" ZoomLevel="107">
-        <EntityTypeShape EntityType="zwekuza_beauteModel.Appointments" Width="1.5" PointX="46.25" PointY="10.375" IsExpanded="true" />
+      <Diagram DiagramId="33b75018af3f42779f7ebca6f13b2863" Name="Diagram1" ZoomLevel="93">
         <EntityTypeShape EntityType="zwekuza_beauteModel.Manufacturers" Width="1.5" PointX="44.125" PointY="22.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="zwekuza_beauteModel.MasterServices" Width="1.5" PointX="49.125" PointY="11.125" IsExpanded="true" />
         <EntityTypeShape EntityType="zwekuza_beauteModel.OrderItems" Width="1.5" PointX="44.875" PointY="18.125" IsExpanded="true" />
         <EntityTypeShape EntityType="zwekuza_beauteModel.Orders" Width="1.5" PointX="48.25" PointY="17.75" IsExpanded="true" />
         <EntityTypeShape EntityType="zwekuza_beauteModel.Products" Width="1.5" PointX="48.125" PointY="22.625" IsExpanded="true" />
@@ -15,17 +13,19 @@
         <EntityTypeShape EntityType="zwekuza_beauteModel.ServiceTypes" Width="1.5" PointX="44.5" PointY="6.875" IsExpanded="true" />
         <EntityTypeShape EntityType="zwekuza_beauteModel.sysdiagrams" Width="1.5" PointX="47.875" PointY="6.625" IsExpanded="true" />
         <EntityTypeShape EntityType="zwekuza_beauteModel.Users" Width="1.5" PointX="43.125" PointY="10.375" IsExpanded="true" />
-        <AssociationConnector Association="zwekuza_beauteModel.FK_Appointments_ServiceTypes" ManuallyRouted="false" />
-        <AssociationConnector Association="zwekuza_beauteModel.FK_Appointments_ServiceTypes1" ManuallyRouted="false" />
-        <AssociationConnector Association="zwekuza_beauteModel.FK_Appointments_Users" ManuallyRouted="false" />
-        <AssociationConnector Association="zwekuza_beauteModel.FK_Appointments_Users1" ManuallyRouted="false" />
         <AssociationConnector Association="zwekuza_beauteModel.FK_Products_Manufacturers" ManuallyRouted="false" />
-        <AssociationConnector Association="zwekuza_beauteModel.FK_MasterServices_ServiceTypes" ManuallyRouted="false" />
-        <AssociationConnector Association="zwekuza_beauteModel.FK_MasterServices_Users" ManuallyRouted="false" />
         <AssociationConnector Association="zwekuza_beauteModel.FK_OrderItems_Orders" ManuallyRouted="false" />
         <AssociationConnector Association="zwekuza_beauteModel.FK_OrderItems_Products" ManuallyRouted="false" />
         <AssociationConnector Association="zwekuza_beauteModel.FK_Orders_Users" ManuallyRouted="false" />
         <AssociationConnector Association="zwekuza_beauteModel.FK_Products_ProductTypes" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="zwekuza_beauteModel.MasterServices" Width="1.5" PointX="48.75" PointY="10.25" />
+        <AssociationConnector Association="zwekuza_beauteModel.FK_MasterServices_ServiceTypes" />
+        <AssociationConnector Association="zwekuza_beauteModel.FK_MasterServices_Users" />
+        <EntityTypeShape EntityType="zwekuza_beauteModel.Appointments" Width="1.5" PointX="50.75" PointY="5.5" />
+        <AssociationConnector Association="zwekuza_beauteModel.FK_Appointments_ServiceTypes" />
+        <AssociationConnector Association="zwekuza_beauteModel.FK_Appointments_ServiceTypes1" />
+        <AssociationConnector Association="zwekuza_beauteModel.FK_Appointments_Users" />
+        <AssociationConnector Association="zwekuza_beauteModel.FK_Appointments_Users1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

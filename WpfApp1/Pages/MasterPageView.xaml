@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="MasterPageView">
 
-    <Grid Margin="0,0,22,-466">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
@@ -28,7 +28,7 @@
                             <TextBlock TextWrapping="Wrap" Text="{Binding ServiceTypes.Name}" FontSize="20"/>
                             <TextBlock TextWrapping="Wrap" Text="{Binding AppointmentDateTime}" FontSize="15"/>
                         </StackPanel>
-                        <Button x:Name="Look" Content="Подробнее" Width="95" Height="30" FontSize="15" Margin="5"/>
+                        <Button x:Name="Look" Content="Подробнее" Width="95" Height="30" FontSize="15" Margin="5" Click="Look_Click"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
