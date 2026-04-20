@@ -57,7 +57,7 @@ namespace WpfApp1.Pages
                 switch (AppSession.CurrentUser.Role)
                 {
                     case 0: // Клиент
-                        NavigationService.Navigate(new AccountPageView());
+                        NavigationService.Navigate(new StartPageView());
                         break;
                     case 1: // Мастер
                         NavigationService.Navigate(new MasterPageView());

@@ -20,11 +20,13 @@ namespace WpfApp1.Pages
     /// </summary>
     public partial class AccountPageView : Page
     {
+        List<Appointments> appoin;
 
         public AccountPageView()
         {
             InitializeComponent();
-
+            appoin = Core.Context.Appointments.ToList();
+            HistoryGo.ItemsSource = appoin;
         }
         private void Exit_Click(object sender, RoutedEventArgs e)
         {

@@ -32,11 +32,19 @@ namespace WpfApp1.Pages
             ListServiceType.DisplayMemberPath = "Name";
             ListServiceType.SelectedValuePath = "Id";
             ListServiceType.SelectedIndex = -1;
-            
+
             ListMasterType.DisplayMemberPath = "FullName";
             ListMasterType.SelectedValuePath = "Id";
             ListMasterType.ItemsSource = MasterUser.Where(d => d.Role == 1);
             ListServiceType.SelectedIndex = -1;
+
+            if (AppSession.CurrentUser != null)
+            {
+                if (AppSession.CurrentUser.Role == 0)
+                {
+                    Account.Visibility = Visibility.Visible;
+                }
+            }
         }
 
         private void ListServiceType_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -49,7 +57,7 @@ namespace WpfApp1.Pages
             {
                 var mastersQuery = from ms in Core.Context.MasterServices
                                    join u in Core.Context.Users on ms.IdUsers equals u.IdUsers
-                                   where ms.IdServiceTypes == selectedService.IdServiceTypes && u.Role == 1 // Только роль Мастер
+                                   where ms.IdServiceTypes == selectedService.IdServiceTypes && u.Role == 1
                                    select u;
 
                 var mastersList = mastersQuery.ToList();
