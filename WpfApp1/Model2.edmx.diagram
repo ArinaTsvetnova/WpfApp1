@@ -9,7 +9,6 @@
         <EntityTypeShape EntityType="zwekuza_beauteModel1.Manufacturers" Width="1.5" PointX="0.75" PointY="16.25" IsExpanded="true" />
         <EntityTypeShape EntityType="zwekuza_beauteModel1.MasterServices" Width="1.5" PointX="6" PointY="5.25" IsExpanded="true" />
         <EntityTypeShape EntityType="zwekuza_beauteModel1.OrderItems" Width="1.5" PointX="5.25" PointY="12" IsExpanded="true" />
-        <EntityTypeShape EntityType="zwekuza_beauteModel1.Orders" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="zwekuza_beauteModel1.Products" Width="1.5" PointX="3" PointY="16.375" IsExpanded="true" />
         <EntityTypeShape EntityType="zwekuza_beauteModel1.ProductTypes" Width="1.5" PointX="0.75" PointY="18.5" IsExpanded="true" />
         <EntityTypeShape EntityType="zwekuza_beauteModel1.ServiceTypes" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
@@ -22,10 +21,11 @@
         <AssociationConnector Association="zwekuza_beauteModel1.FK_Products_Manufacturers" ManuallyRouted="false" />
         <AssociationConnector Association="zwekuza_beauteModel1.FK_MasterServices_ServiceTypes" ManuallyRouted="false" />
         <AssociationConnector Association="zwekuza_beauteModel1.FK_MasterServices_Users" ManuallyRouted="false" />
-        <AssociationConnector Association="zwekuza_beauteModel1.FK_OrderItems_Orders" ManuallyRouted="false" />
         <AssociationConnector Association="zwekuza_beauteModel1.FK_OrderItems_Products" ManuallyRouted="false" />
-        <AssociationConnector Association="zwekuza_beauteModel1.FK_Orders_Users" ManuallyRouted="false" />
         <AssociationConnector Association="zwekuza_beauteModel1.FK_Products_ProductTypes" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="zwekuza_beauteModel1.Orders" Width="1.5" PointX="3" PointY="8.75" />
+        <AssociationConnector Association="zwekuza_beauteModel1.FK_OrderItems_Orders" />
+        <AssociationConnector Association="zwekuza_beauteModel1.FK_Orders_Users" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
