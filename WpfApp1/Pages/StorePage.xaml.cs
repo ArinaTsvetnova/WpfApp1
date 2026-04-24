@@ -40,6 +40,10 @@ namespace WpfApp1.Pages
                 new Sortir
                 {
                     Name = "Фильтрация",
+                },
+                new Sortir
+                {
+                    Name = "По производителю",
                 }
             };
 
@@ -78,6 +82,11 @@ namespace WpfApp1.Pages
             {
                 ProductListBox.ItemsSource = null;
                 ProductListBox.ItemsSource = Core.Context.Products.OrderByDescending(r => r.Rating).ToList();
+            }
+            else if (Sort.SelectedIndex == 3)
+            {
+                ProductListBox.ItemsSource = null;
+                ProductListBox.ItemsSource = Core.Context.Products.OrderByDescending(r => r.Manufacturers.Name).ToList();
             }
             else
             { }
