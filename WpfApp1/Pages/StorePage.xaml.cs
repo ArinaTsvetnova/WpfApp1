@@ -31,7 +31,7 @@ namespace WpfApp1.Pages
             {
                 new Sortir
                 {
-                    Name = "По типу товара",
+                    Name = "По рейтингу",
                 },
                 new Sortir
                 {
@@ -48,6 +48,32 @@ namespace WpfApp1.Pages
             Sort.SelectedIndex = 2;
             Shop.ssort = ProductListBox.SelectedItem as Sortir;
         }
+        private void Poisc_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(Poisc.Text))
+            {
+                ProductListBox.ItemsSource = product;
+            }
+            else
+            {
+                ProductListBox.ItemsSource = Core.Context.Products.Where(f => f.Name.Contains(Poisc.Text)).ToList(); //возвращает список фильмов, которые имеют символы как в поисковой строке и присваивает переменную листбоксу(которую мы привели к типу данных лист)
+            }
+        }
+        private void Sort_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (Sort.SelectedIndex == 0)
+            {
+                ProductListBox.ItemsSource = null;
+                ProductListBox.ItemsSource = Core.Context.Products.OrderByDescending(r => r.Rating).ToList();
+            }
+            else if (Sort.SelectedIndex == 1)
+            {
+                ProductListBox.ItemsSource = null;
+                ProductListBox.ItemsSource = Core.Context.Products.OrderBy(f => f.Manufacturers.Name).ToList();               
+            }
+            else
+            { }
+        }
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new StartPageView());
@@ -55,6 +81,11 @@ namespace WpfApp1.Pages
             {
                 NavigationService.GoForward();
             }
+        }
+
+        private void See_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
