@@ -87,11 +87,7 @@ namespace WpfApp1.Pages
         }
         private void Shop_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new StorePage());
-            if (NavigationService.CanGoForward)
-            {
-                NavigationService.GoForward();
-            }
+            MessageBox.Show("Сходите в магазин косметики ножками! Страница не работает!");
         }
 
         private void Account_Click(object sender, RoutedEventArgs e)
