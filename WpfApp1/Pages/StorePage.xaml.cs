@@ -21,12 +21,12 @@ namespace WpfApp1.Pages
     /// </summary>
     public partial class StorePage : Page
     {
-        List<Products> product;
+        List<Products> products;
         public StorePage()
         {
             InitializeComponent();
-            product = Core.Context.Products.ToList();
-            ProductListBox.ItemsSource = product;
+            products = Core.Context.Products.ToList();
+            ProductListBox.ItemsSource = products;
             List<Sortir> ssort = new List<Sortir>()
             {
                 new Sortir
@@ -35,7 +35,7 @@ namespace WpfApp1.Pages
                 },
                 new Sortir
                 {
-                    Name = "По производителю",
+                    Name = "По рейтингу",
                 },
                 new Sortir
                 {
@@ -51,6 +51,51 @@ namespace WpfApp1.Pages
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new StartPageView());
+            if (NavigationService.CanGoForward)
+            {
+                NavigationService.GoForward();
+            }
+        }
+        private void Poisc_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(Poisc.Text))
+            {
+                ProductListBox.ItemsSource = products;
+            }
+            else
+            {
+                ProductListBox.ItemsSource = Core.Context.Products.Where(f => f.Name.Contains(Poisc.Text)).ToList(); //возвращает список фильмов, которые имеют символы как в поисковой строке и присваивает переменную листбоксу(которую мы привели к типу данных лист)
+            }
+        }
+        private void Sort_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (Sort.SelectedIndex == 0)
+            {
+                ProductListBox.ItemsSource = null;
+                ProductListBox.ItemsSource = Core.Context.Products.OrderBy(f => f.Name).ToList();
+            }
+            else if (Sort.SelectedIndex == 1)
+            {
+                ProductListBox.ItemsSource = null;
+                ProductListBox.ItemsSource = Core.Context.Products.OrderByDescending(r => r.Rating).ToList();
+            }
+            else
+            { }
+        }
+
+        private void See_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = sender as Button; //кнопка, которая запускает метод ButtonBuy_Click
+            Products selectPro = btn.DataContext as Products; //прировняли 
+            if (selectPro == null)
+            {
+                MessageBox.Show("Товар отсутствует на складе");
+            }
+            else if (selectPro.IsFrozen == true)
+            {
+                MessageBox.Show("Товар заморожен!");
+            }
+            NavigationService.Navigate(new ProductInfoPage(selectPro));
             if (NavigationService.CanGoForward)
             {
                 NavigationService.GoForward();

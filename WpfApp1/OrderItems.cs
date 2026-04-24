@@ -20,7 +20,7 @@ namespace WpfApp1
         public int Quantity { get; set; }
         public double PriceAtMoment { get; set; }
     
-        public virtual Orders Orders { get; set; }
         public virtual Products Products { get; set; }
+        public virtual Orders Orders { get; set; }
     }
 }

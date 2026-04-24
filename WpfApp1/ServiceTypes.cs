@@ -17,9 +17,9 @@ namespace WpfApp1
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ServiceTypes()
         {
-            this.MasterServices = new HashSet<MasterServices>();
             this.Appointments = new HashSet<Appointments>();
             this.Appointments1 = new HashSet<Appointments>();
+            this.MasterServices = new HashSet<MasterServices>();
         }
     
         public int IdServiceTypes { get; set; }
@@ -28,10 +28,10 @@ namespace WpfApp1
         public int DurationMinutes { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MasterServices> MasterServices { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Appointments> Appointments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Appointments> Appointments1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MasterServices> MasterServices { get; set; }
     }
 }
